@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DAO -->
+	<bean id="groupDao" factory-bean="daoFactory" factory-method="getGroupDao"
+		scope="singleton" />
+	<bean id="testDao" factory-bean="daoFactory" factory-method="getTestDao"
+		scope="singleton" />
+	<!-- <bean id="questionDao" factory-bean="daoFactory" factory-method="getQuestionDao" 
+		scope="singleton" /> -->
+	<bean id="questionDao"
+		class="by.nesterenok.testyourself.dao.database.hbn.QuestionDaoHibernateImpl"
+		scope="singleton" />
+	<bean id="userDao" factory-bean="daoFactory" factory-method="getUserDao"
+		scope="singleton" />
+	<bean id="taskDao" factory-bean="daoFactory" factory-method="getTaskDao"
+		scope="singleton" />
+	<bean id="daoFactory" class="by.nesterenok.testyourself.dao.database.DBDaoFactory"
+		scope="singleton" />
+	<bean id="resultDao" factory-bean="daoFactory" factory-method="getResultDao"
+		scope="singleton">
+
+	</bean>
+
+
+</beans>

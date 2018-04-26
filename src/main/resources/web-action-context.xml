@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+	<!-- Actions -->
+	<bean id="start_action"
+		class="by.nesterenok.testyourself.web.action.impl.StartActionImpl"
+		scope="singleton">
+		<property name="startService" ref="startService" />
+	</bean>
+	<bean id="start_test"
+		class="by.nesterenok.testyourself.web.action.impl.StartTestActionImpl"
+		scope="singleton">
+		<property name="testService" ref="testService" />
+		<property name="questionService" ref="questionService"/>
+	</bean>
+	<bean id="finish_test"
+		class="by.nesterenok.testyourself.web.action.impl.FinishTestActionImpl"
+		scope="singleton">
+		<property name="rp" ref="resultParser" />
+	</bean>
+	<bean id="resultParser" class="by.nesterenok.testyourself.web.util.ResultParser"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
+	<bean id="temp_start"
+		class="by.nesterenok.testyourself.web.action.impl.TempStartActionImpl"
+		scope="singleton">
+		<property name="us" ref="userService" />
+		<property name="tempUserStart" ref="start_user"></property>
+	</bean>
+
+	<bean id="start_user"
+		class="by.nesterenok.testyourself.web.action.impl.StartUserActionImpl"
+		scope="singleton">
+		<property name="ts" ref="testService"/>
+		<property name="ss" ref="startService"/>
+		<property name="taskService" ref="taskService"/>
+
+	</bean>
+	<bean id="exit_results" class="by.nesterenok.testyourself.web.action.impl.ExitResultsActionImpl" scope="singleton">
+	<property name="rs" ref="resultService"></property>
+	
+</bean>
+</beans>

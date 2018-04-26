@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Service -->
+	<bean id="testService" class="by.nesterenok.testyourself.service.impl.TestServiceImpl"
+		scope="singleton">
+		<property name="testDao" ref="testDao" />
+		<property name="questionDao" ref="questionDao" />
+	</bean>
+	<bean id="startService"
+		class="by.nesterenok.testyourself.service.impl.StartServiceImpl"
+		scope="singleton">
+		<constructor-arg name="questionDao" ref="questionDao" />
+		<constructor-arg name="testDao" ref="testDao" />
+	</bean>
+	<bean id="questionService"
+		class="by.nesterenok.testyourself.service.impl.QuestionServiceImpl"
+		scope="singleton">
+		<constructor-arg name="dao" ref="questionDao" />
+
+	</bean>
+
+	<bean id="userService" class="by.nesterenok.testyourself.service.impl.UserServiceImpl"
+		scope="singleton">
+		<property name="groupDao" ref="groupDao"/>
+		<property name="userDao" ref="userDao"/>
+	</bean>
+
+	<bean id="resultService"
+		class="by.nesterenok.testyourself.service.impl.ResultServiceImpl"
+		scope="singleton">
+		<property name="resultDao" ref="resultDao"></property>
+	</bean>
+	
+	<bean id="taskService" class="by.nesterenok.testyourself.service.impl.TaskServiceImpl" scope="singleton">
+	<property name="taskDao" ref="taskDao"/>
+	<property name="groupDao" ref="groupDao"/>
+</bean>
+
+</beans>
