@@ -4,42 +4,39 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Projection;
-import org.hibernate.criterion.Projections;
 
-import by.nesterenok.testyourself.dao.QuestionDao;
+import by.nesterenok.testyourself.dao.TestDao;
 import by.nesterenok.testyourself.domain.Question;
+import by.nesterenok.testyourself.domain.Test;
 
-public class QuestionDaoHibernateImpl implements QuestionDao {
+public class TestDaoHibernateImpl implements TestDao{
 
 	@Override
-	public void create(Question t) {
-
+	public void create(Test t){
+		
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		session.beginTransaction();
 		session.save(t);
 		session.getTransaction().commit();
-		session.close();
 		
 	}
 
 	@Override
-	public Question read(int id) {
+	public Test read(int id) {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
-		Question question = (Question) session.get(Question.class, id);
-		session.close();
-		return question;
+		Test test = (Test) session.get(Test.class, id);
+		return test;
 	}
 
 	@Override
-	public void update(Question t){
+	public void update(Test t){
 		
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		session.beginTransaction();
 		session.update(t);
 		session.getTransaction().commit();
 		session.close();
-
+		
 	}
 
 	@Override
@@ -47,33 +44,29 @@ public class QuestionDaoHibernateImpl implements QuestionDao {
 		
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		session.beginTransaction();
-		session.delete(new Question(id));
+		session.delete(new Test(id));
 		session.getTransaction().commit();
 		session.close();
-
+		
 	}
 
 	@Override
-	public List<Question> readAll() {
+	public List<Test> readAll() {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
-		Criteria criteria = session.createCriteria(Question.class);
-		List<Question> questionList = criteria.list();
+		Criteria criteria = session.createCriteria(Test.class);
+		List<Test> testList = criteria.list();
 		session.close();
-		return questionList;
+		return testList;
 	}
 
 	@Override
-	public int counter() {
-		Session session = SessionFactoryManager.getSessionFactory().openSession();
-		Criteria criteria = session.createCriteria(Question.class);
-		criteria.setProjection(Projections.property("id"));
-		List<Integer> list = criteria.list();
-		session.close();
-		return list.size();
+	public List<Test> readLast() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public List<Question> readTestQuestions(int id) {
+	public List<Test> readSubscribed(String theme) {
 		// TODO Auto-generated method stub
 		return null;
 	}

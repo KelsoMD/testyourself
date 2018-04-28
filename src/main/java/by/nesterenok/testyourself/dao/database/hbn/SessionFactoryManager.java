@@ -31,5 +31,7 @@ public final class SessionFactoryManager {
 		}
 		return sessionFactory;
 	}
+	
+	
 
 }

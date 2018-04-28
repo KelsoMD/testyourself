@@ -23,7 +23,7 @@ private static final  TaskDBDaoImpl instance = new TaskDBDaoImpl();
 	}
 
 	@Override
-	public void create(Task t) throws IOException {
+	public void create(Task t){
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_TASK_CREATE)) {
 			
 			ps.setInt(1, t.getGroup().getId());

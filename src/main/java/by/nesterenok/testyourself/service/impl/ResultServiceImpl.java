@@ -22,12 +22,8 @@ public class ResultServiceImpl implements ResultService{
 
 	@Override
 	public void createResult(Result result) {
-		try {
-			resultDao.create(result);
-		} catch (IOException e) {
-			LOGGER.error("msg", e);
-		}
 		
+			resultDao.create(result);	
 	}
 
 }

@@ -22,7 +22,7 @@ public class QuestionDBDaoImpl extends AbstractDBDao implements QuestionDao {
 	}
 
 	@Override
-	public void create(Question t) throws IOException {
+	public void create(Question t){
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_QUESTION_CREATE)) {
 
 			ps.setString(1, t.getTheme());
@@ -61,7 +61,7 @@ public class QuestionDBDaoImpl extends AbstractDBDao implements QuestionDao {
 	}
 
 	@Override
-	public void update(Question t) throws IOException {
+	public void update(Question t){
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_QUESTION_UPDATE)) {
 
 			ps.setString(1, t.getTheme());

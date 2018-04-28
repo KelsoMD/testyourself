@@ -16,7 +16,7 @@ import by.nesterenok.testyourself.domain.User;
 public class GroupDBDaoImpl extends AbstractDBDao implements GroupDao {
 
 	@Override
-	public void create(Group t) throws IOException {
+	public void create(Group t){
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_GROUP_CREATE)) {
 
 			ps.setInt(1, t.getMentor().getId());
@@ -50,7 +50,7 @@ public class GroupDBDaoImpl extends AbstractDBDao implements GroupDao {
 	}
 
 	@Override
-	public void update(Group t) throws IOException {
+	public void update(Group t){
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_GROUP_UPDATE)) {
 
 			ps.setInt(1, t.getMentor().getId());

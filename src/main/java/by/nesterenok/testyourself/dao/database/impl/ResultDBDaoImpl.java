@@ -54,7 +54,7 @@ public class ResultDBDaoImpl extends AbstractDBDao implements ResultDao {
 	}
 
 	@Override
-	public void update(Result t) throws IOException {
+	public void update(Result t){
 		throw new UnsupportedOperationException();
 	}
 

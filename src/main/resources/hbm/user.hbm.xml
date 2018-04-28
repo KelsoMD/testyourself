@@ -18,7 +18,7 @@
 			<column name="name" />
 		</property>
 		
-		<property name="surName" type="java.lang.String">
+		<property name="surname" type="java.lang.String">
 			<column name="surname" />
 		</property>
 
@@ -33,6 +33,11 @@
 		<property name="theme" type="java.lang.String">
 			<column name="theme" />
 		</property>
+		
+		<!-- <bag name="group" table="user_groups" lazy="true" cascade="all">
+			<key column="user_id"/>
+			<many-to-many column="group_id" class="by.nesterenok.testyourself.domain.Group" />
+		</bag>-->
 
 	</class>
 

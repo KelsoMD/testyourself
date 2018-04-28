@@ -1,5 +1,8 @@
 package by.nesterenok.testyourself.domain;
 
+import javax.transaction.Transactional;
+
+@Transactional
 public class Question extends Entity{
 	
 	private static final long serialVersionUID = -733959911225998290L;

@@ -41,6 +41,9 @@
 		<property name="answer3" type="java.lang.String">
 			<column name="answer_3" />
 		</property>
+		
+		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User" column="author"/>
+		
 
 	</class>
 

@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- DAO -->
-	<bean id="groupDao" factory-bean="daoFactory" factory-method="getGroupDao"
+	<bean id="groupDao" class="by.nesterenok.testyourself.dao.database.hbn.GroupDaoHibernateImpl"
 		scope="singleton" />
-	<bean id="testDao" factory-bean="daoFactory" factory-method="getTestDao"
+	<bean id="testDao" class="by.nesterenok.testyourself.dao.database.hbn.TestDaoHibernateImpl"
 		scope="singleton" />
 	<!-- <bean id="questionDao" factory-bean="daoFactory" factory-method="getQuestionDao" 
 		scope="singleton" /> -->
 	<bean id="questionDao"
 		class="by.nesterenok.testyourself.dao.database.hbn.QuestionDaoHibernateImpl"
 		scope="singleton" />
-	<bean id="userDao" factory-bean="daoFactory" factory-method="getUserDao"
+	<bean id="userDao" class="by.nesterenok.testyourself.dao.database.hbn.UserDaoHibernateImpl"
 		scope="singleton" />
-	<bean id="taskDao" factory-bean="daoFactory" factory-method="getTaskDao"
+	<bean id="taskDao" class="by.nesterenok.testyourself.dao.database.hbn.TaskDaoHibernateImpl"
 		scope="singleton" />
 	<bean id="daoFactory" class="by.nesterenok.testyourself.dao.database.DBDaoFactory"
 		scope="singleton" />
