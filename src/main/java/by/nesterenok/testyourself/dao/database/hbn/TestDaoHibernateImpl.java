@@ -6,10 +6,11 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import by.nesterenok.testyourself.dao.TestDao;
-import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Test;
 
 public class TestDaoHibernateImpl implements TestDao{
+	
+	
 
 	@Override
 	public void create(Test t){
@@ -18,6 +19,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		session.beginTransaction();
 		session.save(t);
 		session.getTransaction().commit();
+		session.close();
 		
 	}
 

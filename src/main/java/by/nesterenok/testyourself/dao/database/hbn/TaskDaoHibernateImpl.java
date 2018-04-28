@@ -5,13 +5,19 @@ import java.util.List;
 import org.hibernate.Session;
 
 import by.nesterenok.testyourself.dao.TaskDao;
+import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Task;
 
 public class TaskDaoHibernateImpl implements TaskDao{
 
 	@Override
 	public void create(Task t) {
-		// TODO Auto-generated method stub
+		
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(t);
+		session.getTransaction().commit();
+		session.close();
 		
 	}
 
@@ -24,13 +30,23 @@ public class TaskDaoHibernateImpl implements TaskDao{
 
 	@Override
 	public void update(Task t) {
-		// TODO Auto-generated method stub
+		
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.update(t);
+		session.getTransaction().commit();
+		session.close();
 		
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.delete(new Task(id));
+		session.getTransaction().commit();
+		session.close();
 		
 	}
 
