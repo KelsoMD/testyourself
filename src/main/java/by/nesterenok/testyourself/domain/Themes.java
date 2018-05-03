@@ -7,6 +7,16 @@ public final class Themes extends Entity{
 	private String theme;
 	private boolean aprooved;
 	
+	public Themes() {
+		
+	}
+	public Themes(int id) {
+		super(id);
+	}
+	
+	public Themes(String theme) {
+		this.theme = theme;
+	}
 	public String getTheme() {
 		return theme;
 	}

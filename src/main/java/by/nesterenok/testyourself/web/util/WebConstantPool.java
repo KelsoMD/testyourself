@@ -19,6 +19,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_TASK = "task";
 	public static final String REQUEST_PARAM_TEST = "test";
 	public static final String REQUEST_PARAM_USER = "user";
+	public static final String REQUEST_PARAM_TESTS = "tests";
+	public static final String REQUEST_PARAM_THEMES = "themes";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -32,6 +34,7 @@ public final class WebConstantPool {
 	public static final String PAGE_RESULT = "/WEB-INF/result_page.jsp";
 	public static final String PAGE_INDEX_TEMP = "/indextemp.jsp";
 	public static final String PAGE_USER_MAIN = "/WEB-INF/user_main.jsp";
+	public static final String PAGE_USER_SEARCH = "/WEB-INF/search.jsp";
 	
 
 }

@@ -59,7 +59,7 @@
 							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
+						href="http://localhost:8080/testyourself/MainServlet?action=switch_search_page"><span
 							class="mbri-search mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> Тесты</span> </a></li>
 					<li class="nav-item"><a

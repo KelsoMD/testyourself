@@ -5,6 +5,7 @@
 <hibernate-mapping>
 
 	<class name="by.nesterenok.testyourself.domain.Themes" table="themes">
+	
 		<id name="id" type="int">
 			<column name="id" />
 			<generator class="increment" />

@@ -1,6 +1,7 @@
 package by.nesterenok.testyourself.service.impl;
 
-import by.nesterenok.testyourself.dao.QuestionDao;
+import java.util.List;
+
 import by.nesterenok.testyourself.dao.TestDao;
 import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.service.TestService;
@@ -17,6 +18,11 @@ public class TestServiceImpl implements TestService{
 	@Override
 	public Test readTest(int id) {
 		return testDao.read(id);
+	}
+
+	@Override
+	public List<Test> readAll() {
+		return testDao.readAll();
 	}
 
 }
