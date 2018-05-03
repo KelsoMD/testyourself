@@ -17,24 +17,16 @@ import by.nesterenok.testyourself.web.action.BaseAction;
 public class StartTestActionImpl implements BaseAction {
 
 	private TestService testService;
-	private QuestionService questionService;
 	
 	public void setTestService(TestService testService) {
 		this.testService = testService;
 	}
-	public void setQuestionService(QuestionService questionService) {
-		this.questionService = questionService;
-	}
-
-
 
 	@Override
 	public String executeAction(HttpServletRequest request) {
 
 		int testId = Integer.parseInt(request.getParameter(REQUEST_PARAM_TEST_ID));
 		Test test = testService.readTest(testId);
-		List<Question> questionList = questionService.readTestQuestions(test.getId());
-		test.setQuestions(questionService.initializeQuestion(questionList));
 		request.setAttribute(REQUEST_PARAM_TEST_QUESTIONS, test.getQuestions());
 		request.setAttribute(REQUEST_PARAM_TEST, test.getId());
 		return PAGE_TEST;

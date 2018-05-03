@@ -1,15 +1,16 @@
 package by.nesterenok.testyourself.domain;
 
-import java.util.List;
+import java.util.Set;
 
 public class Test extends Entity {
 
-	private static final long serialVersionUID = 6928342305542890474L;
+	private static final long serialVersionUID = 6962669619833702311L;
 	
 	private String theme;
 	private int lvl;
 	private User author;
-	private List<Question> questions;
+	private Set<Question> questions;
+	private boolean aprooved;
 
 	public Test() {
 		super();
@@ -17,23 +18,6 @@ public class Test extends Entity {
 
 	public Test(int id) {
 		super(id);
-	}
-
-	public Test(String theme, int lvl, User author, List<Question> questions) {
-		super();
-		this.theme = theme;
-		this.lvl = lvl;
-		this.author = author;
-		this.questions = questions;
-	}
-
-	public Test(int id, String theme, int lvl, User author, List<Question> questions) {
-		super(id);
-		this.theme = theme;
-		this.lvl = lvl;
-		this.author = author;
-		this.questions = questions;
-		
 	}
 
 	public String getTheme() {
@@ -60,18 +44,29 @@ public class Test extends Entity {
 		this.author = author;
 	}
 
-	public List<Question> getQuestions() {
+	public Set<Question> getQuestions() {
 		return questions;
 	}
 
-	public void setQuestions(List<Question> questions) {
+	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
 	}
+
+	public boolean isAprooved() {
+		return aprooved;
+	}
+
+	public void setAprooved(boolean aprooved) {
+		this.aprooved = aprooved;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + (aprooved ? 1231 : 1237);
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + lvl;
 		result = prime * result + ((questions == null) ? 0 : questions.hashCode());
@@ -88,6 +83,8 @@ public class Test extends Entity {
 		if (getClass() != obj.getClass())
 			return false;
 		Test other = (Test) obj;
+		if (aprooved != other.aprooved)
+			return false;
 		if (author == null) {
 			if (other.author != null)
 				return false;
@@ -110,7 +107,7 @@ public class Test extends Entity {
 
 	@Override
 	public String toString() {
-		return "Test [theme=" + theme + ", lvl=" + lvl + ", author=" + author + ", questions=" + questions + "]";
+		return "[Test id=" + this.getId()+ ", theme " + theme + ", lvl=" + lvl + ", number of questions =" + questions.size() + "]";
 	}
 
 }

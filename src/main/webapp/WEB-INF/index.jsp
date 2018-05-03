@@ -84,7 +84,7 @@
             <div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
                 <div class="plan-header text-center pt-5">
                     <h3 class="plan-title mbr-fonts-style display-5">
-                    ID вопроса<br>
+                    ID теста<br>
                         ${item.getId()}
                     </h3>
                     <div class="plan-price">

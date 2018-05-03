@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Distinct;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -61,6 +62,7 @@ public class TestDaoHibernateImpl implements TestDao{
 	public List<Test> readAll() {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
 		return testList;
@@ -71,10 +73,10 @@ public class TestDaoHibernateImpl implements TestDao{
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
-		criteria.setMaxResults(4);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
-		return testList;
+		return testList.subList(0, 4);
 	}
 
 	@Override
@@ -82,8 +84,8 @@ public class TestDaoHibernateImpl implements TestDao{
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
-		criteria.setMaxResults(4);
 		criteria.add(Restrictions.eq("theme", theme));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
 		return testList;

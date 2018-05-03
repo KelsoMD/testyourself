@@ -1,11 +1,13 @@
 package by.nesterenok.testyourself.dao.database.hbn;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
+import org.hibernate.transform.ResultTransformer;
 
 import by.nesterenok.testyourself.dao.QuestionDao;
 import by.nesterenok.testyourself.domain.Question;
@@ -74,8 +76,7 @@ public class QuestionDaoHibernateImpl implements QuestionDao {
 
 	@Override
 	public List<Question> readTestQuestions(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 }

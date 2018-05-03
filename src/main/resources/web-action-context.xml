@@ -16,7 +16,6 @@
 		class="by.nesterenok.testyourself.web.action.impl.StartTestActionImpl"
 		scope="singleton">
 		<property name="testService" ref="testService" />
-		<property name="questionService" ref="questionService"/>
 	</bean>
 	<bean id="finish_test"
 		class="by.nesterenok.testyourself.web.action.impl.FinishTestActionImpl"

@@ -5,11 +5,8 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTION_COUNT;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TASK;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import by.nesterenok.testyourself.domain.Task;
 import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.StartService;
 import by.nesterenok.testyourself.service.TaskService;
