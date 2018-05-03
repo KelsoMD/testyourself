@@ -37,13 +37,14 @@
 	<bean id="start_user"
 		class="by.nesterenok.testyourself.web.action.impl.StartUserActionImpl"
 		scope="singleton">
-		<property name="ts" ref="testService"/>
-		<property name="ss" ref="startService"/>
-		<property name="taskService" ref="taskService"/>
+		<property name="ts" ref="testService" />
+		<property name="ss" ref="startService" />
+		<property name="taskService" ref="taskService" />
 
 	</bean>
-	<bean id="exit_results" class="by.nesterenok.testyourself.web.action.impl.ExitResultsActionImpl" scope="singleton">
-	<property name="rs" ref="resultService"></property>
-	
-</bean>
+	<bean id="exit_results"
+		class="by.nesterenok.testyourself.web.action.impl.ExitResultsActionImpl"
+		scope="singleton">
+		<property name="resultService" ref="resultService"></property>
+	</bean>
 </beans>

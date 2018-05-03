@@ -38,6 +38,8 @@
 		<mapping resource="hbm/test.hbm.xml"/>
 		<mapping resource="hbm/group.hbm.xml"/>
 		<mapping resource="hbm/task.hbm.xml"/>
+		<mapping resource="hbm/result.hbm.xml"/>
+		<mapping resource="hbm/themes.hbm.xml"/>
 		
 	</session-factory>
 

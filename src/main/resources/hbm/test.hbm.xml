@@ -19,11 +19,17 @@
 		</property>
 
 		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User"
-			column="author" lazy="proxy" fetch="join"/>
-			
-		<set name="questions" table="test_questions" cascade="all" lazy="true" fetch="join">
-			<key column="test"/>
-			<many-to-many column="question" class="by.nesterenok.testyourself.domain.Question" />
+			column="author" lazy="proxy" fetch="join" />
+
+		<property name="aprooved" type="boolean">
+			<column name="aprooved"></column>
+		</property>
+
+		<set name="questions" table="test_questions" cascade="all" lazy="true"
+			fetch="join">
+			<key column="test" />
+			<many-to-many column="question"
+				class="by.nesterenok.testyourself.domain.Question" />
 		</set>
 
 

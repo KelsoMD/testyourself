@@ -1,11 +1,9 @@
 package by.nesterenok.testyourself.domain;
 
-import javax.transaction.Transactional;
-
-@Transactional
 public class Question extends Entity{
 	
-	private static final long serialVersionUID = -733959911225998290L;
+	private static final long serialVersionUID = -2645907839017881701L;
+	
 	private String theme;
 	private int lvl;
 	private String text;
@@ -15,25 +13,14 @@ public class Question extends Entity{
 	private String answer2;
 	private String answer3;
 	private User author;
+	private boolean aprooved;
 	public Question() {
 		super();
 	}
 	public Question(int id) {
 		super(id);
 	}
-	public Question(int id, String theme, int lvl, String text, String image, String correctAnswer, String answer1,
-			String answer2, String answer3, User author) {
-		super(id);
-		this.theme = theme;
-		this.lvl = lvl;
-		this.text = text;
-		this.image = image;
-		this.correctAnswer = correctAnswer;
-		this.answer1 = answer1;
-		this.answer2 = answer2;
-		this.answer3 = answer3;
-		this.author = author;
-	}
+	
 	public String getTheme() {
 		return theme;
 	}
@@ -88,6 +75,15 @@ public class Question extends Entity{
 	public void setAuthor(User author) {
 		this.author = author;
 	}
+	
+	
+	public boolean isAprooved() {
+		return aprooved;
+	}
+	public void setAprooved(boolean aprooved) {
+		this.aprooved = aprooved;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -95,6 +91,7 @@ public class Question extends Entity{
 		result = prime * result + ((answer1 == null) ? 0 : answer1.hashCode());
 		result = prime * result + ((answer2 == null) ? 0 : answer2.hashCode());
 		result = prime * result + ((answer3 == null) ? 0 : answer3.hashCode());
+		result = prime * result + (aprooved ? 1231 : 1237);
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((correctAnswer == null) ? 0 : correctAnswer.hashCode());
 		result = prime * result + ((image == null) ? 0 : image.hashCode());
@@ -126,6 +123,8 @@ public class Question extends Entity{
 			if (other.answer3 != null)
 				return false;
 		} else if (!answer3.equals(other.answer3))
+			return false;
+		if (aprooved != other.aprooved)
 			return false;
 		if (author == null) {
 			if (other.author != null)

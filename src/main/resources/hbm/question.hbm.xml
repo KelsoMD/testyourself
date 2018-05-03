@@ -17,7 +17,7 @@
 		<property name="lvl" type="int">
 			<column name="level" />
 		</property>
-		
+
 		<property name="text" type="java.lang.String">
 			<column name="text" />
 		</property>
@@ -41,9 +41,14 @@
 		<property name="answer3" type="java.lang.String">
 			<column name="answer_3" />
 		</property>
-		
-		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User" column="author" lazy="proxy" fetch="join"/>
-		
+
+		<property name="aprooved" type="boolean">
+			<column name="aprooved"></column>
+		</property>
+
+		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User"
+			column="author" lazy="proxy" fetch="join" />
+
 
 	</class>
 

@@ -18,8 +18,8 @@
 			<column name="passed" />
 		</property>
 		
-		<many-to-one name="user" class="by.nesterenok.testyourself.domain.User" column="user"/>
-		<many-to-one name="test" class="by.nesterenok.testyourself.domain.Test" column="test"/>
+		<many-to-one name="user" class="by.nesterenok.testyourself.domain.User" column="user" lazy="proxy" fetch="join"/>
+		<many-to-one name="test" class="by.nesterenok.testyourself.domain.Test" column="test" lazy="proxy" fetch="join"/>
 
 	</class>
 

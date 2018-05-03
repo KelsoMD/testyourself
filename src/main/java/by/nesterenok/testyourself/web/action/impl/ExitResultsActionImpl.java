@@ -15,10 +15,10 @@ import by.nesterenok.testyourself.web.util.ActionHelper;
 
 public class ExitResultsActionImpl implements BaseAction{
 	
-	ResultService rs;
+	ResultService resultService;
 	
-	public void setRs(ResultService rs) {
-		this.rs = rs;
+	public void setResultService(ResultService resultService) {
+		this.resultService = resultService;
 	}
 
 
@@ -30,9 +30,9 @@ public class ExitResultsActionImpl implements BaseAction{
 		int mark = Integer.parseInt(request.getParameter(REQUEST_PARAM_MARK));
 		boolean pass = mark > 70;
 		User user = ActionHelper.getUser(request);
-		Result result = new Result(test, mark, pass, user);
-		rs.createResult(result);
-		
+		Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
+		resultService.createResult(result);
 		return PAGE_USER_MAIN;
+		
 	}
 }

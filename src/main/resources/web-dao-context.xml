@@ -19,7 +19,7 @@
 		scope="singleton" />
 	<bean id="daoFactory" class="by.nesterenok.testyourself.dao.database.DBDaoFactory"
 		scope="singleton" />
-	<bean id="resultDao" factory-bean="daoFactory" factory-method="getResultDao"
+	<bean id="resultDao" class="by.nesterenok.testyourself.dao.database.hbn.ResultDaoHibernateImpl"
 		scope="singleton">
 
 	</bean>
