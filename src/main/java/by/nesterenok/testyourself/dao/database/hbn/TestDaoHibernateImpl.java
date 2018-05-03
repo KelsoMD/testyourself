@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import by.nesterenok.testyourself.dao.TestDao;
 import by.nesterenok.testyourself.domain.Test;
@@ -26,7 +28,10 @@ public class TestDaoHibernateImpl implements TestDao{
 	@Override
 	public Test read(int id) {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		session.beginTransaction();
 		Test test = (Test) session.get(Test.class, id);
+		session.getTransaction().commit();
+		session.close();
 		return test;
 	}
 
@@ -63,14 +68,25 @@ public class TestDaoHibernateImpl implements TestDao{
 
 	@Override
 	public List<Test> readLast() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.setMaxResults(4);
+		List<Test> testList = criteria.list();
+		session.close();
+		return testList;
 	}
 
 	@Override
 	public List<Test> readSubscribed(String theme) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.setMaxResults(4);
+		criteria.add(Restrictions.eq("theme", theme));
+		List<Test> testList = criteria.list();
+		session.close();
+		return testList;
 	}
 
 }

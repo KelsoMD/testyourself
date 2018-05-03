@@ -25,7 +25,6 @@
 
 	<bean id="userService" class="by.nesterenok.testyourself.service.impl.UserServiceImpl"
 		scope="singleton">
-		<property name="groupDao" ref="groupDao"/>
 		<property name="userDao" ref="userDao"/>
 	</bean>
 

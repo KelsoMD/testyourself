@@ -7,6 +7,7 @@ import by.nesterenok.testyourself.dao.GroupDao;
 import by.nesterenok.testyourself.dao.TaskDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.Task;
+import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.TaskService;
 
 public class TaskServiceImpl implements TaskService{
@@ -23,11 +24,10 @@ public class TaskServiceImpl implements TaskService{
 	}
 
 	@Override
-	public List<Task> readUserTasks(int id) {
-		List<Group> groupList = groupDao.readUserGroups(id);
+	public List<Task> readUserTasks(User user) {
 		List<Task> taskList = new ArrayList<>();
-		for(Group group : groupList) {
-			taskList.addAll(taskDao.readGroupTasks(group.getId()));
+		for(Group group : user.getGroup()) {
+			taskList.addAll(group.getTasks());
 		}
 		return taskList;
 	}

@@ -1,8 +1,5 @@
 package by.nesterenok.testyourself.temp;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -16,7 +13,6 @@ import by.nesterenok.testyourself.dao.UserDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Task;
-import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.User;
 
 public class Main {
@@ -30,11 +26,13 @@ ApplicationContext context = new ClassPathXmlApplicationContext("web-context.xml
 		GroupDao groupDao = (GroupDao) context.getBean("groupDao");
 		TaskDao taskDao = (TaskDao) context.getBean("taskDao");
 		
-		Test test = testDao.read(5);
-		System.out.println(test);
-		
-		
-		
+		User user = userDao.read(2);
+		System.out.println(user.getName());
+		List<Group> list = user.getGroup();
+		for(Group g : list) {
+			System.out.println(g.getTheme());
+			System.out.println(g.getMentor().getName()+" "+g.getMentor().getSurname());
+		}
 	}
 
 }

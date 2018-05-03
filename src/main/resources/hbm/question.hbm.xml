@@ -42,7 +42,7 @@
 			<column name="answer_3" />
 		</property>
 		
-		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User" column="author"/>
+		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User" column="author" lazy="proxy" fetch="join"/>
 		
 
 	</class>

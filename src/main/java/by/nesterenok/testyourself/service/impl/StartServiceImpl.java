@@ -27,12 +27,7 @@ public class StartServiceImpl implements StartService{
 
 	@Override
 	public List<Test> getStartTests() {	
-		List<Test> testList = testDao.readLast();
-		for(Test test : testList) {
-			List<Question> questionList = questionDao.readTestQuestions(test.getId());
-			test.setQuestions(questionList);
-		}	
-		return testList;
+		return testDao.readLast();
 	}
 
 	@Override

@@ -34,10 +34,10 @@
 			<column name="theme" />
 		</property>
 		
-		<!-- <bag name="group" table="user_groups" lazy="true" cascade="all">
+		<bag name="group" table="user_groups" cascade="all" lazy="true" fetch="join">
 			<key column="user_id"/>
 			<many-to-many column="group_id" class="by.nesterenok.testyourself.domain.Group" />
-		</bag>-->
+		</bag>
 
 	</class>
 

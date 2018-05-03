@@ -16,8 +16,8 @@
 		
 		<many-to-one name="mentor" class="by.nesterenok.testyourself.domain.User" column="mentor"/>
 		
-		<bag name="tasks" table="group_task" lazy="true">
-			<key column="group"/>
+		<bag name="tasks" table="group_task" lazy="true" fetch="join">
+			<key column="party"/>
 			<one-to-many class="by.nesterenok.testyourself.domain.Task" />
 		</bag>
 		

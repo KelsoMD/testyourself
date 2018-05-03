@@ -20,7 +20,7 @@ public class StartActionImpl implements BaseAction{
 	@Override
 	public String executeAction(HttpServletRequest request) {
 		
-		request.setAttribute(REQUEST_PARAM_QUESTION_COUNT, startService.getQuestionCount());
+		//request.setAttribute(REQUEST_PARAM_QUESTION_COUNT, startService.getQuestionCount());
 		request.setAttribute(REQUEST_PARAM_LIST, startService.getStartTests());
 		
 		return PAGE_INDEX;

@@ -30,7 +30,7 @@ public final class WebConstantPool {
 	public static final String PAGE_INDEX =  "/WEB-INF/index.jsp";
 	public static final String PAGE_TEST = "/WEB-INF/test_page.jsp";
 	public static final String PAGE_RESULT = "/WEB-INF/result_page.jsp";
-	public static final String PAGE_INDEX_TEMP = "/WEB-INF/indextemp.jsp";
+	public static final String PAGE_INDEX_TEMP = "/indextemp.jsp";
 	public static final String PAGE_USER_MAIN = "/WEB-INF/user_main.jsp";
 	
 

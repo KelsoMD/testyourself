@@ -19,9 +19,9 @@
 		</property>
 
 		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User"
-			column="author" />
+			column="author" lazy="proxy" fetch="join"/>
 			
-		<bag name="questions" table="test_questions" cascade="all" lazy="true">
+		<bag name="questions" table="test_questions" cascade="all" lazy="true" fetch="join" >
 			<key column="test"/>
 			<many-to-many column="question" class="by.nesterenok.testyourself.domain.Question" />
 		</bag>

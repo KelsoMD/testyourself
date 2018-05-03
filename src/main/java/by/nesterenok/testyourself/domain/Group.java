@@ -4,11 +4,10 @@ import java.util.List;
 
 public class Group extends Entity{
 	
-	private static final long serialVersionUID = 6776998662198481664L;
 	
+	private static final long serialVersionUID = -615065413335812798L;
 	private User mentor;
 	private String theme;
-	private List<User> members;
 	private List<Task> tasks;
 	public Group() {
 		super();
@@ -16,19 +15,17 @@ public class Group extends Entity{
 	public Group(int id) {
 		super(id);
 	}
-	public Group(User mentor, String theme, List<User> members) {
+	public Group(User mentor, String theme) {
 		super();
 		this.mentor = mentor;
 		this.theme = theme;
-		this.members = members;
 	}
 	
 	
-	public Group(int id, User mentor, String theme, List<User> members, List<Task> tasks) {
+	public Group(int id, User mentor, String theme, List<Task> tasks) {
 		super(id);
 		this.mentor = mentor;
 		this.theme = theme;
-		this.members = members;
 		this.tasks = tasks;
 	}
 	public User getMentor() {
@@ -43,12 +40,6 @@ public class Group extends Entity{
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public List<User> getMembers() {
-		return members;
-	}
-	public void setMembers(List<User> members) {
-		this.members = members;
-	}
 	public List<Task> getTasks() {
 		return tasks;
 	}
@@ -59,7 +50,6 @@ public class Group extends Entity{
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((members == null) ? 0 : members.hashCode());
 		result = prime * result + ((mentor == null) ? 0 : mentor.hashCode());
 		result = prime * result + ((tasks == null) ? 0 : tasks.hashCode());
 		result = prime * result + ((theme == null) ? 0 : theme.hashCode());
@@ -74,11 +64,6 @@ public class Group extends Entity{
 		if (getClass() != obj.getClass())
 			return false;
 		Group other = (Group) obj;
-		if (members == null) {
-			if (other.members != null)
-				return false;
-		} else if (!members.equals(other.members))
-			return false;
 		if (mentor == null) {
 			if (other.mentor != null)
 				return false;
@@ -98,7 +83,7 @@ public class Group extends Entity{
 	}
 	@Override
 	public String toString() {
-		return "Group [mentor=" + mentor + ", theme=" + theme + ", members=" + members + ", tasks=" + tasks + "]";
+		return "Group [mentor=" + mentor + ", theme=" + theme + ", tasks=" + tasks + "]";
 	}
 	
 	

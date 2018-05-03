@@ -45,14 +45,8 @@ public class StartUserActionImpl implements BaseAction {
 			request.setAttribute(REQUEST_PARAM_LIST, ss.getStartTests());
 		}
 		if (!user.getGroup().isEmpty()) {
-			List<Task> taskList = taskService.readUserTasks(user.getId());
 			
-		
-			for(Task task : taskList) {
-				int testId = task.getTest().getId();
-				task.setTest(ts.readTest(testId));
-			}
-			request.setAttribute(REQUEST_PARAM_TASK, taskList);
+			request.setAttribute(REQUEST_PARAM_TASK, taskService.readUserTasks(user));
 		}
 		return PAGE_USER_MAIN;
 	}
