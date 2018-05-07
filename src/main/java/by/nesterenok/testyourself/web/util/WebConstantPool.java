@@ -11,6 +11,9 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_TEST_ID =  "test_id";
 	public static final String REQUEST_PARAM_TEST_QUESTIONS = "test_questions";
 	public static final String REQUEST_PARAM_ANSWER = "answer";
+	public static final String REQUEST_PARAM_ANSWER1 = "answer1";
+	public static final String REQUEST_PARAM_ANSWER2 = "answer2";
+	public static final String REQUEST_PARAM_ANSWER3 = "answer3";
 	public static final String REQUEST_PARAM_CORRECT_ANSWER = "correct_answer";
 	public static final String REQUEST_PARAM_ANSWER_MAP = "answer_map";
 	public static final String REQUEST_PARAM_MARK = "mark";
@@ -23,6 +26,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_THEMES = "themes";
 	public static final String REQUEST_PARAM_THEME = "theme";
 	public static final String REQUEST_PARAM_LVL = "lvl";
+	public static final String REQUEST_PARAM_TEXT = "text";
+	public static final String REQUEST_PARAM_IMAGE = "image";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -37,6 +42,7 @@ public final class WebConstantPool {
 	public static final String PAGE_INDEX_TEMP = "/indextemp.jsp";
 	public static final String PAGE_USER_MAIN = "/WEB-INF/user_main.jsp";
 	public static final String PAGE_USER_SEARCH = "/WEB-INF/search.jsp";
+	public static final String PAGE_USER_CREATE_QUESTION = "/WEB-INF/create_question.jsp";
 	
 
 }

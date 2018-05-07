@@ -94,32 +94,42 @@
 		<div class="container container-table">
 
 			<h3
-				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">Тут
-				будут батоны</h3>
+				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+				<div class="mbr-section-btn text-center pt-4">
+					<a
+						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_test"
+						class="btn btn-black-outline display-4">Создать тест</a><a
+						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_question"
+						class="btn btn-black-outline display-4">Создать вопрос</a>
+						<a
+						href="http://localhost:8080/testyourself/MainServlet?action=switch_sujest_theme"
+						class="btn btn-black-outline display-4">Предложить тему</a>
+				</div>
+			</h3>
 			<div class="table-wrapper">
 				<div class="container">
 					<div class="row search">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-						<form action="MainServlet">
-							<div class="dataTables_filter">
-								<label class="searchInfo mbr-fonts-style display-7">Тема:</label>
-								<select class="form-control input-sm" name="theme">
-									<c:forEach items="${themes}" var="theme">
-										<option>${theme}</option>
-									</c:forEach>
-								</select> <label class="searchInfo mbr-fonts-style display-7">Уровень:</label>
-								<select class="form-control input-sm" name="lvl">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-								</select>
-								<div class="mbr-section-btn text-center pt-4">
-									<input type="hidden" name="action" value="search_test" />
-									<button type="submit"
-										class="btn btn-sm btn-black-outline display-4">Искать</button>
+							<form action="MainServlet">
+								<div class="dataTables_filter">
+									<label class="searchInfo mbr-fonts-style display-7">Тема:</label>
+									<select class="form-control input-sm" name="theme">
+										<c:forEach items="${themes}" var="theme">
+											<option>${theme}</option>
+										</c:forEach>
+									</select> <label class="searchInfo mbr-fonts-style display-7">Уровень:</label>
+									<select class="form-control input-sm" name="lvl">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+									</select>
+									<div class="mbr-section-btn text-center pt-4">
+										<input type="hidden" name="action" value="search_test" />
+										<button type="submit"
+											class="btn btn-sm btn-black-outline display-4">Искать</button>
+									</div>
 								</div>
-							</div>
 							</form>
 						</div>
 					</div>
