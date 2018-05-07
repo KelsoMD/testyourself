@@ -21,6 +21,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_USER = "user";
 	public static final String REQUEST_PARAM_TESTS = "tests";
 	public static final String REQUEST_PARAM_THEMES = "themes";
+	public static final String REQUEST_PARAM_THEME = "theme";
+	public static final String REQUEST_PARAM_LVL = "lvl";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";

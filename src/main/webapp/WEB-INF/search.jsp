@@ -101,19 +101,26 @@
 					<div class="row search">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
+						<form action="MainServlet">
 							<div class="dataTables_filter">
 								<label class="searchInfo mbr-fonts-style display-7">Тема:</label>
-								<select class="form-control input-sm">
+								<select class="form-control input-sm" name="theme">
 									<c:forEach items="${themes}" var="theme">
 										<option>${theme}</option>
 									</c:forEach>
 								</select> <label class="searchInfo mbr-fonts-style display-7">Уровень:</label>
-								<select class="form-control input-sm">
+								<select class="form-control input-sm" name="lvl">
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
 								</select>
+								<div class="mbr-section-btn text-center pt-4">
+									<input type="hidden" name="action" value="search_test" />
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Искать</button>
+								</div>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -137,7 +144,9 @@
 									<td class="body-item mbr-fonts-style display-7">${test.getTheme()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getLvl()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getQuestions().size()}</td>
-									<td class="body-item mbr-fonts-style display-7">not yet</td>
+									<td class="body-item mbr-fonts-style display-7"><a
+										href="http://localhost:8080/testyourself/MainServlet?action=start_test&test_id=${test.getId()}"
+										class="btn btn-black-outline display-4">Пройти тест</a></td>
 								</tr>
 							</tbody>
 						</c:forEach>

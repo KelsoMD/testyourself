@@ -6,8 +6,14 @@ import by.nesterenok.testyourself.domain.Test;
 
 public interface TestDao extends BaseDao<Test>{
 	
-	List<Test> readLast();
+	public List<Test> readLast();
 	
-	List<Test> readSubscribed(String theme);
+	public List<Test> readSubscribed(String theme);
+	
+	public List<Test> searchTheme(String theme);
+	
+	public List<Test> searchLvl(int lvl);
+	
+	public List<Test> searchThemeLvl(String theme, int lvl);
 	
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Distinct;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -62,6 +61,7 @@ public class TestDaoHibernateImpl implements TestDao{
 	public List<Test> readAll() {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -85,6 +85,43 @@ public class TestDaoHibernateImpl implements TestDao{
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("theme", theme));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<Test> testList = criteria.list();
+		session.close();
+		return testList;
+	}
+
+	@Override
+	public List<Test> searchTheme(String theme) {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("theme", theme));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<Test> testList = criteria.list();
+		session.close();
+		return testList;
+	}
+
+	@Override
+	public List<Test> searchLvl(int lvl) {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("level", lvl));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<Test> testList = criteria.list();
+		session.close();
+		return testList;
+	}
+
+	@Override
+	public List<Test> searchThemeLvl(String theme, int lvl) {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("theme", theme));
+		criteria.add(Restrictions.eq("lvl", lvl));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();

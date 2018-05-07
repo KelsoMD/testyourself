@@ -155,4 +155,22 @@ private static final  TestDBDaoImpl instance = new TestDBDaoImpl();
 		return list;
 	}
 
+	@Override
+	public List<Test> searchTheme(String theme) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Test> searchLvl(int lvl) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Test> searchThemeLvl(String theme, int lvl) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

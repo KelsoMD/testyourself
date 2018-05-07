@@ -81,12 +81,6 @@
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"> </a></li>
 				</ul>
-				<div class="navbar-buttons mbr-section-btn">
-					<a class="btn btn-sm btn-black-outline display-4"
-						href="https://mobirise.com"> Попробовать! </a>
-					<button type="submit"
-						class="btn btn-sm btn-black-outline display-4">adfag</button>
-				</div>
 			</div>
 		</nav>
 	</section>
