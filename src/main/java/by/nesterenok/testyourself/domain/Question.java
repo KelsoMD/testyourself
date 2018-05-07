@@ -88,71 +88,29 @@ public class Question extends Entity{
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((answer1 == null) ? 0 : answer1.hashCode());
-		result = prime * result + ((answer2 == null) ? 0 : answer2.hashCode());
-		result = prime * result + ((answer3 == null) ? 0 : answer3.hashCode());
-		result = prime * result + (aprooved ? 1231 : 1237);
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + ((correctAnswer == null) ? 0 : correctAnswer.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + lvl;
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
-		result = prime * result + ((theme == null) ? 0 : theme.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Question other = (Question) obj;
-		if (answer1 == null) {
-			if (other.answer1 != null)
-				return false;
-		} else if (!answer1.equals(other.answer1))
-			return false;
-		if (answer2 == null) {
-			if (other.answer2 != null)
-				return false;
-		} else if (!answer2.equals(other.answer2))
-			return false;
-		if (answer3 == null) {
-			if (other.answer3 != null)
-				return false;
-		} else if (!answer3.equals(other.answer3))
-			return false;
-		if (aprooved != other.aprooved)
-			return false;
-		if (author == null) {
-			if (other.author != null)
-				return false;
-		} else if (!author.equals(other.author))
-			return false;
-		if (correctAnswer == null) {
-			if (other.correctAnswer != null)
-				return false;
-		} else if (!correctAnswer.equals(other.correctAnswer))
-			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (lvl != other.lvl)
-			return false;
 		if (text == null) {
-			if (other.text != null)
+			if (other.text != null) {
 				return false;
-		} else if (!text.equals(other.text))
+			}
+		} else if (!text.equals(other.text)) {
 			return false;
-		if (theme == null) {
-			if (other.theme != null)
-				return false;
-		} else if (!theme.equals(other.theme))
-			return false;
+		}
 		return true;
 	}
 	@Override

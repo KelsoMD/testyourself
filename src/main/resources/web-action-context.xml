@@ -64,10 +64,45 @@
 	<bean id="switch_create_question"
 		class="by.nesterenok.testyourself.web.action.impl.SwitchCreateQuestionPageActionImpl"
 		scope="singleton">
-		<property name="themeService" ref="themeService"/>
-		</bean>
-		<bean id="sujest_question" class="by.nesterenok.testyourself.web.action.impl.SujestQuestionActionImpl" scope="singleton">
-		<property name="questionService" ref="questionService"/>
-		</bean>
-		
+		<property name="themeService" ref="themeService" />
+	</bean>
+	<bean id="sujest_question"
+		class="by.nesterenok.testyourself.web.action.impl.SujestQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+	<bean id="switch_sujest_theme"
+		class="by.nesterenok.testyourself.web.action.impl.SwitchSujestThemeActionImpl"
+		scope="singleton" />
+	<bean id="sujest_theme"
+		class="by.nesterenok.testyourself.web.action.impl.SujestThemeActionImpl"
+		scope="singleton">
+		<property name="themeService" ref="themeService" />
+	</bean>
+
+	<bean id="switch_create_test"
+		class="by.nesterenok.testyourself.web.action.impl.SwitchCreateTestStepOneActionImpl"
+		scope="singleton">
+		<property name="themeService" ref="themeService" />
+	</bean>
+	<bean id="start_build_test"
+		class="by.nesterenok.testyourself.web.action.impl.SwitchCreateTestStepTwoActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+	<bean id="add_question"
+		class="by.nesterenok.testyourself.web.action.impl.AddQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
+	<bean id="delete_question"
+		class="by.nesterenok.testyourself.web.action.impl.DeleteQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+	
+	<bean id="create_test" class="by.nesterenok.testyourself.web.action.impl.CreateTestActionImpl" scope="singleton">
+	<property name="testService" ref="testService"/>
+	</bean>
 </beans>

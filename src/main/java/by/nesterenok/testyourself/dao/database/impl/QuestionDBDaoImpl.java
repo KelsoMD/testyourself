@@ -170,4 +170,10 @@ public class QuestionDBDaoImpl extends AbstractDBDao implements QuestionDao {
 		return list;
 	}
 
+	@Override
+	public List<Question> readQuestionsForTest(String theme, int lvl) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

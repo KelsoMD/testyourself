@@ -17,5 +17,7 @@ public interface QuestionService {
 	Question buildQuestion(HttpServletRequest request);
 	
 	void createQuestion(Question question);
+	
+	List<Question> returnQuestionsForTest(String theme, int lvl);
 
 }

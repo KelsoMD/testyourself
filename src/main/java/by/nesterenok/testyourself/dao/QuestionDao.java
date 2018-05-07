@@ -9,5 +9,7 @@ public interface QuestionDao extends BaseDao<Question>{
 	int counter();
 	
 	List<Question> readTestQuestions(int id);
+	
+	List<Question> readQuestionsForTest(String theme, int lvl);
 
 }

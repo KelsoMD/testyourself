@@ -92,68 +92,68 @@
 
 			<h3
 				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-				<div class="mbr-section-btn text-center pt-4">
-					<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_test"
-						class="btn btn-black-outline display-4">Создать тест</a><a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_question"
-						class="btn btn-black-outline display-4">Создать вопрос</a>
-						<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_sujest_theme"
-						class="btn btn-black-outline display-4">Предложить тему</a>
-				</div>
-			</h3>
+				Собранные вопросы</h3>
 			<div class="table-wrapper">
-				<div class="container">
-					<div class="row search">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<form action="MainServlet" method="get">
-								<div class="dataTables_filter">
-									<label class="searchInfo mbr-fonts-style display-7">Тема:</label>
-									<select class="form-control input-sm" name="theme">
-										<c:forEach items="${themes}" var="theme">
-											<option>${theme}</option>
-										</c:forEach>
-									</select> <label class="searchInfo mbr-fonts-style display-7">Уровень:</label>
-									<select class="form-control input-sm" name="lvl">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-									</select>
-									<div class="mbr-section-btn text-center pt-4">
-										<input type="hidden" name="action" value="search_test" />
-										<button type="submit"
-											class="btn btn-sm btn-black-outline display-4">Искать</button>
-									</div>
-								</div>
-							</form>
-						</div>
+				<form action="MainServlet" method="post">
+					<div class="container scroll">
+						<table class="table isSearch" cellspacing="0">
+							<thead>
+								<tr class="table-heads ">
+									<th class="head-item mbr-fonts-style display-7">ID</th>
+									<th class="head-item mbr-fonts-style display-7">Текст</th>
+									<th class="head-item mbr-fonts-style display-7">Автор</th>
+									<th class="head-item mbr-fonts-style display-7">Действия</th>
+								</tr>
+							</thead>
+							<c:forEach items="${recentTestQuestions}" var="recentQuestion">
+								<tbody>
+									<tr>
+										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getId()}</td>
+										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getText()}</td>
+										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getAuthor().getLogin()}</td>
+										<td class="body-item mbr-fonts-style display-7"><a
+											href="http://localhost:8080/testyourself/MainServlet?action=delete_question&question_id=${recentQuestion.getId()}"
+											class="btn btn-black-outline display-4">Удалить</a></td>
+									</tr>
+								</tbody>
+							</c:forEach>
+						</table>
 					</div>
-				</div>
+					<div class="mbr-section-btn text-center pt-4">
+							<input type="hidden" name="action" value="create_test" />
+							<button type="submit"
+								class="btn btn-sm btn-black-outline display-4">Создать</button>
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="section-table cid-qR017JJDq7" id="table1-t">
+		<div class="container container-table">
 
+			<h3
+				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+				Вопросы</h3>
+			<div class="table-wrapper">
 				<div class="container scroll">
 					<table class="table isSearch" cellspacing="0">
 						<thead>
 							<tr class="table-heads ">
 								<th class="head-item mbr-fonts-style display-7">ID</th>
-								<th class="head-item mbr-fonts-style display-7">Тема</th>
-								<th class="head-item mbr-fonts-style display-7">Уровень</th>
-								<th class="head-item mbr-fonts-style display-7">Количество
-									вопросов</th>
+								<th class="head-item mbr-fonts-style display-7">Текст</th>
+								<th class="head-item mbr-fonts-style display-7">Автор</th>
 								<th class="head-item mbr-fonts-style display-7">Действия</th>
 							</tr>
 						</thead>
-						<c:forEach items="${tests}" var="test">
+						<c:forEach items="${testQuestionsToChoose}" var="question">
 							<tbody>
 								<tr>
-									<td class="body-item mbr-fonts-style display-7">${test.getId()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getTheme()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getLvl()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getQuestions().size()}</td>
+									<td class="body-item mbr-fonts-style display-7">${question.getId()}</td>
+									<td class="body-item mbr-fonts-style display-7">${question.getText()}</td>
+									<td class="body-item mbr-fonts-style display-7">${question.getAuthor().getLogin()}</td>
 									<td class="body-item mbr-fonts-style display-7"><a
-										href="http://localhost:8080/testyourself/MainServlet?action=start_test&test_id=${test.getId()}"
-										class="btn btn-black-outline display-4">Пройти тест</a></td>
+										href="http://localhost:8080/testyourself/MainServlet?action=add_question&question_id=${question.getId()}"
+										class="btn btn-black-outline display-4">Добавить</a></td>
 								</tr>
 							</tbody>
 						</c:forEach>

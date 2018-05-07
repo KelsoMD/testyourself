@@ -43,4 +43,9 @@ public class TestServiceImpl implements TestService {
 		return searchedList;
 	}
 
+	@Override
+	public void createTest(Test test) {
+		testDao.create(test);
+	}
+
 }

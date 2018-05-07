@@ -18,4 +18,9 @@ public class ThemeServiceImpl implements ThemeService{
 		return themeDao.readAll();
 	}
 
+	@Override
+	public void createTheme(String theme) {
+		themeDao.create(theme);
+	}
+
 }

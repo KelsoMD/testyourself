@@ -28,11 +28,17 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_LVL = "lvl";
 	public static final String REQUEST_PARAM_TEXT = "text";
 	public static final String REQUEST_PARAM_IMAGE = "image";
+	public static final String REQUEST_PARAM_THEME_MSG = "theme_msg";
+	public static final String REQUEST_PARAM_QUESTIONS_TO_CHOOSE = "testQuestionsToChoose";
+	public static final String REQUEST_PARAM_QUESTIONS_ID = "question_id";
+	public static final String REQUEST_PARAM_QUESTIONS_RECENT = "recentTestQuestions";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
+	public static final String REQUEST_MSG_THEME_EXISTS = "Theme already exists";
 	
 	public static final String SESSION_PARAM_USER = "user";
+	public static final String SESSION_PARAM_TEST = "test";
 	
 	
 	
@@ -43,6 +49,10 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_MAIN = "/WEB-INF/user_main.jsp";
 	public static final String PAGE_USER_SEARCH = "/WEB-INF/search.jsp";
 	public static final String PAGE_USER_CREATE_QUESTION = "/WEB-INF/create_question.jsp";
+	public static final String PAGE_USER_CREATE_THEME = "/WEB-INF/create_theme.jsp";
+	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/start_build_test.jsp";
+	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/build_test.jsp";
 	
+	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 
 }

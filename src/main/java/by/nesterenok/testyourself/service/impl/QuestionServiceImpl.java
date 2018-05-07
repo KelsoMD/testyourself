@@ -11,13 +11,9 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.client.HttpServerErrorException;
 
 import by.nesterenok.testyourself.dao.QuestionDao;
 import by.nesterenok.testyourself.domain.Question;
@@ -87,5 +83,12 @@ public class QuestionServiceImpl implements QuestionService{
 	@Override
 	public void createQuestion(Question question) {
 		dao.create(question);
+	}
+
+
+
+	@Override
+	public List<Question> returnQuestionsForTest(String theme, int lvl) {
+		return dao.readQuestionsForTest(theme, lvl);
 	}
 }

@@ -32,7 +32,10 @@
 
 </head>
 <body>
-	<section class="menu cid-qPBrzxK6qz" once="menu" id="menu1-j">
+	<section class="menu cid-qOgR2eKv8N" once="menu" id="menu1-u">
+
+
+
 		<nav
 			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
 			<button class="navbar-toggler navbar-toggler-right" type="button"
@@ -47,7 +50,8 @@
 				<div class="navbar-brand">
 
 					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4">TEST YOURSELF</a></span>
+						class="navbar-caption text-white display-4"
+						href="https://mobirise.com">TEST YOURSELF</a></span>
 				</div>
 			</div>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,27 +60,27 @@
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
+							style="color: rgb(255, 255, 255);"></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_search_page"><span
+						href="https://mobirise.com"><span
 							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span> </a></li>
+							style="color: rgb(255, 255, 255);"></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
 							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
+							style="color: rgb(255, 255, 255);"></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
 							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
+							style="color: rgb(255, 255, 255);"></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
+							style="color: rgb(255, 255, 255);"></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"> </a></li>
@@ -84,87 +88,73 @@
 			</div>
 		</nav>
 	</section>
-	<section class="section-table cid-qR017JJDq7" id="table1-t">
+
+	<section class="engine">
+		<a href="https://mobiriz.store/">современный конструктор boostrap</a>
+	</section>
+	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 
 
 
-		<div class="container container-table">
 
-			<h3
-				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-				<div class="mbr-section-btn text-center pt-4">
-					<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_test"
-						class="btn btn-black-outline display-4">Создать тест</a><a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_question"
-						class="btn btn-black-outline display-4">Создать вопрос</a>
-						<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_sujest_theme"
-						class="btn btn-black-outline display-4">Предложить тему</a>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="title col-12 col-lg-8">
+					<h2
+						class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+						Создайте свой тест!</h2>
+					<h3
+						class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
+						Выберите тему и уровень теста!</h3>
 				</div>
-			</h3>
-			<div class="table-wrapper">
-				<div class="container">
-					<div class="row search">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<form action="MainServlet" method="get">
-								<div class="dataTables_filter">
-									<label class="searchInfo mbr-fonts-style display-7">Тема:</label>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="media-container-column col-lg-8">
+					<form class="mbr-form" action="MainServlet" method="get">
+						<div class="row row-sm-offset">
+							<div class="col-md-4 multi-horizontal">
+								<div class="form-group">
+									<label class="form-control-label mbr-fonts-style display-7">Тема</label>
 									<select class="form-control input-sm" name="theme">
 										<c:forEach items="${themes}" var="theme">
 											<option>${theme}</option>
 										</c:forEach>
-									</select> <label class="searchInfo mbr-fonts-style display-7">Уровень:</label>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4 multi-horizontal">
+								<div class="form-group">
+									<label class="form-control-label mbr-fonts-style display-7">Уровень</label>
 									<select class="form-control input-sm" name="lvl">
 										<option>1</option>
 										<option>2</option>
 										<option>3</option>
 									</select>
-									<div class="mbr-section-btn text-center pt-4">
-										<input type="hidden" name="action" value="search_test" />
-										<button type="submit"
-											class="btn btn-sm btn-black-outline display-4">Искать</button>
-									</div>
 								</div>
-							</form>
+							</div>
 						</div>
-					</div>
-				</div>
-
-				<div class="container scroll">
-					<table class="table isSearch" cellspacing="0">
-						<thead>
-							<tr class="table-heads ">
-								<th class="head-item mbr-fonts-style display-7">ID</th>
-								<th class="head-item mbr-fonts-style display-7">Тема</th>
-								<th class="head-item mbr-fonts-style display-7">Уровень</th>
-								<th class="head-item mbr-fonts-style display-7">Количество
-									вопросов</th>
-								<th class="head-item mbr-fonts-style display-7">Действия</th>
-							</tr>
-						</thead>
-						<c:forEach items="${tests}" var="test">
-							<tbody>
-								<tr>
-									<td class="body-item mbr-fonts-style display-7">${test.getId()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getTheme()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getLvl()}</td>
-									<td class="body-item mbr-fonts-style display-7">${test.getQuestions().size()}</td>
-									<td class="body-item mbr-fonts-style display-7"><a
-										href="http://localhost:8080/testyourself/MainServlet?action=start_test&test_id=${test.getId()}"
-										class="btn btn-black-outline display-4">Пройти тест</a></td>
-								</tr>
-							</tbody>
-						</c:forEach>
-					</table>
+						<span class="input-group-btn"><input type=hidden
+							name="action" value="start_build_test">
+						<button type="submit"
+								class="btn btn-form btn-black-outline display-4">Начать</button></span>
+					</form>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+
+	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
+
+
+
+
+
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
+
+
 				<div class="row row-copirayt">
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
@@ -173,6 +163,8 @@
 			</div>
 		</div>
 	</section>
+
+
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>
 	<script src="assets/tether/tether.min.js"></script>
@@ -181,9 +173,10 @@
 	<script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
 	<script src="assets/dropdown/js/script.min.js"></script>
 	<script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-	<script src="assets/datatables/jquery.data-tables.min.js"></script>
-	<script src="assets/datatables/data-tables.bootstrap4.min.js"></script>
 	<script src="assets/theme/js/script.js"></script>
+	<script src="assets/formoid/formoid.min.js"></script>
+
+
 	<input name="animation" type="hidden">
 </body>
 </html>

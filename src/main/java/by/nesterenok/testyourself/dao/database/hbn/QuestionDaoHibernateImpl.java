@@ -5,8 +5,10 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.ResultTransformer;
 
 import by.nesterenok.testyourself.dao.QuestionDao;
@@ -77,6 +79,18 @@ public class QuestionDaoHibernateImpl implements QuestionDao {
 	@Override
 	public List<Question> readTestQuestions(int id) {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public List<Question> readQuestionsForTest(String theme, int lvl) {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Question.class);
+		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("theme", theme));
+		criteria.add(Restrictions.eq("lvl", lvl));
+		List<Question> questionList = criteria.list();
+		session.close();
+		return questionList;
 	}
 
 }
