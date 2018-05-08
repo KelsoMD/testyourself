@@ -1,8 +1,10 @@
 package by.nesterenok.testyourself.domain;
 
+import java.util.List;
+
 public class Question extends Entity{
 	
-	private static final long serialVersionUID = -2645907839017881701L;
+	private static final long serialVersionUID = 8717526462629898257L;
 	
 	private String theme;
 	private int lvl;
@@ -14,6 +16,7 @@ public class Question extends Entity{
 	private String answer3;
 	private User author;
 	private boolean aprooved;
+	private List<String> shuffledAnswers;
 	public Question() {
 		super();
 	}
@@ -84,6 +87,12 @@ public class Question extends Entity{
 		this.aprooved = aprooved;
 	}
 	
+	public List<String> getShuffledAnswers() {
+		return shuffledAnswers;
+	}
+	public void setShuffledAnswers(List<String> shuffledAnswers) {
+		this.shuffledAnswers = shuffledAnswers;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

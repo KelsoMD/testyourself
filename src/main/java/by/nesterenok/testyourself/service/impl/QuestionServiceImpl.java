@@ -11,7 +11,9 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -90,5 +92,20 @@ public class QuestionServiceImpl implements QuestionService{
 	@Override
 	public List<Question> returnQuestionsForTest(String theme, int lvl) {
 		return dao.readQuestionsForTest(theme, lvl);
+	}
+
+
+
+	@Override
+	public void shuffleAnswers(Question question) {
+		
+			List<String> qlist = new ArrayList<>();
+			qlist.add(question.getCorrectAnswer());
+			qlist.add(question.getAnswer1());
+			qlist.add(question.getAnswer2());
+			qlist.add(question.getAnswer3());
+			Collections.shuffle(qlist);
+			question.setShuffledAnswers(qlist);
+		
 	}
 }

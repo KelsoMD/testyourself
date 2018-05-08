@@ -89,56 +89,33 @@
 	</section>
 
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-		<h2
-			class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">${pass_msg}</h2>
-		<h3
-			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">Your mark is ${mark}
-		</h3>
-		<form action="MainServlet" method="post">
-		<input type="hidden" name="test" value="${test}"/>
-		<input type="hidden" name="mark" value="${mark}"/>
-			<c:forEach items="${answer_map}" var="entry">
-
 				<div class="container container-table">
 
 					<h2
 						class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-						${entry.getKey().getText()}</h2>
-					<c:if test="${not empty entry.getKey().getImage()}">
+						${text}</h2>
+					<c:if test="${not empty image}">
 						<h3
 							class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-							<img alt="image" src="${entry.getKey().getImage()}">
+							<img alt="image" src="${image}">
 						</h3>
 					</c:if>
 					<div class="table-wrapper">
 						<div class="container scroll">
+
 							<table class="table isSearch" cellspacing="0">
-							<thead>
-								<tr class="table-heads ">
-									<th class="head-item mbr-fonts-style display-7">Правильный ответ</th>
-									<th class="head-item mbr-fonts-style display-7">Ваш ответ</th>
-								</tr>
-							</thead>
 								<tbody>
 									<tr>
-										<td class="body-item mbr-fonts-style display-7">
-											${entry.getKey().getCorrectAnswer()}</td>
-										<td class="body-item mbr-fonts-style display-7">
-											${entry.getValue()}</td>
+										<c:forEach items="${shuffled}"
+											var="answers">
+											<td class="body-item mbr-fonts-style display-7">${answers}</td>
+										</c:forEach>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-
-			</c:forEach>
-			<div class="mbr-section-btn text-center pt-4">
-			<button type="submit"
-						class="btn btn-sm btn-black-outline display-4">Выйти</button>
-				<input type="hidden" name="action" value="exit_results" />
-			</div>
-		</form>
 	</section>
 
 

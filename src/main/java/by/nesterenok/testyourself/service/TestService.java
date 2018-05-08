@@ -13,5 +13,7 @@ public interface TestService {
 	public List<Test> searchTests(String theme, Integer lvl);
 	
 	public void createTest(Test test);
+	
+	public void prepareShuffled(Test test);
 
 }

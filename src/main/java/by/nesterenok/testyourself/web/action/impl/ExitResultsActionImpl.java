@@ -1,6 +1,6 @@
 package by.nesterenok.testyourself.web.action.impl;
 
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_MAIN;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_MARK;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST;
 
@@ -32,7 +32,7 @@ public class ExitResultsActionImpl implements BaseAction{
 		User user = ActionHelper.getUser(request);
 		Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
 		resultService.createResult(result);
-		return PAGE_USER_MAIN;
+		return REDIRECT_URL_MAIN_USER_PAGE;
 		
 	}
 }

@@ -101,8 +101,16 @@
 		scope="singleton">
 		<property name="questionService" ref="questionService" />
 	</bean>
-	
-	<bean id="create_test" class="by.nesterenok.testyourself.web.action.impl.CreateTestActionImpl" scope="singleton">
-	<property name="testService" ref="testService"/>
+
+	<bean id="create_test"
+		class="by.nesterenok.testyourself.web.action.impl.CreateTestActionImpl"
+		scope="singleton">
+		<property name="testService" ref="testService" />
+	</bean>
+
+	<bean id="preview_user"
+		class="by.nesterenok.testyourself.web.action.impl.PreviewUserActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
 	</bean>
 </beans>

@@ -32,6 +32,7 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_QUESTIONS_TO_CHOOSE = "testQuestionsToChoose";
 	public static final String REQUEST_PARAM_QUESTIONS_ID = "question_id";
 	public static final String REQUEST_PARAM_QUESTIONS_RECENT = "recentTestQuestions";
+	public static final String REQUEST_PARAM_SHUFFLED = "shuffled";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -52,7 +53,9 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_CREATE_THEME = "/WEB-INF/create_theme.jsp";
 	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/start_build_test.jsp";
 	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/build_test.jsp";
+	public static final String PAGE_USER_PREVIEW = "/WEB-INF/preview_user.jsp";
 	
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
+	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
 
 }

@@ -19,5 +19,7 @@ public interface QuestionService {
 	void createQuestion(Question question);
 	
 	List<Question> returnQuestionsForTest(String theme, int lvl);
+	
+	public void shuffleAnswers(Question question);
 
 }

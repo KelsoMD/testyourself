@@ -113,7 +113,9 @@
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getAuthor().getLogin()}</td>
 										<td class="body-item mbr-fonts-style display-7"><a
 											href="http://localhost:8080/testyourself/MainServlet?action=delete_question&question_id=${recentQuestion.getId()}"
-											class="btn btn-black-outline display-4">Удалить</a></td>
+											class="btn btn-black-outline display-4">Удалить</a><a target="_blank" 
+											href="http://localhost:8080/testyourself/MainServlet?action=preview_user&question_id=${recentQuestion.getId()}"
+											class="btn btn-black-outline display-4">См.</a></td>
 									</tr>
 								</tbody>
 							</c:forEach>
@@ -153,7 +155,9 @@
 									<td class="body-item mbr-fonts-style display-7">${question.getAuthor().getLogin()}</td>
 									<td class="body-item mbr-fonts-style display-7"><a
 										href="http://localhost:8080/testyourself/MainServlet?action=add_question&question_id=${question.getId()}"
-										class="btn btn-black-outline display-4">Добавить</a></td>
+										class="btn btn-black-outline display-4">Добавить</a><a target="_blank"
+											href="http://localhost:8080/testyourself/MainServlet?action=preview_user&question_id=${question.getId()}"
+											class="btn btn-black-outline display-4">См.</a></td>
 								</tr>
 							</tbody>
 						</c:forEach>

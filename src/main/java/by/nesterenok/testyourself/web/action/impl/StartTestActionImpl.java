@@ -27,6 +27,7 @@ public class StartTestActionImpl implements BaseAction {
 
 		int testId = Integer.parseInt(request.getParameter(REQUEST_PARAM_TEST_ID));
 		Test test = testService.readTest(testId);
+		testService.prepareShuffled(test);
 		request.setAttribute(REQUEST_PARAM_TEST_QUESTIONS, test.getQuestions());
 		request.setAttribute(REQUEST_PARAM_TEST, test.getId());
 		return PAGE_TEST;

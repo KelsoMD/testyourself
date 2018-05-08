@@ -89,50 +89,46 @@
 	</section>
 
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-	<form action="MainServlet" method="get">
-	<input type="hidden" name="test" value="${test}">
-		<c:forEach items="${test_questions}" var="question">
-		
-			<div class="container container-table">
+		<form action="MainServlet" method="get">
+			<input type="hidden" name="test" value="${test}">
+			<c:forEach items="${test_questions}" var="question">
 
-				<h2
-					class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-					${question.getText()}</h2>
-				<c:if test="${not empty question.getImage()}">
-					<h3
-						class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-						<img alt="image" src="${question.getImage()}">
-					</h3>
-				</c:if>
-				<div class="table-wrapper">
-					<div class="container scroll">
-						<table class="table isSearch" cellspacing="0">
-							<tbody>
-								<tr>
-									<td class="body-item mbr-fonts-style display-7"><input
-										type="checkbox" name="answer"
-										value="${question.getCorrectAnswer()+='*'+=question.getId()}" />
-										${question.getCorrectAnswer()}</td>
-									<td class="body-item mbr-fonts-style display-7"><input
-										type="checkbox" name="answer" value="${question.getAnswer1()+='*'+=question.getId()}" />
-										${question.getAnswer1()}</td>
-									<td class="body-item mbr-fonts-style display-7"><input
-										type="checkbox" name="answer" value="${question.getAnswer2()+='*'+=question.getId()}"/>
-										${question.getAnswer2()}</td>
-									<td class="body-item mbr-fonts-style display-7"><input
-										type="checkbox" name="answer" value="${question.getAnswer3()+='*'+=question.getId()}" />
-										${question.getAnswer3()}</td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="container container-table">
+
+					<h2
+						class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
+						${question.getText()}</h2>
+					<c:if test="${not empty question.getImage()}">
+						<h3
+							class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+							<img alt="image" src="${question.getImage()}">
+						</h3>
+					</c:if>
+					<div class="table-wrapper">
+						<div class="container scroll">
+
+							<table class="table isSearch" cellspacing="0">
+								<tbody>
+									<tr>
+										<c:forEach items="${question.getShuffledAnswers()}"
+											var="answers">
+											<td class="body-item mbr-fonts-style display-7"><input
+												type="checkbox" name="answer"
+												value="${answers+='*'+=question.getId()}" /> ${answers}</td>
+										</c:forEach>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
+
+			</c:forEach>
+			<div class="mbr-section-btn text-center pt-4">
+				<input type="hidden" name="action" value="finish_test" />
+				<button type="submit" class="btn btn-sm btn-black-outline display-4">Закончить</button>
 			</div>
-			
-		</c:forEach>
-		<div class="mbr-section-btn text-center pt-4"><input type="hidden" name="action" value="finish_test"/><button type="submit"
-						class="btn btn-sm btn-black-outline display-4">Закончить</button></div>
-	</form>
+		</form>
 	</section>
 
 
