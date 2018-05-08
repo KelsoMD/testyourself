@@ -6,5 +6,7 @@ public interface ThemeDao {
 	
 	void create(String theme);
 	List<String> readAll();
+	
+	public int newThemeCount();
 
 }

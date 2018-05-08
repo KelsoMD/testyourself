@@ -7,4 +7,5 @@ public interface ThemeService {
 	public List<String> readThemes();
 	
 	public void createTheme(String theme);
+
 }

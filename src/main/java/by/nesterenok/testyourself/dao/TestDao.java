@@ -16,4 +16,8 @@ public interface TestDao extends BaseDao<Test>{
 	
 	public List<Test> searchThemeLvl(String theme, int lvl);
 	
+	public List<Test> readNotAprooved();
+	
+	public int newTestsCount();
+	
 }

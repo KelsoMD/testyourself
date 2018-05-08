@@ -1,15 +1,12 @@
 package by.nesterenok.testyourself.dao.database.hbn;
 
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.transform.ResultTransformer;
 
 import by.nesterenok.testyourself.dao.QuestionDao;
 import by.nesterenok.testyourself.domain.Question;
@@ -61,6 +58,7 @@ public class QuestionDaoHibernateImpl implements QuestionDao {
 	public List<Question> readAll() {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Question.class);
+		criteria.add(Restrictions.eq("aprooved", true));
 		List<Question> questionList = criteria.list();
 		session.close();
 		return questionList;
@@ -88,9 +86,32 @@ public class QuestionDaoHibernateImpl implements QuestionDao {
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("theme", theme));
 		criteria.add(Restrictions.eq("lvl", lvl));
+		criteria.add(Restrictions.eq("aprooved", true));
 		List<Question> questionList = criteria.list();
 		session.close();
 		return questionList;
+	}
+
+	@Override
+	public List<Question> readNotAprooved() {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Question.class);
+		criteria.add(Restrictions.eq("aprooved", false));
+		List<Question> list = criteria.list();
+		session.close();
+		return list;
+	}
+
+	@Override
+	public int newQuestionsCount() {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Question.class);
+		criteria.setProjection(Projections.property("id"));
+		criteria.setProjection(Projections.property("aprooved"));
+		criteria.add(Restrictions.eq("aprooved", false));
+		List<Integer> list = criteria.list();
+		session.close();
+		return list.size();
 	}
 
 }

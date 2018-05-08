@@ -11,5 +11,11 @@ public interface StartService {
 	List<Test> getStartTests();
 	
 	List<Test> getStartSubscribedTests(String theme);
+	
+	int getNewQuestionsCount();
+	
+	public int getNewTestsCount();
+	
+	public int getNewThemeCount();
 
 }

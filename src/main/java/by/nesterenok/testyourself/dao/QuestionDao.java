@@ -11,5 +11,9 @@ public interface QuestionDao extends BaseDao<Question>{
 	List<Question> readTestQuestions(int id);
 	
 	List<Question> readQuestionsForTest(String theme, int lvl);
+	
+	List<Question> readNotAprooved();
+	
+	int newQuestionsCount();
 
 }

@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import by.nesterenok.testyourself.dao.ThemeDao;
+import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.Themes;
 
 public class ThemeDaoHibernateImpl implements ThemeDao{
@@ -35,6 +37,18 @@ public class ThemeDaoHibernateImpl implements ThemeDao{
 			list.add(theme.getTheme());
 		}
 		return list;
+	}
+
+	@Override
+	public int newThemeCount() {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Themes.class);
+		criteria.setProjection(Projections.property("id"));
+		criteria.setProjection(Projections.property("aprooved"));
+		criteria.add(Restrictions.eq("aprooved", false));
+		List<Integer> list = criteria.list();
+		session.close();
+		return list.size();
 	}
 	
 	

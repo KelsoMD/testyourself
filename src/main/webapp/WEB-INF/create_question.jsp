@@ -111,7 +111,7 @@
                         </div>
                          <div class="form-group">
                                      <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                Для прикрепления изображения к вопросу, загрузите его по <a href="http://ipic.su/">ссылке</a> и вставьте ссылку на изображение в форму снизу     
+                Для прикрепления изображения к вопросу, загрузите его по <a target="_blank" href="http://ipic.su/">ссылке</a> и вставьте ссылку на изображение в форму снизу     
                 </h3>
                                     <input type="text" class="form-control" name="image">
                                 </div>

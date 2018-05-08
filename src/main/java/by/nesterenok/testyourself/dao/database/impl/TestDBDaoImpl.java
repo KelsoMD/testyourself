@@ -173,4 +173,16 @@ private static final  TestDBDaoImpl instance = new TestDBDaoImpl();
 		return null;
 	}
 
+	@Override
+	public List<Test> readNotAprooved() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int newTestsCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

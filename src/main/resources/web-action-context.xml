@@ -31,7 +31,8 @@
 		class="by.nesterenok.testyourself.web.action.impl.TempStartActionImpl"
 		scope="singleton">
 		<property name="us" ref="userService" />
-		<property name="tempUserStart" ref="start_user"></property>
+		<property name="tempUserStart" ref="start_user" />
+		<property name="tempModerStart" ref="start_moderator" />
 	</bean>
 
 	<bean id="start_user"
@@ -42,11 +43,19 @@
 		<property name="taskService" ref="taskService" />
 
 	</bean>
+
+	<bean id="start_moderator"
+		class="by.nesterenok.testyourself.web.action.impl.StartModeratorActionImpl"
+		scope="singleton">
+		<property name="startService" ref="startService" />
+	</bean>
+
 	<bean id="exit_results"
 		class="by.nesterenok.testyourself.web.action.impl.ExitResultsActionImpl"
 		scope="singleton">
 		<property name="resultService" ref="resultService"></property>
 	</bean>
+
 	<bean id="switch_search_page"
 		class="by.nesterenok.testyourself.web.action.impl.SwitchSearchPageActionImpl"
 		scope="singleton">
@@ -66,14 +75,17 @@
 		scope="singleton">
 		<property name="themeService" ref="themeService" />
 	</bean>
+
 	<bean id="sujest_question"
 		class="by.nesterenok.testyourself.web.action.impl.SujestQuestionActionImpl"
 		scope="singleton">
 		<property name="questionService" ref="questionService" />
 	</bean>
+
 	<bean id="switch_sujest_theme"
 		class="by.nesterenok.testyourself.web.action.impl.SwitchSujestThemeActionImpl"
 		scope="singleton" />
+
 	<bean id="sujest_theme"
 		class="by.nesterenok.testyourself.web.action.impl.SujestThemeActionImpl"
 		scope="singleton">

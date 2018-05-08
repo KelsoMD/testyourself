@@ -14,6 +14,7 @@
 		scope="singleton">
 		<constructor-arg name="questionDao" ref="questionDao" />
 		<constructor-arg name="testDao" ref="testDao" />
+		<constructor-arg name="themeDao" ref="themeDao"/>
 	</bean>
 	<bean id="questionService"
 		class="by.nesterenok.testyourself.service.impl.QuestionServiceImpl"

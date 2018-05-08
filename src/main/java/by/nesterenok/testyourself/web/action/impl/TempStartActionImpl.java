@@ -13,6 +13,7 @@ public class TempStartActionImpl implements BaseAction {
 
 	private UserService us;
 	private StartUserActionImpl tempUserStart;
+	private StartModeratorActionImpl tempModerStart;
 
 	public void setUs(UserService us) {
 		this.us = us;
@@ -22,14 +23,16 @@ public class TempStartActionImpl implements BaseAction {
 		this.tempUserStart = tempUserStart;
 	}
 
-
+	public void setTempModerStart(StartModeratorActionImpl tempModerStart) {
+		this.tempModerStart = tempModerStart;
+	}
 
 	@Override
 	public String executeAction(HttpServletRequest request) {
 		String role = request.getParameter(REQUEST_PARAM_ROLE);
 		if (role != null) {
-		HttpSession session = request.getSession();
-		User user = null;
+			HttpSession session = request.getSession();
+			User user = null;
 			switch (role) {
 			case "user":
 				user = us.readUser();
@@ -50,9 +53,9 @@ public class TempStartActionImpl implements BaseAction {
 				user = us.readUser();
 				user.setRole("moderator");
 				session.setAttribute("user", user);
-				return null;
-				default:
-					return PAGE_INDEX_TEMP;
+				return tempModerStart.executeAction(request);
+			default:
+				return PAGE_INDEX_TEMP;
 			}
 		} else {
 			return PAGE_INDEX_TEMP;

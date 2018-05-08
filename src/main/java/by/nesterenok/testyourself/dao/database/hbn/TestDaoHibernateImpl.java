@@ -5,9 +5,11 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import by.nesterenok.testyourself.dao.TestDao;
+import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Test;
 
 public class TestDaoHibernateImpl implements TestDao{
@@ -62,6 +64,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -73,6 +76,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -85,6 +89,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("theme", theme));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -97,6 +102,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("theme", theme));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -109,6 +115,7 @@ public class TestDaoHibernateImpl implements TestDao{
 		Criteria criteria = session.createCriteria(Test.class);
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("level", lvl));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
@@ -122,10 +129,33 @@ public class TestDaoHibernateImpl implements TestDao{
 		criteria.addOrder(Order.desc("id"));
 		criteria.add(Restrictions.eq("theme", theme));
 		criteria.add(Restrictions.eq("lvl", lvl));
+		criteria.add(Restrictions.eq("aprooved", true));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Test> testList = criteria.list();
 		session.close();
 		return testList;
+	}
+
+	@Override
+	public List<Test> readNotAprooved() {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.add(Restrictions.eq("aprooved", false));
+		List<Test> list = criteria.list();
+		session.close();
+		return list;
+	}
+
+	@Override
+	public int newTestsCount() {
+		Session session = SessionFactoryManager.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Test.class);
+		criteria.setProjection(Projections.property("id"));
+		criteria.setProjection(Projections.property("aprooved"));
+		criteria.add(Restrictions.eq("aprooved", false));
+		List<Integer> list = criteria.list();
+		session.close();
+		return list.size();
 	}
 
 }

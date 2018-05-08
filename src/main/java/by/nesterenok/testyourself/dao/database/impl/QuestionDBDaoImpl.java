@@ -176,4 +176,16 @@ public class QuestionDBDaoImpl extends AbstractDBDao implements QuestionDao {
 		return null;
 	}
 
+	@Override
+	public List<Question> readNotAprooved() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int newQuestionsCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

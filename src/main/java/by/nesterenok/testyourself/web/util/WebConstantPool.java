@@ -33,6 +33,9 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_QUESTIONS_ID = "question_id";
 	public static final String REQUEST_PARAM_QUESTIONS_RECENT = "recentTestQuestions";
 	public static final String REQUEST_PARAM_SHUFFLED = "shuffled";
+	public static final String REQUEST_PARAM_NEW_QUESTIONS_COUNT = "new_questions";
+	public static final String REQUEST_PARAM_NEW_TESTS_COUNT = "new_tests";
+	public static final String REQUEST_PARAM_NEW_THEME_COUNT = "new_theme";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -54,6 +57,7 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/start_build_test.jsp";
 	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/build_test.jsp";
 	public static final String PAGE_USER_PREVIEW = "/WEB-INF/preview_user.jsp";
+	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
 	
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
