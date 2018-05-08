@@ -125,4 +125,29 @@
 		scope="singleton">
 		<property name="questionService" ref="questionService" />
 	</bean>
+
+	<bean id="moderate_questions"
+		class="by.nesterenok.testyourself.web.action.impl.SwitchModerateQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
+	<bean id="preview_moderator"
+		class="by.nesterenok.testyourself.web.action.impl.PreviewModeratorActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
+	<bean id="denie_question"
+		class="by.nesterenok.testyourself.web.action.impl.DenieQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
+	<bean id="accept_question"
+		class="by.nesterenok.testyourself.web.action.impl.AcceptQuestionActionImpl"
+		scope="singleton">
+		<property name="questionService" ref="questionService" />
+	</bean>
+
 </beans>

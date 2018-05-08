@@ -1,16 +1,13 @@
 package by.nesterenok.testyourself.web.action.impl;
 
-import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_ID;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_QUESTIONS;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Test;
-import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.web.action.BaseAction;
 

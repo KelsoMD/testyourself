@@ -108,4 +108,25 @@ public class QuestionServiceImpl implements QuestionService{
 			question.setShuffledAnswers(qlist);
 		
 	}
+
+
+
+	@Override
+	public List<Question> readNotAprooved() {
+		return dao.readNotAprooved();
+	}
+
+
+
+	@Override
+	public void deleteQuestion(int id) {
+		dao.delete(id);
+	}
+
+
+
+	@Override
+	public void updateQuestion(Question question) {
+		dao.update(question);
+	}
 }

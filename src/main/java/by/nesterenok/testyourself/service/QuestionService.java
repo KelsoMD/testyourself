@@ -21,5 +21,11 @@ public interface QuestionService {
 	List<Question> returnQuestionsForTest(String theme, int lvl);
 	
 	public void shuffleAnswers(Question question);
+	
+	public List<Question> readNotAprooved();
+	
+	public void deleteQuestion(int id);
+	
+	public void updateQuestion(Question question);
 
 }
