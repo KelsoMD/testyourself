@@ -47,6 +47,9 @@ public final class WebConstantPool {
 	public static final String SESSION_PARAM_TEST = "test";
 	
 	
+	public static final String REQUEST_MAPPING_TEMP_START = "/temp_start_new";
+	public static final String REQUEST_MAPPING_START_USER = "/start_user_new";
+	
 	
 	public static final String PAGE_INDEX =  "/WEB-INF/index.jsp";
 	public static final String PAGE_TEST = "/WEB-INF/test_page.jsp";

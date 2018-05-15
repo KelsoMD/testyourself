@@ -3,6 +3,9 @@ package by.nesterenok.testyourself.domain;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User extends Entity{
 	
 	private static final long serialVersionUID = -6591019673352952065L;
