@@ -18,7 +18,7 @@ public class SujestQuestionActionImpl implements BaseAction{
 	public String executeAction(HttpServletRequest request) {
 		Question question = questionService.buildQuestion(request);
 		questionService.createQuestion(question);
-		return "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
+		return "http://testyourself.mycloud.by/MainServlet?action=switch_search_page";
 	}
 
 }

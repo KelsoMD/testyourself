@@ -214,8 +214,7 @@
 					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
 						<div class="panel-item p-3">
 							<div class="card-img pb-3">
-								<span class="mbr-iconfont mbri-question"
-									style="color: rgb(35, 35, 35);"></span>
+								<span class="mbr-iconfont mbri-question" style="color: rgb(35, 35, 35);"></span>
 							</div>
 							<div class="card-text">
 								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">

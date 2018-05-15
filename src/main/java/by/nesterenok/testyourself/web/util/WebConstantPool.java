@@ -69,5 +69,8 @@ public final class WebConstantPool {
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
 	public static final String REDIRECT_URL_MODERATOR_QUESTIONS = "http://localhost:8080/testyourself/MainServlet?action=moderate_questions";
+	public static final String REDIRECT_URL_SEARCH_PAGE_CLOUD = "http://testyourself.mycloud.by/MainServlet?action=switch_search_page";
+	public static final String REDIRECT_URL_MAIN_USER_PAGE_CLOUD = "http://testyourself.mycloud.by/MainServlet?action=start_user";
+	public static final String REDIRECT_URL_MODERATOR_QUESTIONS_CLOUD = "http://testyourself.mycloud.by/testyourself/MainServlet?action=moderate_questions";
 
 }

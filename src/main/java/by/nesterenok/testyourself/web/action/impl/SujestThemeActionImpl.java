@@ -26,7 +26,7 @@ public class SujestThemeActionImpl implements BaseAction {
 			return PAGE_USER_CREATE_THEME;
 		} else {
 			themeService.createTheme(request.getParameter(REQUEST_PARAM_THEME));
-			return "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
+			return "http://testyourself.mycloud.by/MainServlet?action=switch_search_page";
 		}
 		
 	}

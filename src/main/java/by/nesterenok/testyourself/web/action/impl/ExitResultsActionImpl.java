@@ -32,7 +32,7 @@ public class ExitResultsActionImpl implements BaseAction{
 		User user = ActionHelper.getUser(request);
 		Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
 		resultService.createResult(result);
-		return REDIRECT_URL_MAIN_USER_PAGE;
+		return REDIRECT_URL_MAIN_USER_PAGE_CLOUD;
 		
 	}
 }

@@ -18,7 +18,7 @@ public class DenieQuestionActionImpl implements BaseAction{
 	@Override
 	public String executeAction(HttpServletRequest request) {
 		questionService.deleteQuestion(Integer.parseInt(request.getParameter(REQUEST_PARAM_QUESTIONS_ID)));
-		return REDIRECT_URL_MODERATOR_QUESTIONS;
+		return REDIRECT_URL_MODERATOR_QUESTIONS_CLOUD;
 	}
 
 }

@@ -20,7 +20,7 @@ public class AcceptQuestionActionImpl implements BaseAction{
 		Question question = questionService.readQuestion(Integer.parseInt(request.getParameter(REQUEST_PARAM_QUESTIONS_ID)));
 		question.setAprooved(true);
 		questionService.updateQuestion(question);
-		return REDIRECT_URL_MODERATOR_QUESTIONS;
+		return REDIRECT_URL_MODERATOR_QUESTIONS_CLOUD;
 	}
 
 }

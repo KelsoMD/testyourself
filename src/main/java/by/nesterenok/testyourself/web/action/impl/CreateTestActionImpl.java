@@ -20,7 +20,7 @@ public class CreateTestActionImpl implements BaseAction{
 	public String executeAction(HttpServletRequest request) {
 		Test test = (Test) request.getSession().getAttribute(SESSION_PARAM_TEST);
 		testService.createTest(test);
-		return REDIRECT_URL_SEARCH_PAGE;
+		return REDIRECT_URL_SEARCH_PAGE_CLOUD;
 	}
 
 }
