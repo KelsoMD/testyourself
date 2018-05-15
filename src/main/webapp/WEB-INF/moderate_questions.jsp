@@ -110,9 +110,16 @@
 									<td class="body-item mbr-fonts-style display-7">${question.getId()}</td>
 									<td class="body-item mbr-fonts-style display-7">${question.getText()}</td>
 									<td class="body-item mbr-fonts-style display-7">${question.getAuthor().getLogin()}</td>
-									<td class="body-item mbr-fonts-style display-7"><a
-										href="http://localhost:8080/testyourself/MainServlet?action=preview_moderator&question_id=${question.getId()}"
-										class="btn btn-black-outline display-4">Просмотреть</a></td>
+									<td class="body-item mbr-fonts-style display-7">
+										<form action="MainServlet" method="get">
+											<div class="mbr-section-btn text-center pt-4">
+												<input type="hidden" name="action" value="preview_moderator" /><input
+													type="hidden" name="question_id" value="${question.getId()}">
+												<button type="submit"
+													class="btn btn-sm btn-black-outline display-4">Просмотреть</button>
+											</div>
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</c:forEach>

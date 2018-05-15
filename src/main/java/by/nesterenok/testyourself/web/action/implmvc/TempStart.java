@@ -28,6 +28,8 @@ public class TempStart{
 	private UserService us;
 	@Autowired
 	private StartUser tempUserStart;
+	@Autowired
+	private StartModerator startModerator;
 
 	public void setUs(UserService us) {
 		this.us = us;
@@ -36,7 +38,10 @@ public class TempStart{
 	public void setTempUserStart(StartUser tempUserStart) {
 		this.tempUserStart = tempUserStart;
 	}
-
+	
+	public void setStartModerator(StartModerator startModerator) {
+		this.startModerator = startModerator;
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String executeAction(@RequestParam(REQUEST_PARAM_ROLE) String role, HttpSession session, ModelMap model) {
@@ -62,7 +67,7 @@ public class TempStart{
 				user = us.readUser();
 				user.setRole("moderator");
 				session.setAttribute("user", user);
-				return "not yet";
+				return startModerator.executeAction(user, model);
 			default:
 				return PAGE_INDEX_TEMP;
 			}

@@ -102,12 +102,11 @@
 	<section class="cid-qPBrzyztHT" id="pricing-tables1-k">
 		<div class="container">
 			<div class="media-container-row">
-			
+
 				<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 					<div class="plan-header text-center pt-5">
-						<h3 class="plan-title mbr-fonts-style display-5">
-							Новые вопросы
-						</h3>
+						<h3 class="plan-title mbr-fonts-style display-5">Новые
+							вопросы</h3>
 						<div class="plan-price">
 							<span class="price-figure mbr-fonts-style display-1">
 								${new_questions}</span>
@@ -116,18 +115,19 @@
 					<div class="plan-body pb-5">
 						<form action="MainServlet" method="get">
 							<div class="mbr-section-btn text-center pt-4">
-								<a
-									href="http://localhost:8080/testyourself/MainServlet?action=moderate_questions"
-									class="btn btn-black-outline display-4">Перейти</a>
+								<div class="mbr-section-btn text-center pt-4">
+									<input type="hidden" name="action" value="moderate_questions" />
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Перейти</button>
+								</div>
 							</div>
 						</form>
 					</div>
 				</div>
-				
+
 				<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 					<div class="plan-header text-center pt-5">
-						<h3 class="plan-title mbr-fonts-style display-5">
-							Новые тесты
+						<h3 class="plan-title mbr-fonts-style display-5">Новые тесты
 						</h3>
 						<div class="plan-price">
 							<span class="price-figure mbr-fonts-style display-1">
@@ -137,19 +137,17 @@
 					<div class="plan-body pb-5">
 						<form action="MainServlet" method="get">
 							<div class="mbr-section-btn text-center pt-4">
-								<a
-									href="http://localhost:8080/testyourself/MainServlet?action=moderate_tests"
-									class="btn btn-black-outline display-4">Перейти</a>
+							<input type="hidden" name="action" value="moderate_tests" />
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Перейти</button>
 							</div>
 						</form>
 					</div>
 				</div>
-				
+
 				<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 					<div class="plan-header text-center pt-5">
-						<h3 class="plan-title mbr-fonts-style display-5">
-							Новые темы
-						</h3>
+						<h3 class="plan-title mbr-fonts-style display-5">Новые темы</h3>
 						<div class="plan-price">
 							<span class="price-figure mbr-fonts-style display-1">
 								${new_theme}</span>
@@ -158,14 +156,14 @@
 					<div class="plan-body pb-5">
 						<form action="MainServlet" method="get">
 							<div class="mbr-section-btn text-center pt-4">
-								<a
-									href="http://localhost:8080/testyourself/MainServlet?action=moderate_theme"
-									class="btn btn-black-outline display-4">Перейти</a>
+							<input type="hidden" name="action" value="moderate_theme" />
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Перейти</button>
 							</div>
 						</form>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

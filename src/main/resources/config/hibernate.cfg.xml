@@ -18,15 +18,16 @@
 			com.mysql.cj.jdbc.Driver
 		</property>
 
-		<!-- database url -->
+		<!-- database url node53016-testyourself.mycloud.by-->
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost/testyourself?useTimezone=true&amp;serverTimezone=UTC
+			jdbc:mysql://node53016-testyourself.mycloud.by/testyourself?useTimezone=true&amp;serverTimezone=UTC
 		</property>
 
 		<!-- point username and password -->
 		<property name="hibernate.connection.username">
 			root
 		</property>
+		<!-- LGVlhe08066 -->
 		<property name="hibernate.connection.password">
 			root
 		</property>

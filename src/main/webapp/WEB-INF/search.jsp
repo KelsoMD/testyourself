@@ -93,14 +93,17 @@
 			<h3
 				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
 				<div class="mbr-section-btn text-center pt-4">
-					<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_test"
-						class="btn btn-black-outline display-4">Создать тест</a><a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_create_question"
-						class="btn btn-black-outline display-4">Создать вопрос</a>
-						<a
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_sujest_theme"
-						class="btn btn-black-outline display-4">Предложить тему</a>
+					<form action="MainServlet" method="get">
+						<button type="submit"
+							class="btn btn-sm btn-black-outline display-4" name="action"
+							value="switch_create_test">Создать тест</button>
+						<button type="submit"
+							class="btn btn-sm btn-black-outline display-4" name="action"
+							value="switch_create_question">Создать вопрос</button>
+						<button type="submit"
+							class="btn btn-sm btn-black-outline display-4" name="action"
+							value="switch_sujest_theme">Предложить тему</button>
+					</form>
 				</div>
 			</h3>
 			<div class="table-wrapper">
@@ -122,9 +125,9 @@
 										<option>3</option>
 									</select>
 									<div class="mbr-section-btn text-center pt-4">
-										<input type="hidden" name="action" value="search_test" />
 										<button type="submit"
-											class="btn btn-sm btn-black-outline display-4">Искать</button>
+											class="btn btn-sm btn-black-outline display-4" name="action"
+											value="search_test">Искать</button>
 									</div>
 								</div>
 							</form>
@@ -151,9 +154,13 @@
 									<td class="body-item mbr-fonts-style display-7">${test.getTheme()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getLvl()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getQuestions().size()}</td>
-									<td class="body-item mbr-fonts-style display-7"><a
-										href="http://localhost:8080/testyourself/MainServlet?action=start_test&test_id=${test.getId()}"
-										class="btn btn-black-outline display-4">Пройти тест</a></td>
+									<td class="body-item mbr-fonts-style display-7"><form
+											action="MainServlet" method="get">
+											<input type="hidden" name="test_id" value="${test.getId()}" />
+											<button type="submit"
+												class="btn btn-sm btn-black-outline display-4" name="action"
+												value="start_test">Пройти</button>
+										</form></td>
 								</tr>
 							</tbody>
 						</c:forEach>

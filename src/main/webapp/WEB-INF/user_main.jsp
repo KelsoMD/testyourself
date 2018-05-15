@@ -59,9 +59,11 @@
 							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_search_page"><span
+						href="${applicationScope.temporaryUrl}MainServlet?action=switch_search_page">
+                    <span
 							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span> </a></li>
+							style="color: rgb(255, 255, 255);"> Тесты</span></a>
+                </li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
@@ -105,153 +107,148 @@
 			<div class="media-container-row">
 
 				<c:forEach items="${task}" var="item">
-            <div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
-                <div class="plan-header text-center pt-5">
-                    <h3 class="plan-title mbr-fonts-style display-5">
-                    ID группы<br>
-                        ${item.getGroup().getMentor().getName()}
-                    </h3>
-                    <div class="plan-price">
-                    <h3 class="plan-title mbr-fonts-style display-5">
-                    Вопросов
-                    </h3>
-                        <span class="price-figure mbr-fonts-style display-1">
-                              ${item.getTest().getQuestions().size()}</span>
-                    </div>
-                </div>
-                <div class="plan-body pb-5">
-                    <div class="plan-list align-center">
-                        <ul class="list-group list-group-flush mbr-fonts-style display-7">
-                        <li class="list-group-item">
-                                Тема
-                            </li>
-                            <li class="list-group-item">
-                                ${item.getTest().getTheme()}
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <form action="MainServlet" method="get">
-                    <div class="mbr-section-btn text-center pt-4"><a href="http://localhost:8080/testyourself/MainServlet?action=start_task&task_id=${item.getId()}" class="btn btn-black-outline display-4">Выполнить задание</a></div>
-                </form>
-                </div>
-            </div>
-</c:forEach>
+					<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
+						<div class="plan-header text-center pt-5">
+							<h3 class="plan-title mbr-fonts-style display-5">
+								ID группы<br> ${item.getGroup().getMentor().getName()}
+							</h3>
+							<div class="plan-price">
+								<h3 class="plan-title mbr-fonts-style display-5">Вопросов</h3>
+								<span class="price-figure mbr-fonts-style display-1">
+									${item.getTest().getQuestions().size()}</span>
+							</div>
+						</div>
+						<div class="plan-body pb-5">
+							<div class="plan-list align-center">
+								<ul
+									class="list-group list-group-flush mbr-fonts-style display-7">
+									<li class="list-group-item">Тема</li>
+									<li class="list-group-item">${item.getTest().getTheme()}</li>
+
+								</ul>
+							</div>
+							<form action="MainServlet" method="get">
+								<div class="mbr-section-btn text-center pt-4">
+									<input type="hidden" name="action" value="start_task" /><input
+										type="hidden" name="task_id" value="${item.getId()}">
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Выполнить
+										задание</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
-	
-	
-	
+
+
+
 	<section class="cid-qPBrzyztHT" id="pricing-tables1-k">
 		<div class="container">
 			<div class="media-container-row">
 
 				<c:forEach items="${list}" var="item">
-            <div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
-                <div class="plan-header text-center pt-5">
-                    <h3 class="plan-title mbr-fonts-style display-5">
-                    ID теста<br>
-                        ${item.getId()}
-                    </h3>
-                    <div class="plan-price">
-                    <h3 class="plan-title mbr-fonts-style display-5">
-                    Вопросов
-                    </h3>
-                        <span class="price-figure mbr-fonts-style display-1">
-                              ${item.getQuestions().size()}</span>
-                    </div>
-                </div>
-                <div class="plan-body pb-5">
-                    <div class="plan-list align-center">
-                        <ul class="list-group list-group-flush mbr-fonts-style display-7">
-                        <li class="list-group-item">
-                                Тема
-                            </li>
-                            <li class="list-group-item">
-                                ${item.getTheme()}
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <form action="MainServlet" method="get">
-                    <div class="mbr-section-btn text-center pt-4"><a href="http://localhost:8080/testyourself/MainServlet?action=start_test&test_id=${item.getId()}" class="btn btn-black-outline display-4">Пройти тест</a></div>
-                </form>
-                </div>
-            </div>
-</c:forEach>
+					<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
+						<div class="plan-header text-center pt-5">
+							<h3 class="plan-title mbr-fonts-style display-5">
+								ID теста<br> ${item.getId()}
+							</h3>
+							<div class="plan-price">
+								<h3 class="plan-title mbr-fonts-style display-5">Вопросов</h3>
+								<span class="price-figure mbr-fonts-style display-1">
+									${item.getQuestions().size()}</span>
+							</div>
+						</div>
+						<div class="plan-body pb-5">
+							<div class="plan-list align-center">
+								<ul
+									class="list-group list-group-flush mbr-fonts-style display-7">
+									<li class="list-group-item">Тема</li>
+									<li class="list-group-item">${item.getTheme()}</li>
+
+								</ul>
+							</div>
+							<form action="MainServlet" method="get">
+								<div class="mbr-section-btn text-center pt-4">
+									<input type="hidden" name="action" value="start_test" /><input
+										type="hidden" name="test_id" value="${item.getId()}">
+									<button type="submit"
+										class="btn btn-sm btn-black-outline display-4">Пройти
+										тест</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 		</div>
 	</section>
 
 	<section class="counters1 counters cid-qOgRnHk59K" id="counters1-4">
-    <div class="container">
-        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-            Счетчики
-        </h2>
-        
-
-        <div class="container pt-4 mt-2">
-            <div class="media-container-row">
-                <div class="card p-3 align-center col-12 col-md-6 col-lg-4">
-                    <div class="panel-item p-3">
-                        <div class="card-img pb-3">
-                            <span class="mbr-iconfont mbri-users" style="color: rgb(35, 35, 35);"></span>
-                        </div>
-
-                        <div class="card-text">
-                            <h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
-                                  100
-                            </h3>
-                            
-                            <p class="mbr-content-text mbr-fonts-style display-7">
-                                текст
-                            </p>
-                        </div>
-                    </div>
-                </div>
+		<div class="container">
+			<h2
+				class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
+				Счетчики</h2>
 
 
-                <div class="card p-3 align-center col-12 col-md-6 col-lg-4">
-                    <div class="panel-item p-3">
-                        <div class="card-img pb-3">
-                            <span class="mbr-iconfont mbri-question" style="color: rgb(35, 35, 35);"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
-                                  ${question_count}
-                            </h3>
-                            
-                            <p class="mbr-content-text mbr-fonts-style display-7">
-                                    Вопросов
-                            </p>
-                        </div>
-                    </div>
-                </div>
+			<div class="container pt-4 mt-2">
+				<div class="media-container-row">
+					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
+						<div class="panel-item p-3">
+							<div class="card-img pb-3">
+								<span class="mbr-iconfont mbri-users"
+									style="color: rgb(35, 35, 35);"></span>
+							</div>
 
-                <div class="card p-3 align-center col-12 col-md-6 col-lg-4">
-                    <div class="panel-item p-3">
-                        <div class="card-img pb-3">
-                            <span class="mbr-iconfont mbri-like" style="color: rgb(35, 35, 35);"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
-                                  300
-                            </h3>
-                            
-                            <p class="mbr-content-text mbr-fonts-style display-7">
-                                    текст
-                            </p>
-                        </div>
-                    </div>
-                </div>
+							<div class="card-text">
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">100</h3>
+
+								<p class="mbr-content-text mbr-fonts-style display-7">текст
+								</p>
+							</div>
+						</div>
+					</div>
 
 
-                
-            </div>
-        </div>
-   </div>
-</section>
+					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
+						<div class="panel-item p-3">
+							<div class="card-img pb-3">
+								<span class="mbr-iconfont mbri-question"
+									style="color: rgb(35, 35, 35);"></span>
+							</div>
+							<div class="card-text">
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
+									${question_count}</h3>
+
+								<p class="mbr-content-text mbr-fonts-style display-7">
+									Вопросов</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
+						<div class="panel-item p-3">
+							<div class="card-img pb-3">
+								<span class="mbr-iconfont mbri-like"
+									style="color: rgb(35, 35, 35);"></span>
+							</div>
+							<div class="card-text">
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">300</h3>
+
+								<p class="mbr-content-text mbr-fonts-style display-7">текст
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section once="" class="cid-qPBrzBKwj8 mbr-reveal" id="footer7-m">
 

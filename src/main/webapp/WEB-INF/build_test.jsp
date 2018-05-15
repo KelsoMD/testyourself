@@ -111,10 +111,13 @@
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getId()}</td>
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getText()}</td>
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getAuthor().getLogin()}</td>
-										<td class="body-item mbr-fonts-style display-7"><a
-											href="http://localhost:8080/testyourself/MainServlet?action=delete_question&question_id=${recentQuestion.getId()}"
-											class="btn btn-black-outline display-4">Удалить</a><a target="_blank" 
-											href="http://localhost:8080/testyourself/MainServlet?action=preview_user&question_id=${recentQuestion.getId()}"
+										<td class="body-item mbr-fonts-style display-7">
+										<!-- http://testyourself.mycloud.by -->
+										<a
+											href="${applicationScope.temporaryUrl}MainServlet?action=delete_question&question_id=${recentQuestion.getId()}"
+											class="btn btn-black-outline display-4">Удалить</a><a
+											target="_blank"
+											href="${applicationScope.temporaryUrl}MainServlet?action=preview_user&question_id=${recentQuestion.getId()}"
 											class="btn btn-black-outline display-4">См.</a></td>
 									</tr>
 								</tbody>
@@ -122,10 +125,10 @@
 						</table>
 					</div>
 					<div class="mbr-section-btn text-center pt-4">
-							<input type="hidden" name="action" value="create_test" />
-							<button type="submit"
-								class="btn btn-sm btn-black-outline display-4">Создать</button>
-						</div>
+						<input type="hidden" name="action" value="create_test" />
+						<button type="submit"
+							class="btn btn-sm btn-black-outline display-4">Создать</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -153,11 +156,25 @@
 									<td class="body-item mbr-fonts-style display-7">${question.getId()}</td>
 									<td class="body-item mbr-fonts-style display-7">${question.getText()}</td>
 									<td class="body-item mbr-fonts-style display-7">${question.getAuthor().getLogin()}</td>
-									<td class="body-item mbr-fonts-style display-7"><a
-										href="http://localhost:8080/testyourself/MainServlet?action=add_question&question_id=${question.getId()}"
-										class="btn btn-black-outline display-4">Добавить</a><a target="_blank"
-											href="http://localhost:8080/testyourself/MainServlet?action=preview_user&question_id=${question.getId()}"
-											class="btn btn-black-outline display-4">См.</a></td>
+									<td class="body-item mbr-fonts-style display-7">
+
+										<form action="MainServlet" method="get">
+										
+												<input type="hidden" name="action" value="add_question" /><input
+													type="hidden" name="question_id" value="${question.getId()}">
+												<button type="submit"
+													class="btn btn-sm btn-black-outline display-4">Добавить</button>
+											
+										</form>
+										<form action="MainServlet" method="get">
+											
+												<input type="hidden" name="action" value="preview_user" /><input
+													type="hidden" name="question_id" value="${question.getId()}">
+												<button type="submit"
+													class="btn btn-sm btn-black-outline display-4" formtarget="_blank">См.</button>
+											
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</c:forEach>
