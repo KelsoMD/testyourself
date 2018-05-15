@@ -60,10 +60,9 @@
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="${applicationScope.temporaryUrl}MainServlet?action=switch_search_page">
-                    <span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span></a>
-                </li>
+							<span class="mbri-search mbr-iconfont mbr-iconfont-btn"
+							style="color: rgb(255, 255, 255);"> Тесты</span>
+					</a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="https://mobirise.com"><span
@@ -173,7 +172,7 @@
 							<form action="MainServlet" method="get">
 								<div class="mbr-section-btn text-center pt-4">
 									<input type="hidden" name="action" value="start_test" /><input
-										type="hidden" name="test_id" value="${item.getId()}">
+										type="hidden" name="test_id" value="${item.getId()}" />
 									<button type="submit"
 										class="btn btn-sm btn-black-outline display-4">Пройти
 										тест</button>
