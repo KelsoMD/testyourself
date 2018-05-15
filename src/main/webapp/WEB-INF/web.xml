@@ -34,7 +34,7 @@
 	<context-param>
         <param-name>temporaryUrl</param-name>
         <param-value>http://testyourself.mycloud.by/</param-value>
-        <!-- http://testyourself.mycloud.by -->
+        <!-- http://testyourself.mycloud.by/   http://localhost:8080/testyourself/-->
     </context-param>
 
 
