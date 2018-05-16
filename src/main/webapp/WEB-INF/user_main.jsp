@@ -29,67 +29,9 @@
 
 </head>
 <body>
-	<section class="menu cid-qPBrzxK6qz" once="menu" id="menu1-j">
-
-
-
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="${applicationScope.temporaryUrl}MainServlet?action=switch_search_page">
-							<span class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span>
-					</a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"> </a></li>
-				</ul>
-			</div>
-		</nav>
-	</section>
+	<c:import url="user_header.jsp"></c:import>
 	<section class="mbr-section article content10 cid-qPBrzx6fTJ"
 		id="content10-i">
-
-
-
 		<div class="container">
 			<div class="inner-container" style="width: 83%;">
 				<hr class="line" style="width: 27%;">
@@ -126,7 +68,7 @@
 
 								</ul>
 							</div>
-							<form action="MainServlet" method="get">
+							<form action="not_implemented" method="get">
 								<div class="mbr-section-btn text-center pt-4">
 									<input type="hidden" name="action" value="start_task" /><input
 										type="hidden" name="task_id" value="${item.getId()}">
@@ -214,7 +156,8 @@
 					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
 						<div class="panel-item p-3">
 							<div class="card-img pb-3">
-								<span class="mbr-iconfont mbri-question" style="color: rgb(35, 35, 35);"></span>
+								<span class="mbr-iconfont mbri-question"
+									style="color: rgb(35, 35, 35);"></span>
 							</div>
 							<div class="card-text">
 								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
@@ -240,24 +183,13 @@
 							</div>
 						</div>
 					</div>
-
-
-
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<section once="" class="cid-qPBrzBKwj8 mbr-reveal" id="footer7-m">
-
-
-
-
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
-
-
 				<div class="row row-copirayt">
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
@@ -266,6 +198,7 @@
 			</div>
 		</div>
 	</section>
+
 
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>

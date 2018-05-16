@@ -65,6 +65,7 @@ public final class WebConstantPool {
 	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
 	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/moderate_questions.jsp";
 	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview_moderator.jsp";
+	public static final String PAGE_NOT_IMPL = "notimplemented";
 	
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";

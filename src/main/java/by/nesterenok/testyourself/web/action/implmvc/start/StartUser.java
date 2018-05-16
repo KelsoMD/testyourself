@@ -1,4 +1,4 @@
-package by.nesterenok.testyourself.web.action.implmvc;
+package by.nesterenok.testyourself.web.action.implmvc.start;
 
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_LIST;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTION_COUNT;

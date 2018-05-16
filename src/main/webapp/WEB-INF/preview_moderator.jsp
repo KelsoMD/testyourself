@@ -32,61 +32,7 @@
 
 </head>
 <body>
-	<section class="menu cid-qOIWcb0pgA" once="menu" id="menu1-c">
-
-
-
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4"
-						href="https://mobirise.com">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown nav-right"
-					data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);">Глллавна</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-video mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-sites mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-				</ul>
-
-			</div>
-		</nav>
-	</section>
+	<c:import url="moderator_header.jsp"></c:import>
 
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
 		<form action="MainServlet" method="post">
@@ -100,7 +46,7 @@
 				<c:if test="${not empty image}">
 					<h3
 						class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-						<img alt="image" src="${image}">
+						<img alt="image" src="${image}" height="300px">
 					</h3>
 					<label class="form-control-label mbr-fonts-style display-7">Ссылка</label>
 					<input type="text" class="form-control" name="image_link"
@@ -146,7 +92,7 @@
 			</div>
 		</form>
 	</section>
-
+<c:import url="footer.jsp"></c:import>
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>

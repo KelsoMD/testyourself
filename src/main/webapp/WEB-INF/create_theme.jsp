@@ -31,70 +31,7 @@
 
 </head>
 <body>
-	<section class="menu cid-qOgR2eKv8N" once="menu" id="menu1-u">
-
-
-
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4"
-						href="https://mobirise.com">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"> </a></li>
-				</ul>
-				<div class="navbar-buttons mbr-section-btn">
-					<a class="btn btn-sm btn-black-outline display-4"
-						href="https://mobirise.com"> Попробовать! </a>
-				</div>
-			</div>
-		</nav>
-	</section>
-
-	<section class="engine">
-		<a href="https://mobiriz.store/">современный конструктор boostrap</a>
-	</section>
+	<c:import url="user_header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 		<div class="container">
 			<div class="row justify-content-center">

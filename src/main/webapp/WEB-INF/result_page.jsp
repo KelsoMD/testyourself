@@ -32,71 +32,16 @@
 
 </head>
 <body>
-	<section class="menu cid-qOIWcb0pgA" once="menu" id="menu1-c">
-
-
-
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4"
-						href="https://mobirise.com">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown nav-right"
-					data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);">Глллавна</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-video mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-sites mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"></span> </a></li>
-				</ul>
-
-			</div>
-		</nav>
-	</section>
-
+	<c:import url="user_header.jsp"></c:import>
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
 		<h2
 			class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">${pass_msg}</h2>
 		<h3
-			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">Your mark is ${mark}
-		</h3>
+			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">Your
+			mark is ${mark}</h3>
 		<form action="MainServlet" method="post">
-		<input type="hidden" name="test" value="${test}"/>
-		<input type="hidden" name="mark" value="${mark}"/>
+			<input type="hidden" name="test" value="${test}" /> <input
+				type="hidden" name="mark" value="${mark}" />
 			<c:forEach items="${answer_map}" var="entry">
 
 				<div class="container container-table">
@@ -113,12 +58,13 @@
 					<div class="table-wrapper">
 						<div class="container scroll">
 							<table class="table isSearch" cellspacing="0">
-							<thead>
-								<tr class="table-heads ">
-									<th class="head-item mbr-fonts-style display-7">Правильный ответ</th>
-									<th class="head-item mbr-fonts-style display-7">Ваш ответ</th>
-								</tr>
-							</thead>
+								<thead>
+									<tr class="table-heads ">
+										<th class="head-item mbr-fonts-style display-7">Правильный
+											ответ</th>
+										<th class="head-item mbr-fonts-style display-7">Ваш ответ</th>
+									</tr>
+								</thead>
 								<tbody>
 									<tr>
 										<td class="body-item mbr-fonts-style display-7">
@@ -134,13 +80,12 @@
 
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-			<button type="submit"
-						class="btn btn-sm btn-black-outline display-4">Выйти</button>
+				<button type="submit" class="btn btn-sm btn-black-outline display-4">Выйти</button>
 				<input type="hidden" name="action" value="exit_results" />
 			</div>
 		</form>
 	</section>
-
+	<c:import url="footer.jsp"></c:import>
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>

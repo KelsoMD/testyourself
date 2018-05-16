@@ -32,62 +32,8 @@
 
 </head>
 <body>
-	<section class="menu cid-qPBrzxK6qz" once="menu" id="menu1-j">
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_search_page"><span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"> </a></li>
-				</ul>
-			</div>
-		</nav>
-	</section>
+	<c:import url="user_header.jsp"></c:import>
 	<section class="section-table cid-qR017JJDq7" id="table1-t">
-
-
-
 		<div class="container container-table">
 
 			<h3

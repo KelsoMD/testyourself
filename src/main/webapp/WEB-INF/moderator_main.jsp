@@ -29,61 +29,7 @@
 
 </head>
 <body>
-	<section class="menu cid-qPBrzxK6qz" once="menu" id="menu1-j">
-
-
-
-		<nav
-			class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<div class="hamburger">
-					<span></span> <span></span> <span></span> <span></span>
-				</div>
-			</button>
-			<div class="menu-logo">
-				<div class="navbar-brand">
-
-					<span class="navbar-caption-wrap"><a
-						class="navbar-caption text-white display-4">TEST YOURSELF</a></span>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="http://localhost:8080/testyourself/MainServlet?action=switch_search_page"><span
-							class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"><span
-							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
-					<li class="nav-item"><a
-						class="nav-link link text-white display-4"
-						href="https://mobirise.com"> </a></li>
-				</ul>
-			</div>
-		</nav>
-	</section>
+	<c:import url="moderator_header.jsp"></c:import>
 	<section class="mbr-section article content10 cid-qPBrzx6fTJ"
 		id="content10-i">
 
@@ -124,27 +70,6 @@
 						</form>
 					</div>
 				</div>
-
-				<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
-					<div class="plan-header text-center pt-5">
-						<h3 class="plan-title mbr-fonts-style display-5">Новые тесты
-						</h3>
-						<div class="plan-price">
-							<span class="price-figure mbr-fonts-style display-1">
-								${new_tests}</span>
-						</div>
-					</div>
-					<div class="plan-body pb-5">
-						<form action="MainServlet" method="get">
-							<div class="mbr-section-btn text-center pt-4">
-							<input type="hidden" name="action" value="moderate_tests" />
-									<button type="submit"
-										class="btn btn-sm btn-black-outline display-4">Перейти</button>
-							</div>
-						</form>
-					</div>
-				</div>
-
 				<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 					<div class="plan-header text-center pt-5">
 						<h3 class="plan-title mbr-fonts-style display-5">Новые темы</h3>
@@ -154,7 +79,7 @@
 						</div>
 					</div>
 					<div class="plan-body pb-5">
-						<form action="MainServlet" method="get">
+						<form action="not_implemented" method="get">
 							<div class="mbr-section-btn text-center pt-4">
 							<input type="hidden" name="action" value="moderate_theme" />
 									<button type="submit"
@@ -167,19 +92,7 @@
 			</div>
 		</div>
 	</section>
-	<section once="" class="cid-qPBrzBKwj8 mbr-reveal" id="footer7-m">
-		<div class="container">
-			<div class="media-container-row align-center mbr-white">
-				<div class="row row-copirayt">
-					<p
-						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
+	<c:import url="footer.jsp"></c:import>
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>
 	<script src="assets/tether/tether.min.js"></script>
@@ -189,8 +102,6 @@
 	<script src="assets/dropdown/js/script.min.js"></script>
 	<script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
 	<script src="assets/theme/js/script.js"></script>
-
-
 	<input name="animation" type="hidden">
 </body>
 </html>
