@@ -72,7 +72,7 @@
 							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/mentor/groups"/>"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
 				</ul>

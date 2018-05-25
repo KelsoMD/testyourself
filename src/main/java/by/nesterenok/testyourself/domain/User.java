@@ -2,13 +2,14 @@ package by.nesterenok.testyourself.domain;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class User extends Entity{
 	
-	private static final long serialVersionUID = -6591019673352952065L;
+	private static final long serialVersionUID = -1552020003327292098L;
 	private String login;
 	private String password;
 	private String name;
@@ -17,7 +18,7 @@ public class User extends Entity{
 	private File avatar; 
 	private String role;
 	private String theme;
-	private List<Group> group;
+	private Set<Group> group;
 	public User() {
 		super();
 	}
@@ -30,7 +31,7 @@ public class User extends Entity{
 		this.password = password;
 	}
 	public User(String name, String surname, String eMail, File avatar, String role,
-			String theme, List<Group> group) {
+			String theme, Set<Group> group) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -53,7 +54,7 @@ public class User extends Entity{
 	
 	
 	public User(int id, String name, String surname, String eMail, File avatar, String role,
-			String theme, List<Group> group) {
+			String theme, Set<Group> group) {
 		super(id);
 		this.name = name;
 		this.surname = surname;
@@ -111,10 +112,10 @@ public class User extends Entity{
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public List<Group> getGroup() {
+	public Set<Group> getGroup() {
 		return group;
 	}
-	public void setGroup(List<Group> group) {
+	public void setGroup(Set<Group> group) {
 		this.group = group;
 	}
 	@Override

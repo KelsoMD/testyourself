@@ -51,12 +51,12 @@
 				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="${applicationScope.temporaryUrl}not_implemented"><span
+						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="${applicationScope.temporaryUrl}not_implemented"><span
+						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
 				</ul>

@@ -20,7 +20,6 @@ public class UserDaoHibernateImpl implements UserDao{
 	public User read(int id) {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();
 		User user = (User) session.get(User.class, id);
-		
 		return user;
 	}
 

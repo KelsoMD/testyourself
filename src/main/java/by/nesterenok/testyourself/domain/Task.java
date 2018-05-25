@@ -47,39 +47,47 @@ public class Task extends Entity{
 	public void setFinishTo(Date finishTo) {
 		this.finishTo = finishTo;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((finishTo == null) ? 0 : finishTo.hashCode());
-		result = prime * result + ((group == null) ? 0 : group.hashCode());
-		result = prime * result + ((test == null) ? 0 : test.hashCode());
 		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (!super.equals(obj))
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Task other = (Task) obj;
 		if (finishTo == null) {
-			if (other.finishTo != null)
+			if (other.finishTo != null) {
 				return false;
-		} else if (!finishTo.equals(other.finishTo))
+			}
+		} else if (!finishTo.equals(other.finishTo)) {
 			return false;
+		}
 		if (group == null) {
-			if (other.group != null)
+			if (other.group != null) {
 				return false;
-		} else if (!group.equals(other.group))
+			}
+		} else if (!group.equals(other.group)) {
 			return false;
+		}
 		if (test == null) {
-			if (other.test != null)
+			if (other.test != null) {
 				return false;
-		} else if (!test.equals(other.test))
+			}
+		} else if (!test.equals(other.test)) {
 			return false;
+		}
 		return true;
 	}
 	@Override

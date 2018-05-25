@@ -29,7 +29,11 @@
 	</bean>
 	<bean id="themeDao"
 		class="by.nesterenok.testyourself.dao.database.hbn.ThemeDaoHibernateImpl"
-		scope="singleton"/>
+		scope="singleton" />
+	<bean id="inviteDao"
+		class="by.nesterenok.testyourself.dao.database.hbn.InviteDaoHibernateImpl"
+		scope="singleton" />
+
 
 
 </beans>

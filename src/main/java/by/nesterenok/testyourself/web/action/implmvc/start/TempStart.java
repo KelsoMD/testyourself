@@ -30,6 +30,8 @@ public class TempStart{
 	private StartUser tempUserStart;
 	@Autowired
 	private StartModerator startModerator;
+	@Autowired
+	private StartMentor startMentor;
 
 	public void setUs(UserService us) {
 		this.us = us;
@@ -41,6 +43,10 @@ public class TempStart{
 	
 	public void setStartModerator(StartModerator startModerator) {
 		this.startModerator = startModerator;
+	}
+	
+	public void setStartMentor(StartMentor startMentor) {
+		this.startMentor = startMentor;
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -57,7 +63,7 @@ public class TempStart{
 				user = us.readUser();
 				user.setRole("mentor");
 				session.setAttribute("user", user);
-				return null;
+				return startMentor.executeAction(user, model);
 			case "admin":
 				user = us.readUser();
 				user.setRole("admin");

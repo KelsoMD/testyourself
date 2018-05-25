@@ -38,6 +38,7 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_NEW_THEME_COUNT = "new_theme";
 	public static final String REQUEST_PARAM_QUESTIONS = "questions";
 	public static final String REQUEST_PARAM_IMAGE_LINK = "image_link";
+	public static final String REQUEST_PARAM_GROUPS =  "groups";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -49,6 +50,9 @@ public final class WebConstantPool {
 	
 	public static final String REQUEST_MAPPING_TEMP_START = "/temp_start_new";
 	public static final String REQUEST_MAPPING_START_USER = "/start_user_new";
+	
+	public static final String REQUEST_MAPPING_MENTOR = "mentor";
+	public static final String REQUEST_MAPPING_MENTOR_GROUPS = "/groups";
 	
 	
 	public static final String PAGE_INDEX =  "/WEB-INF/index.jsp";
@@ -65,7 +69,11 @@ public final class WebConstantPool {
 	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
 	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/moderate_questions.jsp";
 	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview_moderator.jsp";
+	
+	
 	public static final String PAGE_NOT_IMPL = "notimplemented";
+	public static final String PAGE_MENTOR_MAIN = "jsp/mentor/main";
+	public static final String PAGE_MENTOR_GROUPS = "jsp/mentor/groups";
 	
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";

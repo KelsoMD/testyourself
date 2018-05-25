@@ -132,4 +132,10 @@ public class GroupDBDaoImpl extends AbstractDBDao implements GroupDao {
 		return list;
 	}
 
+	@Override
+	public List<Group> readMentorGroups(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

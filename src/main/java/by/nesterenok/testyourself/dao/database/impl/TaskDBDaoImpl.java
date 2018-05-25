@@ -12,6 +12,7 @@ import by.nesterenok.testyourself.dao.TaskDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.Task;
 import by.nesterenok.testyourself.domain.Test;
+import by.nesterenok.testyourself.domain.User;
 
 public class TaskDBDaoImpl extends AbstractDBDao implements TaskDao {
 	
@@ -136,6 +137,12 @@ private static final  TaskDBDaoImpl instance = new TaskDBDaoImpl();
 			closeResultSet(rs);
 		}
 		return list;
+	}
+
+	@Override
+	public List<Task> readComplete4Tasks(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
