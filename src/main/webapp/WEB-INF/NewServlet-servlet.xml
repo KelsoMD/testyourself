@@ -13,7 +13,8 @@
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 	<mvc:resources mapping="mentor/assets/**" location="/assets/" />
-	<mvc:resources mapping="mentor/groups/assets/**" location="/assets/" />
+	<mvc:resources mapping="mentor/groups/assets/**"
+		location="/assets/" />
 	<context:component-scan base-package="by.nesterenok.testyourself.web.action.implmvc" />
 
 	<bean
@@ -21,6 +22,25 @@
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/locales/messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="fallbackToSystemLocale" value="false" />
+	</bean>
+	
+	<!-- <bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="ru" />
+	</bean>
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>-->
+	
+	
 
 </beans>
 

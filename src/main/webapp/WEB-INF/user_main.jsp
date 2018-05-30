@@ -191,6 +191,8 @@
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
+				<!-- <p><a href="?lang=en">EN</a></p>
+				<p><a href="?lang=ru">RU</a></p>-->
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
 						© Copyright 2017 Mobirise - Все права защищены</p>
