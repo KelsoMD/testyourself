@@ -58,6 +58,7 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_ETC = "mentor/tests";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_CREATE_THEME = "/create_theme";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_CREATE_QUESTION = "/create_question";
+	public static final String REQUEST_MAPPING_MENTOR_TESTS_CREATE_TEST = "/create_test";
 
 	public static final String REQUEST_MAPPING_USER = "user";
 
@@ -85,6 +86,7 @@ public final class WebConstantPool {
 	public static final String PAGE_MENTOR_TESTS = "jsp/mentor/tests";
 	public static final String PAGE_MENTOR_TESTS_CREATE_THEME = "jsp/mentor/create_theme";
 	public static final String PAGE_MENTOR_TESTS_CREATE_QUESTION = "jsp/mentor/create_question";
+	public static final String PAGE_MENTOR_TESTS_CREATE_TEST = "jsp/mentor/start_build_test";
 
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
