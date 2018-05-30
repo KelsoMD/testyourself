@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,14 +52,14 @@
 				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/mentor"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="${applicationScope.temporaryUrl}MainServlet?action=switch_search_page">
+						href="<c:url value="/mentor/tests"/>">
 							<span class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Тесты</span>
+							style="color: rgb(255, 255, 255);"> <spring:message code="tests" /></span>
 					</a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
@@ -74,7 +75,7 @@
 						class="nav-link link text-white display-4"
 						href="<c:url value="/mentor/groups"/>"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Группы</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message code="groups" /></span> </a></li>
 				</ul>
 			</div>
 		</nav>

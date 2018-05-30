@@ -29,7 +29,7 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="mbr-section article content10 cid-qPBrzx6fTJ"
 		id="content10-i">
 		<div class="container">
