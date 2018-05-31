@@ -3,6 +3,7 @@ package by.nesterenok.testyourself.service;
 import java.util.List;
 
 import by.nesterenok.testyourself.domain.Test;
+import lombok.NoArgsConstructor;
 
 public interface TestService {
 	

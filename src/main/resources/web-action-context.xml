@@ -22,7 +22,7 @@
 		scope="singleton">
 		<property name="rp" ref="resultParser" />
 	</bean>
-	<bean id="resultParser" class="by.nesterenok.testyourself.web.util.ResultParser"
+	<bean id="resultParser" class="by.nesterenok.testyourself.web.by.nesterenok.testyourself.service.util.ResultParser"
 		scope="singleton">
 		<property name="questionService" ref="questionService" />
 	</bean>

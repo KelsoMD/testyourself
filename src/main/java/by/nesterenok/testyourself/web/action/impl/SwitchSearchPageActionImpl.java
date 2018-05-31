@@ -29,7 +29,7 @@ public class SwitchSearchPageActionImpl implements BaseAction{
 		request.setAttribute(REQUEST_PARAM_TESTS, testService.readAll());
 		request.setAttribute(REQUEST_PARAM_THEMES, themeService.readThemes());
 		
-		return PAGE_USER_SEARCH;
+		return PAGE_USER_CREATE_QUESTION;
 	}
 
 }
