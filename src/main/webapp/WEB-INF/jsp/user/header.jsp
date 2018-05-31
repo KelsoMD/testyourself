@@ -57,7 +57,7 @@
 							style="color: rgb(255, 255, 255);"> </span> <spring:message code="main" /></a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="${applicationScope.temporaryUrl}MainServlet?action=switch_search_page">
+						href="<c:url value="/user/tests"/>">
 							<span class="mbri-search mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> <spring:message code="tests" /></span>
 					</a></li>

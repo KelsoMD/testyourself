@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,8 @@
 				<hr class="line" style="width: 27%;">
 				<div
 					class="section-text align-center mbr-white mbr-fonts-style display-5">
-					Какой-нибудь текст</div>
+					<spring:message code="welcome_msg" />
+				</div>
 				<hr class="line" style="width: 27%;">
 			</div>
 		</div>
@@ -51,10 +53,13 @@
 					<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 						<div class="plan-header text-center pt-5">
 							<h3 class="plan-title mbr-fonts-style display-5">
-								ID группы<br> ${item.getGroup().getMentor().getName()}
+								<spring:message code="group_id" />
+								<br> ${item.getGroup().getMentor().getName()}
 							</h3>
 							<div class="plan-price">
-								<h3 class="plan-title mbr-fonts-style display-5">Вопросов</h3>
+								<h3 class="plan-title mbr-fonts-style display-5">
+									<spring:message code="question_size" />
+								</h3>
 								<span class="price-figure mbr-fonts-style display-1">
 									${item.getTest().getQuestions().size()}</span>
 							</div>
@@ -63,18 +68,18 @@
 							<div class="plan-list align-center">
 								<ul
 									class="list-group list-group-flush mbr-fonts-style display-7">
-									<li class="list-group-item">Тема</li>
+									<li class="list-group-item"><spring:message code="theme" />Тема</li>
 									<li class="list-group-item">${item.getTest().getTheme()}</li>
 
 								</ul>
 							</div>
 							<form action="not_implemented" method="get">
 								<div class="mbr-section-btn text-center pt-4">
-									<input type="hidden" name="action" value="start_task" /><input
-										type="hidden" name="task_id" value="${item.getId()}">
+									<input type="hidden" name="task_id" value="${item.getId()}">
 									<button type="submit"
-										class="btn btn-sm btn-black-outline display-4">Выполнить
-										задание</button>
+										class="btn btn-sm btn-black-outline display-4">
+										<spring:message code="start_task" />
+									</button>
 								</div>
 							</form>
 						</div>
@@ -94,10 +99,13 @@
 					<div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
 						<div class="plan-header text-center pt-5">
 							<h3 class="plan-title mbr-fonts-style display-5">
-								ID теста<br> ${item.getId()}
+								<spring:message code="test_id" />
+								<br> ${item.getId()}
 							</h3>
 							<div class="plan-price">
-								<h3 class="plan-title mbr-fonts-style display-5">Вопросов</h3>
+								<h3 class="plan-title mbr-fonts-style display-5">
+									<spring:message code="question_size" />
+								</h3>
 								<span class="price-figure mbr-fonts-style display-1">
 									${item.getQuestions().size()}</span>
 							</div>
@@ -106,18 +114,16 @@
 							<div class="plan-list align-center">
 								<ul
 									class="list-group list-group-flush mbr-fonts-style display-7">
-									<li class="list-group-item">Тема</li>
+									<li class="list-group-item"><spring:message code="theme" /></li>
 									<li class="list-group-item">${item.getTheme()}</li>
 
 								</ul>
 							</div>
-							<form action="MainServlet" method="get">
+							<form action="user/tests/start_test" method="get">
 								<div class="mbr-section-btn text-center pt-4">
-									<input type="hidden" name="action" value="start_test" /><input
-										type="hidden" name="test_id" value="${item.getId()}" />
+									<input type="hidden" name="test_id" value="${item.getId()}" />
 									<button type="submit"
-										class="btn btn-sm btn-black-outline display-4">Пройти
-										тест</button>
+										class="btn btn-sm btn-black-outline display-4"><spring:message code="start_test" /></button>
 								</div>
 							</form>
 						</div>
@@ -131,7 +137,7 @@
 		<div class="container">
 			<h2
 				class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-				Счетчики</h2>
+				<spring:message code="counters" /></h2>
 
 
 			<div class="container pt-4 mt-2">
@@ -164,7 +170,7 @@
 									${question_count}</h3>
 
 								<p class="mbr-content-text mbr-fonts-style display-7">
-									Вопросов</p>
+									<spring:message code="question_size" /></p>
 							</div>
 						</div>
 					</div>
@@ -191,11 +197,11 @@
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
-				<!-- <p><a href="?lang=en">EN</a></p>
+					<!-- <p><a href="?lang=en">EN</a></p>
 				<p><a href="?lang=ru">RU</a></p>-->
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+						<spring:message code="mobirise" /></p>
 				</div>
 			</div>
 		</div>

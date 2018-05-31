@@ -67,6 +67,20 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_THEME = "/create_theme";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_QUESTION = "/create_question";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE = "/create_test_one";
+	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_TWO = "/create_test_two";
+
+	public static final String REQUEST_MAPPING_TEST_DELETE_QUESTION = "/delete_question";
+	public static final String REQUEST_MAPPING_TEST_ADD_QUESTION = "/add_question";
+	public static final String REQUEST_MAPPING_TEST_CREATE_TEST = "/create_test";
+	public static final String REQUEST_MAPPING_TEST_START_TEST = "/start_test";
+	public static final String REQUEST_MAPPING_TEST_SUJEST_THEME = "/sujest_theme";
+	public static final String REQUEST_MAPPING_TEST_SUJEST_QUESTION = "/sujest_question";
+	public static final String REQUEST_MAPPING_TEST_SEARCH_TEST = "/search_test";
+	public static final String REQUEST_MAPPING_TEST_PREVIEW = "/preview";
+	public static final String REQUEST_MAPPING_TEST_FINISH = "/finish";
+	public static final String REQUEST_MAPPING_TEST_SAVE_RESULT = "/save_result";
+
+
 
 	
 	public static final String PAGE_INDEX =  "/WEB-INF/index.jsp";
@@ -77,7 +91,7 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_CREATE_QUESTION = "/WEB-INF/jsp/user/create_question.jsp";
 	public static final String PAGE_USER_CREATE_THEME = "/WEB-INF/jsp/user/create_theme.jsp";
 	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/jsp/user/create_test_one.jsp";
-	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/jsp/user/build_test.jsp";
+	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/jsp/user/create_test_two.jsp";
 	public static final String PAGE_USER_PREVIEW = "/WEB-INF/jsp/user/preview.jsp";
 
 	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
@@ -94,13 +108,18 @@ public final class WebConstantPool {
 	public static final String PAGE_MENTOR_TESTS_CREATE_QUESTION = "jsp/mentor/create_question";
 	public static final String PAGE_MENTOR_TESTS_CREATE_TEST = "jsp/mentor/start_build_test";
 	public static final String PAGE_MENTOR_TESTS_TEST = "jsp/mentor/test_page";
+	public static final String PAGE_MENTOR_TESTS_CREATE_TEST_TWO = "jsp/mentor/create_test_two";
 	
 
 	public static final String PAGE_USER_MAIN = "jsp/user/main";
 	public static final String PAGE_USER_TESTS = "jsp/user/tests";
+	public static final String PAGE_USER_TEST_PAGE = "jsp/user/test_page";
 	public static final String PAGE_USER_TESTS_CREATE_THEME = "jsp/user/create_theme";
 	public static final String PAGE_USER_TESTS_CREATE_QUESTION = "jsp/user/create_question";
 	public static final String PAGE_USER_TESTS_CREATE_TEST_ONE = "jsp/user/create_test_one";
+	public static final String PAGE_USER_TESTS_CREATE_TEST_TWO = "jsp/user/create_test_two";
+	public static final String PAGE_USER_TESTS_PREVIEW = "jsp/user/preview_user";
+	public static final String PAGE_USER_TESTS_RESULT = "jsp/user/result_page";
 
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";

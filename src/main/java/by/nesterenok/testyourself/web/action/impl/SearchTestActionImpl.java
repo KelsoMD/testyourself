@@ -28,7 +28,7 @@ public class SearchTestActionImpl implements BaseAction {
 		List<Test> list = testService.searchTests(request.getParameter(REQUEST_PARAM_THEME), Integer.valueOf(request.getParameter(REQUEST_PARAM_LVL)));
 		request.setAttribute(REQUEST_PARAM_TESTS, list);
 		request.setAttribute(REQUEST_PARAM_THEMES, themeService.readThemes());
-		return PAGE_USER_SEARCH;
+		return PAGE_USER_CREATE_QUESTION;
 	}
 
 }

@@ -7,7 +7,7 @@
 	
 
 	<!-- Actions -->
-	<bean id="start_action"
+	<!-- <bean id="start_action"
 		class="by.nesterenok.testyourself.web.action.impl.StartActionImpl"
 		scope="singleton">
 		<property name="startService" ref="startService" />
@@ -148,6 +148,6 @@
 		class="by.nesterenok.testyourself.web.action.impl.AcceptQuestionActionImpl"
 		scope="singleton">
 		<property name="questionService" ref="questionService" />
-	</bean>
+	</bean>-->
 
 </beans>

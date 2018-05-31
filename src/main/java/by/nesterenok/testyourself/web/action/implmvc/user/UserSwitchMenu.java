@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value = REQUEST_MAPPING_USER)
 @SessionAttributes(SESSION_PARAM_USER)
-public class SwitchMenu {
+public class UserSwitchMenu {
 
     @Autowired
     private TestService testService;

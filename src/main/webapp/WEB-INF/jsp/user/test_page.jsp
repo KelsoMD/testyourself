@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Данный сайт сделан с помощью конструктора Mobirise v4.6.5, https://mobiriz.store -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
@@ -32,10 +32,10 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"/>
 
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-		<form action="MainServlet" method="get">
+		<form action="<c:url value="finish"/>" method="get">
 			<input type="hidden" name="test" value="${test}">
 			<c:forEach items="${test_questions}" var="question">
 
@@ -71,12 +71,23 @@
 
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-				<input type="hidden" name="action" value="finish_test" />
-				<button type="submit" class="btn btn-sm btn-black-outline display-4">Закончить</button>
+				<button type="submit" class="btn btn-sm btn-black-outline display-4"><spring:message code="finish"/> </button>
 			</div>
 		</form>
 	</section>
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+		<div class="container">
+			<div class="media-container-row align-center mbr-white">
+				<div class="row row-copirayt">
+					<!-- <p><a href="?lang=en">EN</a></p>
+				<p><a href="?lang=ru">RU</a></p>-->
+					<p
+						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+						<spring:message code="mobirise" /></p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>

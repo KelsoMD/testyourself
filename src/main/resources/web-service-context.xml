@@ -33,7 +33,9 @@
 	<bean id="resultService"
 		class="by.nesterenok.testyourself.service.impl.ResultServiceImpl"
 		scope="singleton">
-		<property name="resultDao" ref="resultDao"></property>
+		<property name="resultDao" ref="resultDao" />
+		<property name="questionDao" ref="questionDao" />
+		<property name="questionService" ref="questionService" />
 	</bean>
 
 	<bean id="taskService" class="by.nesterenok.testyourself.service.impl.TaskServiceImpl"

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,43 +32,42 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="title col-12 col-lg-8">
 					<h2
 						class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-						Предложите свою тему!</h2>
+						<spring:message code="sujest_your_theme" />
+					</h2>
 					<h3
 						class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-						Предложенная вами тема должна пройти модерацию в течение 2-х дней,
-						после чего вы сможете использовать ее для создания своих вопросов!</h3>
+						<spring:message code="create_theme_msg" />
+					</h3>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
-					<form class="mbr-form" action="MainServlet" method="post">
-						
+					<form class="mbr-form" action="sujest_theme" method="post">
+
 						<div class="form-group">
 							<h3
 								class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-								${theme_msg}
-							</h3>
+								${theme_msg}</h3>
 						</div>
 						<div class="row row-sm-offset">
 							<div class="form-group">
-								<label class="form-control-label mbr-fonts-style display-7">Напишите тему</label> <input type="text" class="form-control"
-									name="theme" required="required">
+								<label class="form-control-label mbr-fonts-style display-7"><spring:message code="write_theme" /></label> <input type="text" class="form-control" name="theme"
+									required="required">
 							</div>
 						</div>
-						<span class="input-group-btn"><input type=hidden
-							name="action" value="sujest_theme">
-						<button type="submit"
-								class="btn btn-form btn-black-outline display-4">Предложить
-								тему</button></span>
+						<span class="input-group-btn">
+							<button type="submit"
+								class="btn btn-form btn-black-outline display-4"><spring:message code="sujest_theme" /></button>
+						</span>
 					</form>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 				<div class="row row-copirayt">
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+						<spring:message code="mobirise" /></p>
 				</div>
 			</div>
 		</div>

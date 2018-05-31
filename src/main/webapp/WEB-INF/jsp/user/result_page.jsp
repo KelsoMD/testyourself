@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,14 +33,13 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
 		<h2
 			class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">${pass_msg}</h2>
 		<h3
-			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">Your
-			mark is ${mark}</h3>
-		<form action="MainServlet" method="post">
+			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5"><spring:message code="your_mark"/> ${mark}</h3>
+		<form action="save_result" method="post">
 			<input type="hidden" name="test" value="${test}" /> <input
 				type="hidden" name="mark" value="${mark}" />
 			<c:forEach items="${answer_map}" var="entry">
@@ -60,9 +60,8 @@
 							<table class="table isSearch" cellspacing="0">
 								<thead>
 									<tr class="table-heads ">
-										<th class="head-item mbr-fonts-style display-7">Правильный
-											ответ</th>
-										<th class="head-item mbr-fonts-style display-7">Ваш ответ</th>
+										<th class="head-item mbr-fonts-style display-7"><spring:message code="correct_answer"/></th>
+										<th class="head-item mbr-fonts-style display-7"><spring:message code="your_answer"/></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -80,12 +79,23 @@
 
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4">Выйти</button>
-				<input type="hidden" name="action" value="exit_results" />
+				<button type="submit" class="btn btn-sm btn-black-outline display-4"><spring:message code="exit"/></button>
 			</div>
 		</form>
 	</section>
-	<c:import url="footer.jsp"></c:import>
+		<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+		<div class="container">
+			<div class="media-container-row align-center mbr-white">
+				<div class="row row-copirayt">
+					<!-- <p><a href="?lang=en">EN</a></p>
+				<p><a href="?lang=ru">RU</a></p>-->
+					<p
+						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+						<spring:message code="mobirise" /></p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>

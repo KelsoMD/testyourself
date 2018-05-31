@@ -7,11 +7,13 @@ import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
 import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.User;
+import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -28,6 +30,11 @@ public class ResultServiceImpl implements ResultService{
 	private QuestionDao questionDao;
 	public void setQuestionDao(QuestionDao questionDao) {
 		this.questionDao = questionDao;
+	}
+	
+	private QuestionService questionService;
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
 	}
 
 	@Override
@@ -48,13 +55,12 @@ public class ResultServiceImpl implements ResultService{
 
 	@Override
 	public Map<Question, String> parseAnswers(String[] answers) {
-		Map<Question, String> map = Arrays.stream(answers).map(s -> { return s.split(REGEX);})
-
-//		for (int i = 0; i < answers.length; i++) {
-//			String[] pair = answers[i].split(REGEX);
-//			Question question = questionService.readQuestion(Integer.parseInt(pair[1]));
-//			map.put(question, pair[0].trim());
-//		}
+		Map<Question, String> map = new HashMap<>();
+		for (int i = 0; i < answers.length; i++) {
+			String[] pair = answers[i].split(REGEX);
+			Question question = questionService.readQuestion(Integer.parseInt(pair[1]));
+			map.put(question, pair[0].trim());
+		}
 		return map;
 	}
 

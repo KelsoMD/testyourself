@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 
 </head>
 <body>
-<c:import url="user_header.jsp"></c:import>
+<c:import url="header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 
 
@@ -53,7 +54,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
-					<form class="mbr-form" action="MainServlet" method="post">
+					<form class="mbr-form" action="sujest_question" method="post">
 						<div class="row row-sm-offset">
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
@@ -112,8 +113,7 @@
 									required="">
 							</div>
 						</div>
-						<span class="input-group-btn"><input type=hidden
-							name="action" value="sujest_question">
+						<span class="input-group-btn">
 						<button type="submit"
 								class="btn btn-form btn-black-outline display-4">Предложить
 								вопрос</button></span>

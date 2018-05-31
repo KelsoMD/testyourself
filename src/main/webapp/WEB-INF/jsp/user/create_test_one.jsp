@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -49,7 +50,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
-					<form class="mbr-form" action="MainServlet" method="get">
+					<form class="mbr-form" action="create_test_two" method="get">
 						<div class="row row-sm-offset">
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
