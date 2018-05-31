@@ -1,10 +1,5 @@
 package by.nesterenok.testyourself.web.action.implmvc.start;
 
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_LIST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTION_COUNT;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TASK;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,8 +13,10 @@ import by.nesterenok.testyourself.service.StartService;
 import by.nesterenok.testyourself.service.TaskService;
 import by.nesterenok.testyourself.service.TestService;
 
+import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
+
 @Controller
-@RequestMapping("start_user_new")
+@RequestMapping(REQUEST_MAPPING_USER)
 @SessionAttributes(SESSION_PARAM_USER)
 public class StartUser{
 
@@ -54,7 +51,7 @@ public class StartUser{
 			
 			model.addAttribute(REQUEST_PARAM_TASK, taskService.readUserTasks(user));
 		}
-		return "user_main";
+		return PAGE_USER_MAIN;
 	}
 
 }

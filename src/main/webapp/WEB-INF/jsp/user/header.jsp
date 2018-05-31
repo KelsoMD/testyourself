@@ -52,7 +52,7 @@
 				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/user"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> </span> <spring:message code="main" /></a></li>
 					<li class="nav-item"><a

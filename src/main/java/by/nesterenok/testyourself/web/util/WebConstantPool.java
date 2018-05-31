@@ -50,7 +50,7 @@ public final class WebConstantPool {
 	
 	public static final String REQUEST_MAPPING_TEMP_START = "/temp_start_new";
 	public static final String REQUEST_MAPPING_START_USER = "/start_user_new";
-	
+
 	public static final String REQUEST_MAPPING_MENTOR = "mentor";
 	public static final String REQUEST_MAPPING_MENTOR_GROUPS = "/groups";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS = "/tests";
@@ -62,19 +62,24 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_START_TEST = "/start_test";
 
 	public static final String REQUEST_MAPPING_USER = "user";
+	public static final String REQUEST_MAPPING_USER_TESTS = "/tests";
+	public static final String REQUEST_MAPPING_USER_TESTS_ETC = "user/tests";
+	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_THEME = "/create_theme";
+	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_QUESTION = "/create_question";
+	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE = "/create_test_one";
 
 	
 	public static final String PAGE_INDEX =  "/WEB-INF/index.jsp";
 	public static final String PAGE_TEST = "/WEB-INF/jsp/user/test_page.jsp";
 	public static final String PAGE_RESULT = "/WEB-INF/jsp/user/result_page.jsp";
 	public static final String PAGE_INDEX_TEMP = "/indextemp.jsp";
-	public static final String PAGE_USER_MAIN = "/WEB-INF/jsp/user/main.jsp";
-	public static final String PAGE_USER_SEARCH = "/WEB-INF/jsp/user/search.jsp";
+
 	public static final String PAGE_USER_CREATE_QUESTION = "/WEB-INF/jsp/user/create_question.jsp";
 	public static final String PAGE_USER_CREATE_THEME = "/WEB-INF/jsp/user/create_theme.jsp";
-	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/jsp/user/start_build_test.jsp";
+	public static final String PAGE_USER_CREATE_TEST_ST_ONE = "/WEB-INF/jsp/user/create_test_one.jsp";
 	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/jsp/user/build_test.jsp";
 	public static final String PAGE_USER_PREVIEW = "/WEB-INF/jsp/user/preview.jsp";
+
 	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
 	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/moderate_questions.jsp";
 	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview_moderator.jsp";
@@ -90,6 +95,13 @@ public final class WebConstantPool {
 	public static final String PAGE_MENTOR_TESTS_CREATE_TEST = "jsp/mentor/start_build_test";
 	public static final String PAGE_MENTOR_TESTS_TEST = "jsp/mentor/test_page";
 	
+
+	public static final String PAGE_USER_MAIN = "jsp/user/main";
+	public static final String PAGE_USER_TESTS = "jsp/user/tests";
+	public static final String PAGE_USER_TESTS_CREATE_THEME = "jsp/user/create_theme";
+	public static final String PAGE_USER_TESTS_CREATE_QUESTION = "jsp/user/create_question";
+	public static final String PAGE_USER_TESTS_CREATE_TEST_ONE = "jsp/user/create_test_one";
+
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
 	public static final String REDIRECT_URL_MODERATOR_QUESTIONS = "http://localhost:8080/testyourself/MainServlet?action=moderate_questions";
