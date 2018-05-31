@@ -19,7 +19,7 @@ import by.nesterenok.testyourself.service.GroupService;
 @Controller
 @RequestMapping(REQUEST_MAPPING_MENTOR)
 @SessionAttributes(REQUEST_PARAM_USER)
-public class SwitchMenu {
+public class MenuSwitcher {
 
     @Autowired
     private GroupService groupService;

@@ -26,9 +26,9 @@ public class GroupController {
 	@Autowired
 	private ThemeService themeService;
 	@Autowired
-	private SwitchMenu switchMenu;
+	private MenuSwitcher switchMenu;
 	
-	public void setSwitchmenu(SwitchMenu switchMenu) {
+	public void setSwitchmenu(MenuSwitcher switchMenu) {
 		this.switchMenu = switchMenu;
 	}
 

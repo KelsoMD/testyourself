@@ -32,7 +32,7 @@
 
 </head>
 <body>
-	<c:import url="header.jsp"></c:import>
+	<c:import url="header.jsp"/>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 		<div class="container">
 			<div class="row justify-content-center">
