@@ -70,7 +70,11 @@ public final class WebConstantPool {
 
 	public static final String REQUEST_MAPPING_USER = "user";
 	public static final String REQUEST_MAPPING_USER_TESTS = "/tests";
+	public static final String REQUEST_MAPPING_USER_GROUPS = "/groups";
 	public static final String REQUEST_MAPPING_USER_TESTS_ETC = "user/tests";
+	public static final String REQUEST_MAPPING_USER_GROUPS_ETC = "user/groups";
+	public static final String REQUEST_MAPPING_USER_GROUPS_FINISH_TASK = "/finish";
+	public static final String REQUEST_MAPPING_USER_GROUPS_START_TASK = "/start";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_THEME = "/create_theme";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_QUESTION = "/create_question";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE = "/create_test_one";
@@ -131,12 +135,14 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_TESTS = "jsp/user/tests";
 	public static final String PAGE_USER_INFO = "jsp/user/info";
 	public static final String PAGE_USER_TEST_PAGE = "jsp/user/test_page";
+	public static final String PAGE_USER_TASK_PAGE = "jsp/user/task_page";
 	public static final String PAGE_USER_TESTS_CREATE_THEME = "jsp/user/create_theme";
 	public static final String PAGE_USER_TESTS_CREATE_QUESTION = "jsp/user/create_question";
 	public static final String PAGE_USER_TESTS_CREATE_TEST_ONE = "jsp/user/create_test_one";
 	public static final String PAGE_USER_TESTS_CREATE_TEST_TWO = "jsp/user/create_test_two";
 	public static final String PAGE_USER_TESTS_PREVIEW = "jsp/user/preview_user";
 	public static final String PAGE_USER_TESTS_RESULT = "jsp/user/result_page";
+	public static final String PAGE_USER_GROUPS_RESULT = "jsp/user/task_result_page";
 
 	public static final String PAGE_GUEST_MAIN = "jsp/guest/main";
 	public static final String PAGE_GUEST_TESTS = "jsp/guest/tests";

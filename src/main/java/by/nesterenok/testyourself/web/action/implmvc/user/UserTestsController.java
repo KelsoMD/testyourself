@@ -1,51 +1,10 @@
 package by.nesterenok.testyourself.web.action.implmvc.user;
 
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_CREATE_THEME;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_CREATE_TEST_TWO;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_PREVIEW;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_RESULT;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TEST_PAGE;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_ADD_QUESTION;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_CREATE_TEST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_DELETE_QUESTION;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_FINISH;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_PREVIEW;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SAVE_RESULT;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SEARCH_TEST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_START_TEST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SUJEST_QUESTION;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SUJEST_THEME;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_USER_TESTS_ETC;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_NOT_PASSED;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_PASSED;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_THEME_EXISTS;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_ANSWER;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_ANSWER_MAP;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_IMAGE;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_LVL;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_MARK;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_PASS_MSG;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_ID;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_RECENT;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_TO_CHOOSE;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_SHUFFLED;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TESTS;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_ID;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_QUESTIONS;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEXT;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEMES;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME_MSG;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_TEST;
-import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
 
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -54,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
 import by.nesterenok.testyourself.domain.Test;
@@ -83,15 +41,19 @@ public class UserTestsController {
     public void setQuestionService(QuestionService questionService) {
         this.questionService = questionService;
     }
+
     public void setSwitchMenu(UserSwitchMenu switchMenu) {
         this.switchMenu = switchMenu;
     }
+
     public void setTestService(TestService testService) {
         this.testService = testService;
     }
+
     public void setThemeService(ThemeService themeService) {
         this.themeService = themeService;
     }
+
     public void setResultService(ResultService resultService) {
         this.resultService = resultService;
     }
@@ -107,21 +69,27 @@ public class UserTestsController {
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_DELETE_QUESTION, method = RequestMethod.GET)
-    public ModelAndView deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId, @ModelAttribute Test test) {
+    public ModelAndView deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId,
+                                       @ModelAttribute Test test) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
         Question question = questionService.readQuestion(questionId);
-        test.getQuestions().remove(question);
+        test.getQuestions()
+            .remove(question);
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
-        mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE, questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
+        mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
+            questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
         return mvn;
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_ADD_QUESTION, method = RequestMethod.GET)
-    public ModelAndView addQuestion(@ModelAttribute Test test, @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
+    public ModelAndView addQuestion(@ModelAttribute Test test,
+                                    @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
-        test.getQuestions().add(questionService.readQuestion(questionId));
+        test.getQuestions()
+            .add(questionService.readQuestion(questionId));
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
-        mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE, questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
+        mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
+            questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
         return mvn;
     }
 
@@ -152,7 +120,8 @@ public class UserTestsController {
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SEARCH_TEST, method = RequestMethod.GET)
-    public ModelAndView searchTests(@RequestParam(REQUEST_PARAM_THEME) String theme, @RequestParam(REQUEST_PARAM_LVL) int lvl) {
+    public ModelAndView searchTests(@RequestParam(REQUEST_PARAM_THEME) String theme,
+                                    @RequestParam(REQUEST_PARAM_LVL) int lvl) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS);
         mvn.addObject(REQUEST_PARAM_TESTS, testService.searchTests(theme, lvl));
         mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
@@ -171,14 +140,16 @@ public class UserTestsController {
         mvn.addObject(REQUEST_PARAM_SHUFFLED, question.getShuffledAnswers());
         return mvn;
     }
+
     @RequestMapping(value = REQUEST_MAPPING_TEST_FINISH, method = RequestMethod.GET)
-    public ModelAndView finishTest(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers, @RequestParam(REQUEST_PARAM_TEST) int testId){
+    public ModelAndView finishTest(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers,
+                                   @RequestParam(REQUEST_PARAM_TEST) int testId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_RESULT);
         Map<Question, String> answerMap = resultService.parseAnswers(answers);
         mvn.addObject(REQUEST_PARAM_ANSWER_MAP, answerMap);
         int mark = resultService.getMark(answerMap);
         mvn.addObject(REQUEST_PARAM_MARK, resultService.getMark(answerMap));
-        if(resultService.isPassed(mark)){
+        if (resultService.isPassed(mark)) {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_PASSED);
         } else {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_NOT_PASSED);
@@ -188,11 +159,13 @@ public class UserTestsController {
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SAVE_RESULT, method = RequestMethod.POST)
-    public ModelAndView saveResults(@RequestParam(REQUEST_PARAM_TEST) int testId, @RequestParam(REQUEST_PARAM_MARK) int mark, @ModelAttribute User user){
+    public ModelAndView saveResults(@RequestParam(REQUEST_PARAM_TEST) int testId,
+                                    @RequestParam(REQUEST_PARAM_MARK) int mark, @ModelAttribute User user) {
+        ModelAndView mnv = new ModelAndView(REDIRECT + "/" + REQUEST_MAPPING_USER);
         Test test = new Test(testId);
         boolean pass = mark > 70;
         Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
         resultService.createResult(result);
-        return switchMenu.switchTestsMenu();
+        return mnv;
     }
 }
