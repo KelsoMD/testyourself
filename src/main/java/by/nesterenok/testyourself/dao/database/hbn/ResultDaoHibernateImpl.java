@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import by.nesterenok.testyourself.dao.ResultDao;
 import by.nesterenok.testyourself.domain.Result;
 
+@Repository
 public class ResultDaoHibernateImpl implements ResultDao{
 
 	@Override

@@ -4,16 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import by.nesterenok.testyourself.dao.GroupDao;
 import by.nesterenok.testyourself.domain.Group;
-import by.nesterenok.testyourself.domain.Question;
-import by.nesterenok.testyourself.domain.Task;
 import by.nesterenok.testyourself.domain.User;
 
+@Repository
 public class GroupDaoHibernateImpl implements GroupDao{
 
 	@Override

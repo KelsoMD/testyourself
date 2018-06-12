@@ -2,6 +2,7 @@ package by.nesterenok.testyourself.web.action.implmvc.user;
 
 import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
 
+import by.nesterenok.testyourself.service.StartService;
 import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.service.ThemeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class UserSwitchMenu {
 
     @Autowired
     private ThemeService themeService;
+    
+    @Autowired
+    private StartService startService;
 
     @RequestMapping(value = REQUEST_MAPPING_USER_TESTS)
     public ModelAndView switchTestsMenu(){
@@ -28,4 +32,12 @@ public class UserSwitchMenu {
         mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
         return mvn;
     }
+    
+    @RequestMapping(value = REQUEST_MAPPING_INFO)
+    public ModelAndView switchInfoMenu(){
+        ModelAndView mvn = new ModelAndView(PAGE_USER_INFO);
+        mvn.addObject(REQUEST_PARAM_QUESTION_COUNT, startService.getQuestionCount());
+        return mvn;
+    }
+    
 }

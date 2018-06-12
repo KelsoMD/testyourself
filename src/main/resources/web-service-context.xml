@@ -5,7 +5,13 @@
 
 
 	<!-- Service -->
-	<bean id="testService" class="by.nesterenok.testyourself.service.impl.TestServiceImpl"
+
+	<!-- <bean id="userDetailsServiceImpl"
+		class="by.nesterenok.testyourself.web.action.implmvc.UserDetailServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>-->
+
+	<!-- <bean id="testService" class="by.nesterenok.testyourself.service.impl.TestServiceImpl"
 		scope="singleton">
 		<property name="testDao" ref="testDao" />
 	</bean>
@@ -53,6 +59,6 @@
 		class="by.nesterenok.testyourself.service.impl.GroupServiceImpl"
 		scope="singleton">
 		<property name="groupDao" ref="groupDao" />
-	</bean>
+	</bean>-->
 
 </beans>

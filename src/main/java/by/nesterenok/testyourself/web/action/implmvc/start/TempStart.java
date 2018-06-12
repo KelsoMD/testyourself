@@ -49,29 +49,30 @@ public class TempStart{
 		this.startMentor = startMentor;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	public String executeAction(@RequestParam(REQUEST_PARAM_ROLE) String role, HttpSession session, ModelMap model) {
 		if (role != null) {
 			User user = null;
+			System.out.println(role);
 			switch (role) {
-			case "user":
+			case "ROLE_USER":
 				user = us.readUser();
-				user.setRole("user");
+				user.setRole("ROLE_USER");
 				session.setAttribute("user", user);
-				return tempUserStart.executeAction(user, model);
-			case "mentor":
+				return tempUserStart.executeAction(model);
+			case "ROLE_MENTOR":
 				user = us.readUser();
-				user.setRole("mentor");
+				user.setRole("ROLE_MENTOR");
 				session.setAttribute("user", user);
 				return startMentor.executeAction(user, model);
-			case "admin":
+			case "ROLE_ADMIN":
 				user = us.readUser();
-				user.setRole("admin");
+				user.setRole("ROLE_ADMIN");
 				session.setAttribute("user", user);
 				return null;
-			case "moderator":
+			case "ROLE_MODERATOR":
 				user = us.readUser();
-				user.setRole("moderator");
+				user.setRole("ROLE_MODERATOR");
 				session.setAttribute("user", user);
 				return startModerator.executeAction(user, model);
 			default:

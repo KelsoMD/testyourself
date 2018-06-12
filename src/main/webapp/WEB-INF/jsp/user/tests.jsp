@@ -11,7 +11,7 @@
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>search</title>
+<title><spring:message code="tests" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -42,12 +42,10 @@
 					<a class="btn btn-sm btn-black-outline display-4"
 						href="<c:url value="/user/tests/create_test_one"/>"> <spring:message
 							code="create_test" />
-					</a>
-					<a class="btn btn-sm btn-black-outline display-4"
+					</a> <a class="btn btn-sm btn-black-outline display-4"
 						href="<c:url value="/user/tests/create_question"/>"><spring:message
-							code="create_question" />
-					</a>
-					<a class="btn btn-sm btn-black-outline display-4"
+							code="create_question" /> </a> <a
+						class="btn btn-sm btn-black-outline display-4"
 						href="<c:url value="/user/tests/create_theme"/>"> <spring:message
 							code="create_theme" />
 					</a>
@@ -58,7 +56,7 @@
 					<div class="row search">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-							<form action="tests/search_test" method="get">
+							<form action="search_test" method="get">
 								<div class="dataTables_filter">
 									<label class="searchInfo mbr-fonts-style display-7"><spring:message
 											code="theme" />:</label> <select class="form-control input-sm"
@@ -67,8 +65,9 @@
 											<option>${theme}</option>
 										</c:forEach>
 									</select> <label class="searchInfo mbr-fonts-style display-7"><spring:message
-											code="lvl" />Уровень:</label> <select class="form-control input-sm"
-										name="lvl">
+											code="lvl" />
+										<spring:message code="lvl" />:</label> <select
+										class="form-control input-sm" name="lvl">
 										<option>1</option>
 										<option>2</option>
 										<option>3</option>
@@ -112,7 +111,7 @@
 											action="start_test" method="get">
 											<input type="hidden" name="test_id" value="${test.getId()}" />
 											<button type="submit"
-												class="btn btn-sm btn-black-outline display-4" >
+												class="btn btn-sm btn-black-outline display-4">
 												<spring:message code="start_test" />
 											</button>
 										</form></td>
@@ -128,8 +127,10 @@
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
-					<!-- <p><a href="?lang=en">EN</a></p>
-				<p><a href="?lang=ru">RU</a></p>-->
+					<p>
+						<a href="?lang=en">EN </a>
+						<a href="?lang=ru_RU"> RU</a>
+					</p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
 						<spring:message code="mobirise" />

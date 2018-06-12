@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	version="2.5">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 	<display-name>index</display-name>
 	<welcome-file-list>
-		<welcome-file>tempstart_new.jsp</welcome-file>
-	</welcome-file-list>
+		<welcome-file>indextemp.jsp</welcome-file>
+	</welcome-file-list><!--
 	<servlet>
 		<description></description>
 		<display-name>MainServlet</display-name>
@@ -29,13 +29,17 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:web-context.xml</param-value>
+		<param-value>
+		classpath:web-context.xml
+		classpath:security-context.xml
+		</param-value>
 	</context-param>
+
+
 	<context-param>
-        <param-name>temporaryUrl</param-name>
-        <param-value>http://localhost:8080/testyourself/</param-value>
-        <!-- http://testyourself.mycloud.by/   http://localhost:8080/testyourself/-->
-    </context-param>
+		<param-name>temporaryUrl</param-name>
+		<param-value>http://localhost:8080/testyourself/</param-value>
+	</context-param>
 
 
 	<listener>
@@ -44,18 +48,18 @@
 	<listener>
 		<listener-class>by.nesterenok.testyourself.web.listener.WebSimpleListener</listener-class>
 	</listener>
-	
-	<filter>
-    <filter-name>Encoding Filter</filter-name>
-    <filter-class>by.nesterenok.testyourself.web.filter.EncodingFilter</filter-class>
-      <init-param>
-        <param-name>requestEncoding</param-name>
-        <param-value>UTF8</param-value>
-      </init-param>
-  </filter>
+	<filter> <filter-name>Encoding Filter</filter-name> <filter-class>by.nesterenok.testyourself.web.filter.EncodingFilter</filter-class> 
+		<init-param> <param-name>requestEncoding</param-name> <param-value>UTF8</param-value> 
+		</init-param> </filter> <filter-mapping> <filter-name>Encoding Filter</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping>
 
-  <filter-mapping>
-    <filter-name>Encoding Filter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+-->
 </web-app>

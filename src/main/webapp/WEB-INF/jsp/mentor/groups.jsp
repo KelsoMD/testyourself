@@ -60,7 +60,7 @@
 									<td class="body-item mbr-fonts-style display-7">${item.getTitle()}</td>
 									<td class="body-item mbr-fonts-style display-7">${item.getTheme()}</td>
 									<td class="body-item mbr-fonts-style display-7"><form
-											action="groups/group_info" method="get">
+											action="groups/group_info_tasks" method="get">
 											<input type="hidden" name="group_id" value="${item.getId()}" />
 											<button type="submit"
 												class="btn btn-sm btn-black-outline display-4">Меню группы</button>

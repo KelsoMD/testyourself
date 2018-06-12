@@ -15,6 +15,7 @@
 	<bean id="questionDao"
 		class="by.nesterenok.testyourself.dao.database.hbn.QuestionDaoHibernateImpl"
 		scope="singleton" />
+		
 	<bean id="userDao"
 		class="by.nesterenok.testyourself.dao.database.hbn.UserDaoHibernateImpl"
 		scope="singleton" />

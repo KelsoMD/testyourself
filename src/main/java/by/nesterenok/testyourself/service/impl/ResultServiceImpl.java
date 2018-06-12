@@ -10,6 +10,7 @@ import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -20,18 +21,22 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Service
 public class ResultServiceImpl implements ResultService{
 
+	@Autowired
 	private ResultDao resultDao;
 	public void setResultDao(ResultDao resultDao) {
 		this.resultDao = resultDao;
 	}
 
+	@Autowired
 	private QuestionDao questionDao;
 	public void setQuestionDao(QuestionDao questionDao) {
 		this.questionDao = questionDao;
 	}
 	
+	@Autowired
 	private QuestionService questionService;
 	public void setQuestionService(QuestionService questionService) {
 		this.questionService = questionService;

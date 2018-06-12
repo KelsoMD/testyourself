@@ -7,11 +7,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import by.nesterenok.testyourself.dao.ThemeDao;
-import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.Themes;
 
+@Repository
 public class ThemeDaoHibernateImpl implements ThemeDao{
 
 	@Override

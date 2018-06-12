@@ -11,7 +11,7 @@
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>search</title>
+<title><spring:message code="create_test" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -40,10 +40,10 @@
 				<div class="title col-12 col-lg-8">
 					<h2
 						class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-						Создайте свой тест!</h2>
+						<spring:message code="create_your_test" /></h2>
 					<h3
 						class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-						Выберите тему и уровень теста!</h3>
+						<spring:message code="choose_theme_lvl" /></h3>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 						<div class="row row-sm-offset">
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7">Тема</label>
+									<label class="form-control-label mbr-fonts-style display-7"><spring:message code="theme" /></label>
 									<select class="form-control input-sm" name="theme">
 										<c:forEach items="${themes}" var="theme">
 											<option>${theme}</option>
@@ -64,7 +64,7 @@
 							</div>
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7">Уровень</label>
+									<label class="form-control-label mbr-fonts-style display-7"><spring:message code="lvl" /></label>
 									<select class="form-control input-sm" name="lvl">
 										<option>1</option>
 										<option>2</option>
@@ -76,27 +76,21 @@
 						<span class="input-group-btn"><input type=hidden
 							name="action" value="start_build_test">
 						<button type="submit"
-								class="btn btn-form btn-black-outline display-4">Начать</button></span>
+								class="btn btn-form btn-black-outline display-4"><spring:message code="begin" /></button></span>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
-
-
-
-
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
-
-
 				<div class="row row-copirayt">
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+						<spring:message code="mobirise" /></p>
 				</div>
 			</div>
 		</div>

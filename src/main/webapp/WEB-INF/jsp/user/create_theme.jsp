@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Бесплатный конструктор сайтов Mobirise">
-<title>create_theme</title>
+<title><spring:message code="theme" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -74,12 +74,11 @@
 		</div>
 	</section>
 
-	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
-
-
 				<div class="row row-copirayt">
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
 						<spring:message code="mobirise" /></p>

@@ -31,8 +31,6 @@
 			<many-to-many column="question"
 				class="by.nesterenok.testyourself.domain.Question" />
 		</set>
-
-
 	</class>
 
 </hibernate-mapping>

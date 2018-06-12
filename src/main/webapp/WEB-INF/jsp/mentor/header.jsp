@@ -63,7 +63,7 @@
 					</a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/mentor/info"/>"><span
 							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
 					<li class="nav-item"><a

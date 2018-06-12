@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Бесплатный конструктор сайтов Mobirise">
-<title>test</title>
+<title><spring:message code="preview" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -32,37 +33,50 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-				<div class="container container-table">
+		<div class="container container-table">
 
-					<h2
-						class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-						${text}</h2>
-					<c:if test="${not empty image}">
-						<h3
-							class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-							<img alt="image" src="${image}" height="300px">
-						</h3>
-					</c:if>
-					<div class="table-wrapper">
-						<div class="container scroll">
+			<h2
+				class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
+				${text}</h2>
+			<c:if test="${not empty image}">
+				<h3
+					class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+					<img alt="image" src="${image}" height="300px">
+				</h3>
+			</c:if>
+			<div class="table-wrapper">
+				<div class="container scroll">
 
-							<table class="table isSearch" cellspacing="0">
-								<tbody>
-									<tr>
-										<c:forEach items="${shuffled}"
-											var="answers">
-											<td class="body-item mbr-fonts-style display-7">${answers}</td>
-										</c:forEach>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+					<table class="table isSearch" cellspacing="0">
+						<tbody>
+							<tr>
+								<c:forEach items="${shuffled}" var="answers">
+									<td class="body-item mbr-fonts-style display-7">${answers}</td>
+								</c:forEach>
+							</tr>
+						</tbody>
+					</table>
 				</div>
+			</div>
+		</div>
 	</section>
-	<c:import url="footer.jsp"></c:import>
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+		<div class="container">
+			<div class="media-container-row align-center mbr-white">
+				<div class="row row-copirayt">
+					<p>
+						<a href="?lang=en">EN </a> <a href="?lang=ru_RU"> RU</a>
+					</p>
+					<p
+						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+						<spring:message code="mobirise" />
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>

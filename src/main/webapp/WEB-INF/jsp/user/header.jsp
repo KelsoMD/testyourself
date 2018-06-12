@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,6 @@
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>user_main</title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -54,28 +53,38 @@
 						class="nav-link link text-white display-4"
 						href="<c:url value="/user"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> </span> <spring:message code="main" /></a></li>
+							style="color: rgb(255, 255, 255);"> </span> <spring:message
+								code="main" /></a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/user/tests"/>">
-							<span class="mbri-search mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> <spring:message code="tests" /></span>
+						href="<c:url value="/user/tests"/>"> <span
+							class="mbri-search mbr-iconfont mbr-iconfont-btn"
+							style="color: rgb(255, 255, 255);"> <spring:message
+									code="tests" /></span>
 					</a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/user/info"/>"><span
 							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> <spring:message code="info"/></span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+									code="info" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> <spring:message code="stats" /></span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+									code="stats" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> <spring:message code="groups" /></span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+									code="groups" /></span> </a></li>
+					<li class="nav-item"><a
+						class="nav-link link text-white display-4"
+						href="<c:url value="/logout"/>"><span
+							class="mbri-logout mbr-iconfont mbr-iconfont-btn"
+							style="color: rgb(255, 255, 255);">Logout</span> </a></li>
 				</ul>
 			</div>
 		</nav>

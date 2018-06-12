@@ -8,12 +8,12 @@
 <title>Choose role</title>
 </head>
 <body>
-	<form action="temp_start_new" method="get">
-		<input type="checkbox" name="role" value="user" />
+	<form action="temp_start_new" method="post">
+		<input type="checkbox" name="role" value="ROLE_USER" />
 		User
-		<input type="checkbox" name="role" value="mentor" />Mentor<input
-			type="checkbox" name="role" value="moderator" />Moder<input
-			type="checkbox" name="role" value="admin" />Admin<input type="submit"
+		<input type="checkbox" name="role" value="ROLE_MENTOR" />Mentor<input
+			type="checkbox" name="role" value="ROLE_MODERATOR" />Moder<input
+			type="checkbox" name="role" value="ROLE_ADMIN" />Admin<input type="submit"
 			value="temp start" />
 	</form>
 </body>

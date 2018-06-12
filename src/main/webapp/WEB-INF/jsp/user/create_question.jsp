@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Бесплатный конструктор сайтов Mobirise">
-<title>create_question</title>
+<title><spring:message code="create_question" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -32,7 +32,7 @@
 
 </head>
 <body>
-<c:import url="header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 
 
@@ -43,11 +43,12 @@
 				<div class="title col-12 col-lg-8">
 					<h2
 						class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-						Создайте свой вопрос!</h2>
+						<spring:message code="create_your_question" />
+					</h2>
 					<h3
 						class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-						Созданный вами вопрос должен пройти модерацию в течение 2-х дней,
-						после чего вы сможете добавить его в свой тест!</h3>
+						<spring:message code="create_your_question_msg" />
+					</h3>
 				</div>
 			</div>
 		</div>
@@ -58,8 +59,9 @@
 						<div class="row row-sm-offset">
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7">Тема</label>
-									<select class="form-control input-sm" name="theme">
+									<label class="form-control-label mbr-fonts-style display-7"><spring:message
+											code="theme" /></label> <select class="form-control input-sm"
+										name="theme">
 										<c:forEach items="${themes}" var="theme">
 											<option>${theme}</option>
 										</c:forEach>
@@ -68,8 +70,9 @@
 							</div>
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7">Уровень</label>
-									<select class="form-control input-sm" name="lvl">
+									<label class="form-control-label mbr-fonts-style display-7"><spring:message
+											code="lvl" /></label> <select class="form-control input-sm"
+										name="lvl">
 										<option>1</option>
 										<option>2</option>
 										<option>3</option>
@@ -80,63 +83,59 @@
 						<div class="form-group">
 							<h3
 								class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-								Для прикрепления изображения к вопросу, загрузите его по <a
-									target="_blank" href="http://ipic.su/">ссылке</a> и вставьте
-								ссылку на изображение в форму снизу
+								<spring:message code="link1" /> <a
+									target="_blank" href="http://ipic.su/"><spring:message code="link2" /></a><spring:message code="link3" />
 							</h3>
 							<input type="text" class="form-control" name="image">
 						</div>
 						<div class="form-group">
-							<label class="form-control-label mbr-fonts-style display-7">Текст
-								вопроса</label>
+							<label class="form-control-label mbr-fonts-style display-7"><spring:message
+									code="question_text" /></label>
 							<textarea type="text" class="form-control" name="text" rows="7"></textarea>
 						</div>
 						<div class="row row-sm-offset">
 							<div class="form-group">
-								<label class="form-control-label mbr-fonts-style display-7">Правильный
-									ответ</label> <input type="text" class="form-control"
-									name="correct_answer" required="">
+								<label class="form-control-label mbr-fonts-style display-7"><spring:message
+										code="correct_answer" /></label> <input type="text"
+									class="form-control" name="correct_answer" required="">
 							</div>
 							<div class="form-group">
-								<label class="form-control-label mbr-fonts-style display-7">Еще
-									вариант</label> <input type="text" class="form-control" name="answer1"
-									required="">
+								<label class="form-control-label mbr-fonts-style display-7"><spring:message
+										code="another_answer" /></label> <input type="text"
+									class="form-control" name="answer1" required="">
 							</div>
 							<div class="form-group">
-								<label class="form-control-label mbr-fonts-style display-7">Еще
-									вариант</label> <input type="text" class="form-control" name="answer2"
-									required="">
+								<label class="form-control-label mbr-fonts-style display-7"><spring:message
+										code="another_answer" /></label> <input type="text"
+									class="form-control" name="answer2" required="">
 							</div>
 							<div class="form-group">
-								<label class="form-control-label mbr-fonts-style display-7">Еще
-									вариант</label> <input type="text" class="form-control" name="answer3"
-									required="">
+								<label class="form-control-label mbr-fonts-style display-7"><spring:message
+										code="another_answer" /></label> <input type="text"
+									class="form-control" name="answer3" required="">
 							</div>
 						</div>
 						<span class="input-group-btn">
-						<button type="submit"
-								class="btn btn-form btn-black-outline display-4">Предложить
-								вопрос</button></span>
+							<button type="submit"
+								class="btn btn-form btn-black-outline display-4"><spring:message code="sujest_question" /></button>
+						</span>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
-
-
-
-
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
-
-
 				<div class="row row-copirayt">
+					<p>
+						<a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a>
+					</p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+						<spring:message code="mobirise" />
+					</p>
 				</div>
 			</div>
 		</div>

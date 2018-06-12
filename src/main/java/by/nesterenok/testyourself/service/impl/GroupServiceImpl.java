@@ -2,16 +2,19 @@ package by.nesterenok.testyourself.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import by.nesterenok.testyourself.dao.GroupDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.GroupService;
 
 
-//@Component
-//@Service child of Component
+@Service
 public class GroupServiceImpl implements GroupService{
 	
+	@Autowired
 	private GroupDao groupDao;
 	
 	public void setGroupDao(GroupDao groupDao) {

@@ -10,7 +10,7 @@
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>user_main</title>
+<title><spring:message code="main" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -68,7 +68,7 @@
 							<div class="plan-list align-center">
 								<ul
 									class="list-group list-group-flush mbr-fonts-style display-7">
-									<li class="list-group-item"><spring:message code="theme" />Тема</li>
+									<li class="list-group-item"><spring:message code="theme" /></li>
 									<li class="list-group-item">${item.getTest().getTheme()}</li>
 
 								</ul>
@@ -150,9 +150,9 @@
 							</div>
 
 							<div class="card-text">
-								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">100</h3>
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">No</h3>
 
-								<p class="mbr-content-text mbr-fonts-style display-7">текст
+								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="users" />
 								</p>
 							</div>
 						</div>
@@ -182,9 +182,9 @@
 									style="color: rgb(35, 35, 35);"></span>
 							</div>
 							<div class="card-text">
-								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">300</h3>
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">No</h3>
 
-								<p class="mbr-content-text mbr-fonts-style display-7">текст
+								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="passed_tests" />
 								</p>
 							</div>
 						</div>
@@ -197,8 +197,7 @@
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
-					<!-- <p><a href="?lang=en">EN</a></p>
-				<p><a href="?lang=ru">RU</a></p>-->
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
 						<spring:message code="mobirise" /></p>

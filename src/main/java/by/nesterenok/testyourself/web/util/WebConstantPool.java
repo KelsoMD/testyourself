@@ -20,6 +20,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_PASS_MSG = "pass_msg";
 	public static final String REQUEST_PARAM_ROLE = "role";
 	public static final String REQUEST_PARAM_TASK = "task";
+	public static final String REQUEST_PARAM_TASKS = "tasks";
+	public static final String REQUEST_PARAM_MEMBERS = "members";
 	public static final String REQUEST_PARAM_TEST = "test";
 	public static final String REQUEST_PARAM_USER = "user";
 	public static final String REQUEST_PARAM_TESTS = "tests";
@@ -39,6 +41,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_PARAM_QUESTIONS = "questions";
 	public static final String REQUEST_PARAM_IMAGE_LINK = "image_link";
 	public static final String REQUEST_PARAM_GROUPS =  "groups";
+	public static final String REQUEST_PARAM_GROUP =  "group";
+	public static final String REQUEST_PARAM_GROUP_ID =  "group_id";
 	
 	public static final String REQUEST_MSG_PASSED = "Test passed";
 	public static final String REQUEST_MSG_NOT_PASSED = "Test not passed";
@@ -53,6 +57,9 @@ public final class WebConstantPool {
 
 	public static final String REQUEST_MAPPING_MENTOR = "mentor";
 	public static final String REQUEST_MAPPING_MENTOR_GROUPS = "/groups";
+	public static final String REQUEST_MAPPING_MENTOR_GROUPS_CREATE_PAGE = "/create_page";
+	public static final String REQUEST_MAPPING_MENTOR_GROUPS_INFO_TASK = "/group_info_tasks";
+	public static final String REQUEST_MAPPING_MENTOR_GROUPS_INFO_MEMBERS = "/group_info_members";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS = "/tests";
 	public static final String REQUEST_MAPPING_MENTOR_GROUPS_ETC = "mentor/groups";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_ETC = "mentor/tests";
@@ -69,6 +76,9 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE = "/create_test_one";
 	public static final String REQUEST_MAPPING_USER_TESTS_CREATE_TEST_TWO = "/create_test_two";
 
+	public static final String REQUEST_MAPPING_GUEST = "guest";
+	public static final String REQUEST_MAPPING_GUEST_TESTS = "/tests";
+	
 	public static final String REQUEST_MAPPING_TEST_DELETE_QUESTION = "/delete_question";
 	public static final String REQUEST_MAPPING_TEST_ADD_QUESTION = "/add_question";
 	public static final String REQUEST_MAPPING_TEST_CREATE_TEST = "/create_test";
@@ -79,6 +89,8 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_TEST_PREVIEW = "/preview";
 	public static final String REQUEST_MAPPING_TEST_FINISH = "/finish";
 	public static final String REQUEST_MAPPING_TEST_SAVE_RESULT = "/save_result";
+	
+	public static final String REQUEST_MAPPING_INFO = "/info";
 
 
 
@@ -98,21 +110,26 @@ public final class WebConstantPool {
 	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/moderate_questions.jsp";
 	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview_moderator.jsp";
 	
-	
+	public static final String REDIRECT = "redirect:";
 	public static final String PAGE_NOT_IMPL = "notimplemented";
 
 	public static final String PAGE_MENTOR_MAIN = "jsp/mentor/main";
 	public static final String PAGE_MENTOR_GROUPS = "jsp/mentor/groups";
 	public static final String PAGE_MENTOR_TESTS = "jsp/mentor/tests";
+	public static final String PAGE_MENTOR_INFO = "jsp/mentor/info";
 	public static final String PAGE_MENTOR_TESTS_CREATE_THEME = "jsp/mentor/create_theme";
 	public static final String PAGE_MENTOR_TESTS_CREATE_QUESTION = "jsp/mentor/create_question";
 	public static final String PAGE_MENTOR_TESTS_CREATE_TEST = "jsp/mentor/start_build_test";
 	public static final String PAGE_MENTOR_TESTS_TEST = "jsp/mentor/test_page";
 	public static final String PAGE_MENTOR_TESTS_CREATE_TEST_TWO = "jsp/mentor/create_test_two";
+	public static final String PAGE_MENTOR_GROUPS_CREATE_GROUP = "jsp/mentor/create_group";
+	public static final String PAGE_MENTOR_GROUPS_CREATE_INFO_TASKS = "jsp/mentor/group_info_tasks";
+	public static final String PAGE_MENTOR_GROUPS_CREATE_INFO_MEMBERS = "jsp/mentor/group_info_members";
 	
 
 	public static final String PAGE_USER_MAIN = "jsp/user/main";
 	public static final String PAGE_USER_TESTS = "jsp/user/tests";
+	public static final String PAGE_USER_INFO = "jsp/user/info";
 	public static final String PAGE_USER_TEST_PAGE = "jsp/user/test_page";
 	public static final String PAGE_USER_TESTS_CREATE_THEME = "jsp/user/create_theme";
 	public static final String PAGE_USER_TESTS_CREATE_QUESTION = "jsp/user/create_question";
@@ -121,6 +138,11 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_TESTS_PREVIEW = "jsp/user/preview_user";
 	public static final String PAGE_USER_TESTS_RESULT = "jsp/user/result_page";
 
+	public static final String PAGE_GUEST_MAIN = "jsp/guest/main";
+	public static final String PAGE_GUEST_TESTS = "jsp/guest/tests";
+	public static final String PAGE_GUEST_INFO = "jsp/guest/info";
+	
+	
 	public static final String REDIRECT_URL_SEARCH_PAGE = "http://localhost:8080/testyourself/MainServlet?action=switch_search_page";
 	public static final String REDIRECT_URL_MAIN_USER_PAGE = "http://localhost:8080/testyourself/MainServlet?action=start_user";
 	public static final String REDIRECT_URL_MODERATOR_QUESTIONS = "http://localhost:8080/testyourself/MainServlet?action=moderate_questions";

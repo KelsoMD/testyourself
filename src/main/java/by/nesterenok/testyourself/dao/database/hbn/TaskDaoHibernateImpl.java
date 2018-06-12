@@ -6,12 +6,14 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import by.nesterenok.testyourself.dao.TaskDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.Task;
 import by.nesterenok.testyourself.domain.User;
 
+@Repository
 public class TaskDaoHibernateImpl implements TaskDao {
 
 	@Override

@@ -118,4 +118,10 @@ public class UserDBDaoImpl extends AbstractDBDao implements UserDao {
 		}
 		return user;
 	}
+
+	@Override
+	public User findByLogin(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

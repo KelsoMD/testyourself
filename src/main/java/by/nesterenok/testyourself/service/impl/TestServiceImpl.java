@@ -5,13 +5,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import by.nesterenok.testyourself.dao.TestDao;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.service.TestService;
 
+
+@Service
 public class TestServiceImpl implements TestService {
 
+	@Autowired
 	private TestDao testDao;
 
 	public void setTestDao(TestDao testDao) {

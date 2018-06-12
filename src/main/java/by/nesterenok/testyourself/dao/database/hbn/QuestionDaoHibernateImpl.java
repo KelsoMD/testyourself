@@ -7,10 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import by.nesterenok.testyourself.dao.QuestionDao;
 import by.nesterenok.testyourself.domain.Question;
 
+@Repository
 public class QuestionDaoHibernateImpl implements QuestionDao {
 
 	@Override

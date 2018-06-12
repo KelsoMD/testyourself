@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<title>search</title>
+<title><spring:message code="create_test" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -32,23 +33,23 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="section-table cid-qR017JJDq7" id="table1-t">
 		<div class="container container-table">
 
 			<h3
 				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-				Собранные вопросы</h3>
+				<spring:message code="collected_questions" /></h3>
 			<div class="table-wrapper">
-				<form action="MainServlet" method="post">
+				<form action="create_test" method="post">
 					<div class="container scroll">
 						<table class="table isSearch" cellspacing="0">
 							<thead>
 								<tr class="table-heads ">
-									<th class="head-item mbr-fonts-style display-7">ID</th>
-									<th class="head-item mbr-fonts-style display-7">Текст</th>
-									<th class="head-item mbr-fonts-style display-7">Автор</th>
-									<th class="head-item mbr-fonts-style display-7">Действия</th>
+									<th class="head-item mbr-fonts-style display-7"><spring:message code="id" /></th>
+									<th class="head-item mbr-fonts-style display-7"><spring:message code="text" /></th>
+									<th class="head-item mbr-fonts-style display-7"><spring:message code="author" /></th>
+									<th class="head-item mbr-fonts-style display-7"><spring:message code="actions" /></th>
 								</tr>
 							</thead>
 							<c:forEach items="${recentTestQuestions}" var="recentQuestion">
@@ -58,13 +59,13 @@
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getText()}</td>
 										<td class="body-item mbr-fonts-style display-7">${recentQuestion.getAuthor().getLogin()}</td>
 										<td class="body-item mbr-fonts-style display-7">
-										<!-- http://testyourself.mycloud.by -->
-										<a
-											href="${applicationScope.temporaryUrl}MainServlet?action=delete_question&question_id=${recentQuestion.getId()}"
-											class="btn btn-black-outline display-4">Удалить</a><a
+											<!-- http://testyourself.mycloud.by --> <a
+											href="<c:url value="/user/tests/delete_question?question_id=${recentQuestion.getId()}"/>"
+											class="btn btn-black-outline display-4"><spring:message code="delete" /></a><a
 											target="_blank"
-											href="${applicationScope.temporaryUrl}MainServlet?action=preview_user&question_id=${recentQuestion.getId()}"
-											class="btn btn-black-outline display-4">См.</a></td>
+											href="<c:url value="/user/tests/preview?question_id=${recentQuestion.getId()}"/>"
+											class="btn btn-black-outline display-4"><spring:message code="preview" /></a>
+										</td>
 									</tr>
 								</tbody>
 							</c:forEach>
@@ -73,7 +74,7 @@
 					<div class="mbr-section-btn text-center pt-4">
 						<input type="hidden" name="action" value="create_test" />
 						<button type="submit"
-							class="btn btn-sm btn-black-outline display-4">Создать</button>
+							class="btn btn-sm btn-black-outline display-4"><spring:message code="create_test" /></button>
 					</div>
 				</form>
 			</div>
@@ -84,16 +85,16 @@
 
 			<h3
 				class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-				Вопросы</h3>
+				<spring:message code="questions" /></h3>
 			<div class="table-wrapper">
 				<div class="container scroll">
 					<table class="table isSearch" cellspacing="0">
 						<thead>
 							<tr class="table-heads ">
-								<th class="head-item mbr-fonts-style display-7">ID</th>
-								<th class="head-item mbr-fonts-style display-7">Текст</th>
-								<th class="head-item mbr-fonts-style display-7">Автор</th>
-								<th class="head-item mbr-fonts-style display-7">Действия</th>
+								<th class="head-item mbr-fonts-style display-7"><spring:message code="id" /></th>
+								<th class="head-item mbr-fonts-style display-7"><spring:message code="text" /></th>
+								<th class="head-item mbr-fonts-style display-7"><spring:message code="author" /></th>
+								<th class="head-item mbr-fonts-style display-7"><spring:message code="actions" /></th>
 							</tr>
 						</thead>
 						<c:forEach items="${testQuestionsToChoose}" var="question">
@@ -104,21 +105,21 @@
 									<td class="body-item mbr-fonts-style display-7">${question.getAuthor().getLogin()}</td>
 									<td class="body-item mbr-fonts-style display-7">
 
-										<form action="MainServlet" method="get">
-										
-												<input type="hidden" name="action" value="add_question" /><input
-													type="hidden" name="question_id" value="${question.getId()}">
-												<button type="submit"
-													class="btn btn-sm btn-black-outline display-4">Добавить</button>
-											
+										<form action="add_question" method="get">
+											<input type="hidden" name="question_id"
+												value="${question.getId()}">
+											<button type="submit"
+												class="btn btn-sm btn-black-outline display-4"><spring:message code="add" /></button>
+
 										</form>
-										<form action="MainServlet" method="get">
-											
-												<input type="hidden" name="action" value="preview_user" /><input
-													type="hidden" name="question_id" value="${question.getId()}">
-												<button type="submit"
-													class="btn btn-sm btn-black-outline display-4" formtarget="_blank">См.</button>
-											
+										<form action="preview" method="get">
+
+											<input type="hidden" name="question_id"
+												value="${question.getId()}">
+											<button type="submit"
+												class="btn btn-sm btn-black-outline display-4"
+												formtarget="_blank"><spring:message code="preview" /></button>
+
 										</form>
 									</td>
 								</tr>
@@ -133,9 +134,10 @@
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+						<spring:message code="mobirise" /></p>
 				</div>
 			</div>
 		</div>

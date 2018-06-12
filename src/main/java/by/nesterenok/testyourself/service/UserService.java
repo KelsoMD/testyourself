@@ -6,4 +6,6 @@ public interface UserService {
 	
 	public User readUser();
 	
+	public User readByLogin(String login);
+	
 }

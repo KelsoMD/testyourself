@@ -5,7 +5,6 @@
 
 	<!-- Spring MVC Controllers -->
 	
-
 	<!-- Actions -->
 	<!-- <bean id="start_action"
 		class="by.nesterenok.testyourself.web.action.impl.StartActionImpl"

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Бесплатный конструктор сайтов Mobirise">
-<title>test</title>
+<title><spring:message code="result" /></title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -38,7 +38,10 @@
 		<h2
 			class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">${pass_msg}</h2>
 		<h3
-			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5"><spring:message code="your_mark"/> ${mark}</h3>
+			class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+			<spring:message code="your_mark" />
+			${mark}
+		</h3>
 		<form action="save_result" method="post">
 			<input type="hidden" name="test" value="${test}" /> <input
 				type="hidden" name="mark" value="${mark}" />
@@ -60,8 +63,10 @@
 							<table class="table isSearch" cellspacing="0">
 								<thead>
 									<tr class="table-heads ">
-										<th class="head-item mbr-fonts-style display-7"><spring:message code="correct_answer"/></th>
-										<th class="head-item mbr-fonts-style display-7"><spring:message code="your_answer"/></th>
+										<th class="head-item mbr-fonts-style display-7"><spring:message
+												code="correct_answer" /></th>
+										<th class="head-item mbr-fonts-style display-7"><spring:message
+												code="your_answer" /></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -79,19 +84,23 @@
 
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4"><spring:message code="exit"/></button>
+				<button type="submit" class="btn btn-sm btn-black-outline display-4">
+					<spring:message code="exit" />
+				</button>
 			</div>
 		</form>
 	</section>
-		<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
 				<div class="row row-copirayt">
-					<!-- <p><a href="?lang=en">EN</a></p>
-				<p><a href="?lang=ru">RU</a></p>-->
+					<p>
+						<a href="?lang=en">EN </a> <a href="?lang=ru_RU"> RU</a>
+					</p>
 					<p
 						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						<spring:message code="mobirise" /></p>
+						<spring:message code="mobirise" />
+					</p>
 				</div>
 			</div>
 		</div>

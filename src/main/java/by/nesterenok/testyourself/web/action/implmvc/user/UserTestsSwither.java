@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,31 +39,31 @@ public class UserTestsSwither {
         this.questionService = questionService;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_THEME)
+    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_THEME, method = RequestMethod.GET)
     public ModelAndView switchCreateTheme() {
         return new ModelAndView(PAGE_USER_TESTS_CREATE_THEME);
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_QUESTION)
+    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_QUESTION, method = RequestMethod.GET)
     public ModelAndView switchCreateQuestion() {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_QUESTION);
         mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
         return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE)
+    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_TEST_ONE, method = RequestMethod.GET)
     public ModelAndView switchCreateTestOne() {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_ONE);
         mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
         return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_TEST_TWO)
+    @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_CREATE_TEST_TWO, method = RequestMethod.GET)
     public ModelAndView switchCreateTestTwo(@RequestParam(REQUEST_PARAM_THEME) String theme,
                                             @RequestParam(REQUEST_PARAM_LVL) int lvl,
                                             @ModelAttribute User user,
                                             HttpSession session) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_CREATE_TEST_ST_TWO);
+        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
         Test newTest = new Test();
         newTest.setTheme(theme);
         newTest.setLvl(lvl);

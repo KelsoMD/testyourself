@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
+import by.nesterenok.testyourself.dao.database.InviteDao;
 import by.nesterenok.testyourself.domain.Group;
 import by.nesterenok.testyourself.domain.Invite;
 import by.nesterenok.testyourself.domain.User;
 
-public class InviteDaoHibernateImpl {
+@Repository
+public class InviteDaoHibernateImpl implements InviteDao{
 	
 	public void create(Invite invite) {
 		Session session = SessionFactoryManager.getSessionFactory().openSession();

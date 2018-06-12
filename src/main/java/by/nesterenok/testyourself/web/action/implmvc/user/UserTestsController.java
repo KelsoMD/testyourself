@@ -1,6 +1,59 @@
 package by.nesterenok.testyourself.web.action.implmvc.user;
 
-import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_CREATE_THEME;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_CREATE_TEST_TWO;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_PREVIEW;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TESTS_RESULT;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.PAGE_USER_TEST_PAGE;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_ADD_QUESTION;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_CREATE_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_DELETE_QUESTION;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_FINISH;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_PREVIEW;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SAVE_RESULT;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SEARCH_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_START_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SUJEST_QUESTION;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_TEST_SUJEST_THEME;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_USER_TESTS_ETC;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_NOT_PASSED;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_PASSED;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MSG_THEME_EXISTS;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_ANSWER;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_ANSWER_MAP;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_IMAGE;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_LVL;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_MARK;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_PASS_MSG;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_ID;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_RECENT;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS_TO_CHOOSE;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_SHUFFLED;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TESTS;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_ID;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEST_QUESTIONS;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TEXT;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEMES;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME_MSG;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_TEST;
+import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
@@ -10,17 +63,6 @@ import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.ResultService;
 import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.service.ThemeService;
-import by.nesterenok.testyourself.web.util.ActionHelper;
-import by.nesterenok.testyourself.web.util.WebConstantPool;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
@@ -54,7 +96,7 @@ public class UserTestsController {
         this.resultService = resultService;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_START_TEST)
+    @RequestMapping(value = REQUEST_MAPPING_TEST_START_TEST, method = RequestMethod.GET)
     public ModelAndView startTest(@RequestParam(REQUEST_PARAM_TEST_ID) int testId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TEST_PAGE);
         Test test = testService.readTest(testId);
@@ -113,7 +155,7 @@ public class UserTestsController {
     public ModelAndView searchTests(@RequestParam(REQUEST_PARAM_THEME) String theme, @RequestParam(REQUEST_PARAM_LVL) int lvl) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS);
         mvn.addObject(REQUEST_PARAM_TESTS, testService.searchTests(theme, lvl));
-        mvn.addObject(REQUEST_PARAM_THEME, themeService.readThemes());
+        mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
         return mvn;
     }
 
