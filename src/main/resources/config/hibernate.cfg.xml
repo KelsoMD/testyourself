@@ -34,14 +34,18 @@
 		<property name="show_sql">true</property>
 		<!-- <property name="hibernate.enable_lazy_load_no_trans">true</property>-->
 		
-		<mapping resource="hbm/question.hbm.xml"/>
-		<mapping resource="hbm/user.hbm.xml"/>
-		<mapping resource="hbm/test.hbm.xml"/>
+		<!--<mapping resource="hbm/question.hbm.xml"/>-->
+		<!--<mapping resource="hbm/user.hbm.xml"/>-->
+		<!--<mapping resource="hbm/test.hbm.xml"/>-->
 		<mapping resource="hbm/group.hbm.xml"/>
-		<mapping resource="hbm/task.hbm.xml"/>
+		<!--<mapping resource="hbm/task.hbm.xml"/>-->
 		<mapping resource="hbm/result.hbm.xml"/>
-		<mapping resource="hbm/themes.hbm.xml"/>
-		
+		<!--<mapping resource="hbm/themes.hbm.xml"/>-->
+		<mapping class="by.nesterenok.testyourself.domain.Question"/>
+		<mapping class="by.nesterenok.testyourself.domain.User"/>
+		<mapping class="by.nesterenok.testyourself.domain.Test"/>
+		<mapping class="by.nesterenok.testyourself.domain.Task"/>
+		<mapping class="by.nesterenok.testyourself.domain.Themes"/>
 	</session-factory>
 
 </hibernate-configuration>

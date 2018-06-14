@@ -1,136 +1,68 @@
 package by.nesterenok.testyourself.domain;
 
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-public class Question extends Entity{
-	
-	private static final long serialVersionUID = 8717526462629898257L;
-	
-	private String theme;
-	private int lvl;
-	private String text;
-	private String image;
-	private String correctAnswer;
-	private String answer1;
-	private String answer2;
-	private String answer3;
-	private User author;
-	private boolean aprooved;
-	private List<String> shuffledAnswers;
-	public Question() {
-		super();
-	}
-	public Question(int id) {
-		super(id);
-	}
-	
-	public String getTheme() {
-		return theme;
-	}
-	public void setTheme(String theme) {
-		this.theme = theme;
-	}
-	public int getLvl() {
-		return lvl;
-	}
-	public void setLvl(int lvl) {
-		this.lvl = lvl;
-	}
-	public String getText() {
-		return text;
-	}
-	public void setText(String text) {
-		this.text = text;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getCorrectAnswer() {
-		return correctAnswer;
-	}
-	public void setCorrectAnswer(String correctAnswer) {
-		this.correctAnswer = correctAnswer;
-	}
-	public String getAnswer1() {
-		return answer1;
-	}
-	public void setAnswer1(String answer1) {
-		this.answer1 = answer1;
-	}
-	public String getAnswer2() {
-		return answer2;
-	}
-	public void setAnswer2(String answer2) {
-		this.answer2 = answer2;
-	}
-	public String getAnswer3() {
-		return answer3;
-	}
-	public void setAnswer3(String answer3) {
-		this.answer3 = answer3;
-	}
-	public User getAuthor() {
-		return author;
-	}
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-	
-	
-	public boolean isAprooved() {
-		return aprooved;
-	}
-	public void setAprooved(boolean aprooved) {
-		this.aprooved = aprooved;
-	}
-	
-	public List<String> getShuffledAnswers() {
-		return shuffledAnswers;
-	}
-	public void setShuffledAnswers(List<String> shuffledAnswers) {
-		this.shuffledAnswers = shuffledAnswers;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((text == null) ? 0 : text.hashCode());
-		return result;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!super.equals(obj)) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Question other = (Question) obj;
-		if (text == null) {
-			if (other.text != null) {
-				return false;
-			}
-		} else if (!text.equals(other.text)) {
-			return false;
-		}
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "Question [id=" + this.getId() + " theme=" + theme + ", lvl=" + lvl + ", text=" + text + ", image=" + image + ", correctAnswer="
-				+ correctAnswer + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", author="
-				+ author + "]";
-	}
-	
-	
-	
-	
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
+@javax.persistence.Entity
+@Table(name = "questions")
+public class Question extends Entity {
 
+    private static final long serialVersionUID = 8325647133116232242L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "theme")
+    private String theme;
+
+    @Column(name = "level")
+    private int lvl;
+
+    @Column(name = "text")
+    private String text;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "answer_correct")
+    private String correctAnswer;
+
+    @Column(name = "answer_1")
+    private String answer1;
+
+    @Column(name = "answer_2")
+    private String answer2;
+
+    @Column(name = "answer_3")
+    private String answer3;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = User.class)
+    private User author;
+
+    @Column(name = "aprooved")
+    private boolean aprooved;
+
+    private List<String> shuffledAnswers;
+
+    public Question(int id) {
+        super(id);
+    }
 }

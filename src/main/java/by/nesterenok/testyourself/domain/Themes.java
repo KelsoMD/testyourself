@@ -1,15 +1,36 @@
 package by.nesterenok.testyourself.domain;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
+@javax.persistence.Entity
+@Table(name = "themes")
 public final class Themes extends Entity {
 
-    private static final long serialVersionUID = -699934497619445998L;
+    private static final long serialVersionUID = -7907443202866931694L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
 
+    @Column(name = "theme")
     private String theme;
+
+    @Column(name = "aprooved")
     private boolean aprooved;
-
-    public Themes() {
-
-    }
 
     public Themes(int id) {
         super(id);
@@ -17,60 +38,5 @@ public final class Themes extends Entity {
 
     public Themes(String theme) {
         this.theme = theme;
-    }
-
-    public String getTheme() {
-        return theme;
-    }
-
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    public boolean isAprooved() {
-        return aprooved;
-    }
-
-    public void setAprooved(boolean aprooved) {
-        this.aprooved = aprooved;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + (aprooved ? 1231 : 1237);
-        result = prime * result + ((theme == null) ? 0 : theme.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        Themes other = (Themes) obj;
-        if (aprooved != other.aprooved) {
-            return false;
-        }
-        if (theme == null) {
-            if (other.theme != null) {
-                return false;
-            }
-        } else if (!theme.equals(other.theme)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Themes [theme=" + theme + ", aprooved=" + aprooved + "]";
     }
 }

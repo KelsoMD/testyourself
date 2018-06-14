@@ -1,6 +1,7 @@
 package by.nesterenok.testyourself.dao.database.hbn;
 
 import java.util.List;
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;

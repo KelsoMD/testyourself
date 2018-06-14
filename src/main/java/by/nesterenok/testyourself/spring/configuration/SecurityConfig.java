@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         driverManagerDataSource.setUrl(
             "jdbc:mysql://localhost/testyourself?useTimezone=true&serverTimezone=UTC&useSSL=false");
         driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("root");
+        driverManagerDataSource.setPassword("Passw0rd");
         return driverManagerDataSource;
     }
 }

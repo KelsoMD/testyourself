@@ -22,7 +22,7 @@ public class UrlResolver {
 		User user = userService.readByLogin(login);
 		switch (user.getRole()) {
 		case "ROLE_USER":
-			return "redirect:/user";
+			return "/user";
 		case "ROLE_MENTOR":
 			return "redirect:/mentor";
 		case "ROLE_MODERATOR":

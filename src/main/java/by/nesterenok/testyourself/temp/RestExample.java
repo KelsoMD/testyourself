@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cars")
+@RequestMapping("guest/cars")
 
 public class RestExample {
 
