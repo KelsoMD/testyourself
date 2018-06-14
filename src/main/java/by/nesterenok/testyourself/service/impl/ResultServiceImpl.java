@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import by.nesterenok.testyourself.dao.QuestionDao;
 import by.nesterenok.testyourself.dao.ResultDao;
+import by.nesterenok.testyourself.dao.TaskResultDao;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
+import by.nesterenok.testyourself.domain.Task;
+import by.nesterenok.testyourself.domain.TaskResult;
 import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.QuestionService;
@@ -21,13 +24,22 @@ public class ResultServiceImpl implements ResultService {
 
     @Autowired
     private ResultDao resultDao;
+
+    @Autowired
+    private TaskResultDao taskResultDao;
+
     @Autowired
     private QuestionDao questionDao;
+
     @Autowired
     private QuestionService questionService;
 
     public void setResultDao(ResultDao resultDao) {
         this.resultDao = resultDao;
+    }
+
+    public void setTaskResultDao(TaskResultDao taskResultDao) {
+        this.taskResultDao = taskResultDao;
     }
 
     public void setQuestionDao(QuestionDao questionDao) {
@@ -44,18 +56,49 @@ public class ResultServiceImpl implements ResultService {
     }
 
     @Override
-    public Result buildResult(int test, int mark, boolean pass, int user) {
+    public void createTaskResult(TaskResult taskResult) {
+        taskResultDao.create(taskResult);
+    }
+
+    @Override
+    public Result readResult(int resultId) {
+        return resultDao.read(resultId);
+    }
+
+    @Override
+    public TaskResult readTaskResult(int taskResult) {
+        return taskResultDao.read(taskResult);
+    }
+
+    @Override
+    public Map<Question, String> getAnswerMap(String[] answers) {
+        return buildAnswerMap(answers);
+    }
+
+    @Override
+    public Result buildResult(int test, User user, String[] answers) {
 
         Result result = new Result();
         result.setTest(new Test(test));
-        result.setMark(mark);
-        result.setPassed(pass);
-        result.setUser(new User(user));
+        Map<Question, String> answerMap = buildAnswerMap(answers);
+        result.setMark(getMark(answerMap));
+        result.setPassed(isPassed(result.getMark()));
+        result.setUser(user);
         return result;
     }
 
     @Override
-    public Map<Question, String> parseAnswers(String[] answers) {
+    public TaskResult buildTaskResult(int task, User user, String[] answers) {
+        TaskResult result = new TaskResult();
+        result.setTask(new Task(task));
+        result.setAnswerMap(buildAnswerMap(answers));
+        result.setMark(getMark(result.getAnswerMap()));
+        result.setPassed(isPassed(result.getMark()));
+        result.setMember(user);
+        return result;
+    }
+
+    private Map<Question, String> buildAnswerMap(String[] answers) {
         Map<Question, String> map = new HashMap<>();
         for (int i = 0; i < answers.length; i++) {
             String[] pair = answers[i].split(REGEX);
@@ -65,8 +108,7 @@ public class ResultServiceImpl implements ResultService {
         return map;
     }
 
-    @Override
-    public int getMark(Map<Question, String> answers) {
+    private int getMark(Map<Question, String> answers) {
         int correctAnswers = 0;
         for (Map.Entry<Question, String> entry : answers.entrySet()) {
             if (entry.getKey()
@@ -79,8 +121,7 @@ public class ResultServiceImpl implements ResultService {
         return (int) mark;
     }
 
-    @Override
-    public boolean isPassed(int mark) {
+    private boolean isPassed(int mark) {
         return mark > PASS_PERCENT;
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.ResultService;
 import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.service.ThemeService;
+import by.nesterenok.testyourself.service.UserService;
 
 @Controller
 @RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
@@ -37,6 +39,8 @@ public class UserTestsController {
     private ThemeService themeService;
     @Autowired
     private ResultService resultService;
+    @Autowired
+    private UserService userService;
 
     public void setQuestionService(QuestionService questionService) {
         this.questionService = questionService;
@@ -56,6 +60,10 @@ public class UserTestsController {
 
     public void setResultService(ResultService resultService) {
         this.resultService = resultService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_START_TEST, method = RequestMethod.GET)
@@ -145,27 +153,16 @@ public class UserTestsController {
     public ModelAndView finishTest(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers,
                                    @RequestParam(REQUEST_PARAM_TEST) int testId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_RESULT);
-        Map<Question, String> answerMap = resultService.parseAnswers(answers);
-        mvn.addObject(REQUEST_PARAM_ANSWER_MAP, answerMap);
-        int mark = resultService.getMark(answerMap);
-        mvn.addObject(REQUEST_PARAM_MARK, resultService.getMark(answerMap));
-        if (resultService.isPassed(mark)) {
+        Result result = resultService.buildResult(testId, userService.readByLogin(SecurityContextHolder.getContext()
+            .getAuthentication().getName()), answers);
+        resultService.createResult(result);
+        mvn.addObject(REQUEST_PARAM_ANSWER_MAP, resultService.getAnswerMap(answers));
+        mvn.addObject(REQUEST_PARAM_MARK, result.getMark());
+        if (result.isPassed()) {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_PASSED);
         } else {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_NOT_PASSED);
         }
-        mvn.addObject(REQUEST_PARAM_TEST, testId);
         return mvn;
-    }
-
-    @RequestMapping(value = REQUEST_MAPPING_TEST_SAVE_RESULT, method = RequestMethod.POST)
-    public ModelAndView saveResults(@RequestParam(REQUEST_PARAM_TEST) int testId,
-                                    @RequestParam(REQUEST_PARAM_MARK) int mark, @ModelAttribute User user) {
-        ModelAndView mnv = new ModelAndView(REDIRECT + "/" + REQUEST_MAPPING_USER);
-        Test test = new Test(testId);
-        boolean pass = mark > 70;
-        Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
-        resultService.createResult(result);
-        return mnv;
     }
 }

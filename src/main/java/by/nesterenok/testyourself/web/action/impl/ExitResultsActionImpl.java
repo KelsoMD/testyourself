@@ -30,8 +30,8 @@ public class ExitResultsActionImpl implements BaseAction{
 		int mark = Integer.parseInt(request.getParameter(REQUEST_PARAM_MARK));
 		boolean pass = mark > 70;
 		User user = ActionHelper.getUser(request);
-		Result result = resultService.buildResult(test.getId(), mark, pass, user.getId());
-		resultService.createResult(result);
+		//Result result = resultService.buildResult();
+		//resultService.createResult(result);
 		return REDIRECT_URL_MAIN_USER_PAGE_CLOUD;
 		
 	}

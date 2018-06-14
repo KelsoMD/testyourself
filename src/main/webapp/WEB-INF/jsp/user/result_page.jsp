@@ -42,7 +42,7 @@
 			<spring:message code="your_mark" />
 			${mark}
 		</h3>
-		<form action="save_result" method="post">
+		<form action="testyourself/user" method="get">
 			<input type="hidden" name="test" value="${test}" /> <input
 				type="hidden" name="mark" value="${mark}" />
 			<c:forEach items="${answer_map}" var="entry">

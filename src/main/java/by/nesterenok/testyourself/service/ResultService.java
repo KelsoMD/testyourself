@@ -1,20 +1,24 @@
 package by.nesterenok.testyourself.service;
 
+import java.util.Map;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
-
-import java.util.Map;
+import by.nesterenok.testyourself.domain.TaskResult;
+import by.nesterenok.testyourself.domain.User;
 
 public interface ResultService {
 
-	
-	public void createResult(Result result);
-	
-	public Result buildResult(int test, int mark, boolean pass, int user);
+    public void createResult(Result resultId);
 
-	public Map<Question, String> parseAnswers(String[] answers);
+    public void createTaskResult(TaskResult taskResult);
 
-	public int getMark(Map<Question, String> answers);
+    public Result readResult(int resultId);
 
-	public boolean isPassed(int mark);
+    public  TaskResult readTaskResult(int taskResult);
+
+    public Map<Question, String> getAnswerMap(String[] answers);
+
+    public Result buildResult(int test, User user, String[] answers);
+
+    public TaskResult buildTaskResult(int task, User user, String[] answers);
 }

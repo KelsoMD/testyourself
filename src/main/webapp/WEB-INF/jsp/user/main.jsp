@@ -73,7 +73,7 @@
 
 								</ul>
 							</div>
-							<form action="not_implemented" method="get">
+							<form action="user/groups/start" method="get">
 								<div class="mbr-section-btn text-center pt-4">
 									<input type="hidden" name="task_id" value="${item.getId()}">
 									<button type="submit"

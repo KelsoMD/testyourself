@@ -13,16 +13,20 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_QUESTIONS;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TASK;
 
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Task;
+import by.nesterenok.testyourself.domain.TaskResult;
+import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.ResultService;
 import by.nesterenok.testyourself.service.TaskService;
+import by.nesterenok.testyourself.service.UserService;
 
 @Controller
 @RequestMapping(value = REQUEST_MAPPING_USER_GROUPS_ETC)
@@ -34,6 +38,9 @@ public class UserGroupsController {
     @Autowired
     private ResultService resultService;
 
+    @Autowired
+    private UserService userService;
+
     public void setTaskService(TaskService taskService) {
         this.taskService = taskService;
     }
@@ -42,7 +49,11 @@ public class UserGroupsController {
         this.resultService = resultService;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_USER_GROUPS_START_TASK)
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping(value = REQUEST_MAPPING_USER_GROUPS_START_TASK, method = RequestMethod.GET)
     public ModelAndView startTask(@RequestParam(REQUEST_PARAM_TASK) int id) {
         ModelAndView mnv = new ModelAndView(PAGE_USER_TASK_PAGE);
         Task task = taskService.readTask(id);
@@ -51,16 +62,18 @@ public class UserGroupsController {
         return mnv;
     }
 
+    @Transactional
     @SuppressWarnings("Duplicates")
-    @RequestMapping(value = REQUEST_MAPPING_USER_GROUPS_FINISH_TASK)
+    @RequestMapping(value = REQUEST_MAPPING_USER_GROUPS_FINISH_TASK, method = RequestMethod.POST)
     public ModelAndView finishTask(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers,
                                    @RequestParam(REQUEST_PARAM_TASK) int taskId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TASK_PAGE);
-        Map<Question, String> answerMap = resultService.parseAnswers(answers);
-        mvn.addObject(REQUEST_PARAM_ANSWER_MAP, answerMap);
-        int mark = resultService.getMark(answerMap);
-        mvn.addObject(REQUEST_PARAM_MARK, resultService.getMark(answerMap));
-        if (resultService.isPassed(mark)) {
+        User user = userService.readByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
+        TaskResult taskResult = resultService.buildTaskResult(taskId, user, answers);
+        resultService.createTaskResult(taskResult);
+        mvn.addObject(REQUEST_PARAM_ANSWER_MAP, taskResult.getAnswerMap());
+        mvn.addObject(REQUEST_PARAM_MARK, taskResult.getMark());
+        if (taskResult.isPassed()) {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_PASSED);
         } else {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_NOT_PASSED);

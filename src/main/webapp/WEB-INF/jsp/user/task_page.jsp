@@ -34,7 +34,7 @@
 <c:import url="header.jsp"/>
 
 <section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-    <form action="<c:url value="finish"/>" method="get">
+    <form action="<c:url value="finish"/>" method="post">
         <input type="hidden" name="task" value="${task}">
         <c:forEach items="${questions}" var="question">
 
