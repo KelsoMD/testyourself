@@ -1,11 +1,13 @@
-package by.nesterenok.testyourself.web.action.implmvc.user;
+package by.nesterenok.testyourself.web.action.implmvc;
 
 import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,17 +19,18 @@ import org.springframework.web.servlet.ModelAndView;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.Result;
 import by.nesterenok.testyourself.domain.Test;
-import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.QuestionService;
 import by.nesterenok.testyourself.service.ResultService;
 import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.service.ThemeService;
 import by.nesterenok.testyourself.service.UserService;
+import by.nesterenok.testyourself.web.action.implmvc.user.UserSwitchMenu;
 
+@SuppressWarnings("Duplicates")
 @Controller
-@RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
+@RequestMapping(value = "/tests")
 @SessionAttributes({SESSION_PARAM_TEST, SESSION_PARAM_USER})
-public class UserTestsController {
+public class TestController {
 
     @Autowired
     private QuestionService questionService;
@@ -66,45 +69,40 @@ public class UserTestsController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_START_TEST, method = RequestMethod.GET)
-    public ModelAndView startTest(@RequestParam(REQUEST_PARAM_TEST_ID) int testId) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TEST_PAGE);
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public void startTest(@RequestParam(REQUEST_PARAM_TEST_ID) int testId) {
+        ModelAndView mvn = new ModelAndView(processPage("test_page"));
         Test test = testService.readTest(testId);
         testService.prepareShuffled(test);
         mvn.addObject(REQUEST_PARAM_TEST_QUESTIONS, test.getQuestions());
         mvn.addObject(REQUEST_PARAM_TEST, test.getId());
-        return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_DELETE_QUESTION, method = RequestMethod.GET)
-    public ModelAndView deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId,
-                                       @ModelAttribute Test test) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
+    @RequestMapping(value = "/delete_question", method = RequestMethod.GET)
+    public void deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId, @ModelAttribute Test test) {
+        ModelAndView mvn = new ModelAndView(processPage("create_test_two"));
         Question question = questionService.readQuestion(questionId);
         test.getQuestions()
             .remove(question);
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
         mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
             questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
-        return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_ADD_QUESTION, method = RequestMethod.GET)
-    public ModelAndView addQuestion(@ModelAttribute Test test,
-                                    @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
+    @RequestMapping(value = "/add_question", method = RequestMethod.GET)
+    public void addQuestion(@ModelAttribute Test test, @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
+        ModelAndView mvn = new ModelAndView(processPage("create_test_two"));
         test.getQuestions()
             .add(questionService.readQuestion(questionId));
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
         mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
             questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
-        return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_CREATE_TEST, method = RequestMethod.POST)
-    public ModelAndView createTest(@ModelAttribute Test test) {
+    @RequestMapping(value = "/create_test", method = RequestMethod.POST)
+    public String createTest(@ModelAttribute Test test) {
         testService.createTest(test);
-        return switchMenu.switchTestsMenu();
+        return REDIRECT + processUrl();
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SUJEST_THEME, method = RequestMethod.POST)
@@ -154,7 +152,8 @@ public class UserTestsController {
                                    @RequestParam(REQUEST_PARAM_TEST) int testId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_RESULT);
         Result result = resultService.buildResult(testId, userService.readByLogin(SecurityContextHolder.getContext()
-            .getAuthentication().getName()), answers);
+            .getAuthentication()
+            .getName()), answers);
         resultService.createResult(result);
         mvn.addObject(REQUEST_PARAM_ANSWER_MAP, resultService.getAnswerMap(answers));
         mvn.addObject(REQUEST_PARAM_MARK, result.getMark());
@@ -165,5 +164,36 @@ public class UserTestsController {
         }
         return mvn;
     }
-    
+
+    private String processPage(String targetPage) {
+        Authentication authentication = SecurityContextHolder.getContext()
+            .getAuthentication();
+        Set<String> roles = authentication.getAuthorities().stream().map(r -> r.getAuthority())
+            .collect(Collectors.toSet());
+        if (roles.contains("ROLE_GUEST")) {
+            return "jsp/guest/" + targetPage;
+        } else if (roles.contains("ROLE_USER")) {
+            return "jsp/user/" + targetPage;
+        } else if (roles.contains("ROLE_MENTOR")) {
+            return "jsp/mentor/" + targetPage;
+        } else {
+            return "error";
+        }
+    }
+
+    private String processUrl() {
+        Authentication authentication = SecurityContextHolder.getContext()
+            .getAuthentication();
+        Set<String> roles = authentication.getAuthorities().stream().map(r -> r.getAuthority())
+            .collect(Collectors.toSet());
+        if (roles.contains("ROLE_GUEST")) {
+            return "/guest";
+        } else if (roles.contains("ROLE_USER")) {
+            return "/user";
+        } else if (roles.contains("ROLE_MENTOR")) {
+            return "/mentor";
+        } else {
+            return "/error";
+        }
+    }
 }

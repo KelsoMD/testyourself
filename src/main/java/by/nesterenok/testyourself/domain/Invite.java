@@ -14,6 +14,7 @@ import lombok.ToString;
 public class Invite extends Entity {
 
     private static final long serialVersionUID = -9009350671599623118L;
+
     private User user;
     private Group group;
 

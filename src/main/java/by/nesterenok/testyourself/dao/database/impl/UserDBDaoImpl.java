@@ -29,8 +29,8 @@ public class UserDBDaoImpl extends AbstractDBDao implements UserDao {
 				ps.setString(3, t.getName());
 			if (t.getSurname() != null)
 				ps.setString(4, t.getSurname());
-			if (t.geteMail() != null)
-				ps.setString(5, t.geteMail());
+			if (t.getEMail() != null)
+				ps.setString(5, t.getEMail());
 			ps.setString(7, t.getRole());
 			if (t.getTheme() != null)
 				ps.setString(8, t.getTheme());
@@ -66,7 +66,7 @@ public class UserDBDaoImpl extends AbstractDBDao implements UserDao {
 		try (Connection cn = wcn.getConnection(); PreparedStatement ps = cn.prepareStatement(SQL_USER_UPDATE)) {
 			ps.setString(1, t.getName());
 			ps.setString(2, t.getSurname());
-			ps.setString(3, t.geteMail());
+			ps.setString(3, t.getEMail());
 			ps.setString(5, t.getRole());
 			ps.setString(6, t.getTheme());
 		} catch (SQLException e) {
@@ -109,7 +109,7 @@ public class UserDBDaoImpl extends AbstractDBDao implements UserDao {
 			user = new User(rs.getInt(DB_ID));
 			user.setName(rs.getString(DB_NAME));
 			user.setSurname(rs.getString(DB_SURNAME));
-			user.seteMail(rs.getString(DB_EMAIL));
+			user.setEMail(rs.getString(DB_EMAIL));
 			user.setRole(rs.getString(DB_ROLE));
 			user.setRole(rs.getString(DB_THEME));
 			

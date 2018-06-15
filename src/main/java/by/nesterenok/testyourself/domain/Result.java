@@ -13,7 +13,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Result extends Entity {
 
-    private static final long serialVersionUID = 3725419100962558729L;
+    private static final long serialVersionUID = 278114355927793814L;
+
     private Test test;
     private int mark;
     private boolean passed;
