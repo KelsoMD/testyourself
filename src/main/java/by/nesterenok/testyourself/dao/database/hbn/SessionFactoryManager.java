@@ -7,7 +7,7 @@ import org.hibernate.service.ServiceRegistry;
 
 public final class SessionFactoryManager {
 
-    private static final String CONFIG_XML = "hibernate.cfg.xml";
+    private static final String CONFIG_XML = "config/hibernate.cfg.xml";
     private static SessionFactory sessionFactory;
 
     private SessionFactoryManager() {
@@ -19,8 +19,8 @@ public final class SessionFactoryManager {
         configuration.configure(CONFIG_XML);
 
         ServiceRegistry serviceRegistry =
-            new StandardServiceRegistryBuilder().applySettings(configuration.getProperties())
-                .build();
+                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties())
+                        .build();
 
         return configuration.buildSessionFactory(serviceRegistry);
     }

@@ -1,13 +1,9 @@
 package by.nesterenok.testyourself.domain;
 
 import java.util.Set;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@NoArgsConstructor
+import lombok.*;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -21,6 +17,9 @@ public class Group extends Entity {
     private Set<Task> tasks;
     private Set<User> members;
     private String title;
+
+    public Group() {
+    }
 
     public Group(int id) {
         super(id);
