@@ -64,7 +64,7 @@ public class TempStart{
 				user = us.readUser();
 				user.setRole("ROLE_MENTOR");
 				session.setAttribute("user", user);
-				return startMentor.executeAction(user, model);
+				return startMentor.executeAction(model);
 			case "ROLE_ADMIN":
 				user = us.readUser();
 				user.setRole("ROLE_ADMIN");

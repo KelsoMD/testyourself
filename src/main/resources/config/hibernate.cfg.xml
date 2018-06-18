@@ -29,7 +29,7 @@
 		</property>
 		<!-- LGVlhe08066 -->
 		<property name="hibernate.connection.password">
-			root
+			Passw0rd
 		</property>
 		<property name="show_sql">true</property>
 		<!-- <property name="hibernate.enable_lazy_load_no_trans">true</property>-->

@@ -24,9 +24,9 @@ import by.nesterenok.testyourself.service.TestService;
 import by.nesterenok.testyourself.service.ThemeService;
 import by.nesterenok.testyourself.service.UserService;
 
-@Controller
-@RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
-@SessionAttributes({SESSION_PARAM_TEST, SESSION_PARAM_USER})
+//@Controller
+//@RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
+//@SessionAttributes({SESSION_PARAM_TEST, SESSION_PARAM_USER})
 public class UserTestsController {
 
     @Autowired

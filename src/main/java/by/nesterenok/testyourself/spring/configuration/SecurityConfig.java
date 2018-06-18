@@ -53,20 +53,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-            .dataSource(this.dataSource())
-            .usersByUsernameQuery("select login, pass, enabled from users where login=?")
-            .authoritiesByUsernameQuery("select login, role from users where login =?");
+        auth.inMemoryAuthentication().withUser("user").password("user").roles("USER").and()
+        .withUser("mentor").password("mentor").roles("MENTOR").and()
+        .withUser("quest").password("quest").roles("GUEST");
+
     }
 
-    @Bean(name = "dataSource")
-    public DriverManagerDataSource dataSource() {
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        driverManagerDataSource.setUrl(
-            "jdbc:mysql://localhost/testyourself?useTimezone=true&serverTimezone=UTC&useSSL=false");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("root");
-        return driverManagerDataSource;
-    }
+    //    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication()
+//            .dataSource(this.dataSource())
+//            .usersByUsernameQuery("select login, pass, enabled from users where login=?")
+//            .authoritiesByUsernameQuery("select login, role from users where login =?");
+//    }
+
+//    @Bean(name = "dataSource")
+//    public DriverManagerDataSource dataSource() {
+//        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+//        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        driverManagerDataSource.setUrl(
+//            "jdbc:mysql://localhost/testyourself?useTimezone=true&serverTimezone=UTC&useSSL=false");
+//        driverManagerDataSource.setUsername("root");
+//        driverManagerDataSource.setPassword("root");
+//        return driverManagerDataSource;
+//    }
 }

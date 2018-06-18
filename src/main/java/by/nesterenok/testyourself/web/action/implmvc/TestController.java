@@ -28,9 +28,9 @@ import by.nesterenok.testyourself.web.action.implmvc.user.UserSwitchMenu;
 
 @SuppressWarnings("Duplicates")
 @Controller
-@RequestMapping(value = "/tests")
+@RequestMapping(value = {"user/tests", "mentor/tests", "guest/tests"})
 @SessionAttributes({SESSION_PARAM_TEST, SESSION_PARAM_USER})
-public class TestController {
+public class TestController implements RoleProcessor{
 
     @Autowired
     private QuestionService questionService;
@@ -106,37 +106,35 @@ public class TestController {
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SUJEST_THEME, method = RequestMethod.POST)
-    public ModelAndView sujestTheme(@RequestParam(REQUEST_PARAM_THEME) String theme) {
+    public String sujestTheme(@RequestParam(REQUEST_PARAM_THEME) String theme) {
         List<String> themeList = themeService.readThemes();
         ModelAndView mvn = null;
         if (themeList.contains(theme)) {
             mvn = new ModelAndView(PAGE_USER_CREATE_THEME, REQUEST_PARAM_THEME_MSG, REQUEST_MSG_THEME_EXISTS);
-            return mvn;
+            return processPage("create_theme");
         } else {
             themeService.createTheme(theme);
-            return switchMenu.switchTestsMenu();
+            return REDIRECT + processUrl();
         }
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SUJEST_QUESTION, method = RequestMethod.POST)
-    public ModelAndView sujestQuestion(HttpServletRequest request) {
+    public String sujestQuestion(HttpServletRequest request) {
         Question question = questionService.buildQuestion(request);
         questionService.createQuestion(question);
-        return switchMenu.switchTestsMenu();
+        return REDIRECT + processUrl();
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_SEARCH_TEST, method = RequestMethod.GET)
-    public ModelAndView searchTests(@RequestParam(REQUEST_PARAM_THEME) String theme,
-                                    @RequestParam(REQUEST_PARAM_LVL) int lvl) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS);
+    public void searchTests(@RequestParam(REQUEST_PARAM_THEME) String theme, @RequestParam(REQUEST_PARAM_LVL) int lvl) {
+        ModelAndView mvn = new ModelAndView(processPage("tests"));
         mvn.addObject(REQUEST_PARAM_TESTS, testService.searchTests(theme, lvl));
         mvn.addObject(REQUEST_PARAM_THEMES, themeService.readThemes());
-        return mvn;
     }
 
     @RequestMapping(value = REQUEST_MAPPING_TEST_PREVIEW, method = RequestMethod.GET)
-    public ModelAndView preview(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int id) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_PREVIEW);
+    public void preview(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int id) {
+        ModelAndView mvn = new ModelAndView(processPage("preview"));
         Question question = questionService.readQuestion(id);
         mvn.addObject(REQUEST_PARAM_TEXT, question.getText());
         if (question.getImage() != null) {
@@ -144,13 +142,12 @@ public class TestController {
         }
         questionService.shuffleAnswers(question);
         mvn.addObject(REQUEST_PARAM_SHUFFLED, question.getShuffledAnswers());
-        return mvn;
     }
 
-    @RequestMapping(value = REQUEST_MAPPING_TEST_FINISH, method = RequestMethod.GET)
-    public ModelAndView finishTest(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers,
-                                   @RequestParam(REQUEST_PARAM_TEST) int testId) {
-        ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_RESULT);
+    @RequestMapping(value = REQUEST_MAPPING_TEST_FINISH, method = RequestMethod.POST)
+    public void finishTest(@RequestParam(REQUEST_PARAM_ANSWER) String[] answers,
+                           @RequestParam(REQUEST_PARAM_TEST) int testId) {
+        ModelAndView mvn = new ModelAndView(REDIRECT + processPage("result_page"));
         Result result = resultService.buildResult(testId, userService.readByLogin(SecurityContextHolder.getContext()
             .getAuthentication()
             .getName()), answers);
@@ -161,39 +158,6 @@ public class TestController {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_PASSED);
         } else {
             mvn.addObject(REQUEST_PARAM_PASS_MSG, REQUEST_MSG_NOT_PASSED);
-        }
-        return mvn;
-    }
-
-    private String processPage(String targetPage) {
-        Authentication authentication = SecurityContextHolder.getContext()
-            .getAuthentication();
-        Set<String> roles = authentication.getAuthorities().stream().map(r -> r.getAuthority())
-            .collect(Collectors.toSet());
-        if (roles.contains("ROLE_GUEST")) {
-            return "jsp/guest/" + targetPage;
-        } else if (roles.contains("ROLE_USER")) {
-            return "jsp/user/" + targetPage;
-        } else if (roles.contains("ROLE_MENTOR")) {
-            return "jsp/mentor/" + targetPage;
-        } else {
-            return "error";
-        }
-    }
-
-    private String processUrl() {
-        Authentication authentication = SecurityContextHolder.getContext()
-            .getAuthentication();
-        Set<String> roles = authentication.getAuthorities().stream().map(r -> r.getAuthority())
-            .collect(Collectors.toSet());
-        if (roles.contains("ROLE_GUEST")) {
-            return "/guest";
-        } else if (roles.contains("ROLE_USER")) {
-            return "/user";
-        } else if (roles.contains("ROLE_MENTOR")) {
-            return "/mentor";
-        } else {
-            return "/error";
         }
     }
 }

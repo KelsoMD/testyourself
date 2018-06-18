@@ -20,9 +20,9 @@ import java.util.Set;
 
 import static by.nesterenok.testyourself.web.util.WebConstantPool.*;
 
-@Controller
-@RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
-@SessionAttributes({SESSION_PARAM_USER, SESSION_PARAM_TEST})
+//@Controller
+//@RequestMapping(value = REQUEST_MAPPING_USER_TESTS_ETC)
+//@SessionAttributes({SESSION_PARAM_USER, SESSION_PARAM_TEST})
 public class UserTestsSwither {
 
     @Autowired
