@@ -1,15 +1,13 @@
 package by.nesterenok.testyourself.domain;
 
-import java.util.List;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@NoArgsConstructor
+import java.util.List;
+
+
 @Getter
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class Question extends Entity {

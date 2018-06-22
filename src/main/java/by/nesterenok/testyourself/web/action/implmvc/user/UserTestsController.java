@@ -80,7 +80,12 @@ public class UserTestsController {
     public ModelAndView deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId,
                                        @ModelAttribute Test test) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
-        Question question = questionService.readQuestion(questionId);
+        Question question = null;
+        try {
+            question = questionService.readQuestion(questionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         test.getQuestions()
             .remove(question);
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
@@ -93,8 +98,12 @@ public class UserTestsController {
     public ModelAndView addQuestion(@ModelAttribute Test test,
                                     @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_CREATE_TEST_TWO);
-        test.getQuestions()
-            .add(questionService.readQuestion(questionId));
+        try {
+            test.getQuestions()
+                .add(questionService.readQuestion(questionId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
         mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
             questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
@@ -139,7 +148,12 @@ public class UserTestsController {
     @RequestMapping(value = REQUEST_MAPPING_TEST_PREVIEW, method = RequestMethod.GET)
     public ModelAndView preview(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int id) {
         ModelAndView mvn = new ModelAndView(PAGE_USER_TESTS_PREVIEW);
-        Question question = questionService.readQuestion(id);
+        Question question = null;
+        try {
+            question = questionService.readQuestion(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         mvn.addObject(REQUEST_PARAM_TEXT, question.getText());
         if (question.getImage() != null) {
             mvn.addObject(REQUEST_PARAM_IMAGE, question.getImage());

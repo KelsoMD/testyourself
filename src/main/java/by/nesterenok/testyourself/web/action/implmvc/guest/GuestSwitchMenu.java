@@ -9,6 +9,7 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_TESTS;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
 
+import com.fasterxml.jackson.core.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,16 +54,21 @@ public class GuestSwitchMenu {
     /* Rest Test */
 @RequestMapping(value = "/resttest", method = RequestMethod.GET)
 @ResponseBody
-    public Question restTest() {
-    Question restTestQuestion = new Question(1);
-    restTestQuestion.setText("Test");
-    restTestQuestion.setCorrectAnswer("Ccorrect answer");
-    restTestQuestion.setAnswer1("1");
-    restTestQuestion.setAnswer2("2");
-    restTestQuestion.setAnswer3("3");
-    restTestQuestion.setAprooved(true);
-    restTestQuestion.setLvl(1);
-    restTestQuestion.setTheme("RestTest");
-    return restTestQuestion;
+    public String restTest() {
+//    Question restTestQuestion = new Question(1);
+//    restTestQuestion.setText("Test");
+//    restTestQuestion.setCorrectAnswer("Ccorrect answer");
+//    restTestQuestion.setAnswer1("1");
+//    restTestQuestion.setAnswer2("2");
+//    restTestQuestion.setAnswer3("3");
+//    restTestQuestion.setAprooved(true);
+//    restTestQuestion.setLvl(1);
+//    restTestQuestion.setTheme("RestTest");
+    try {
+        Question question = questionService.readQuestion(1);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return "";
     }
 }

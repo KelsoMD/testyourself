@@ -29,7 +29,7 @@ public class GuestStart {
 		
 		model.addAttribute(REQUEST_PARAM_QUESTION_COUNT, ss.getQuestionCount());
 			model.addAttribute(REQUEST_PARAM_LIST, ss.getStartTests());
-		return PAGE_GUEST_MAIN;
+		return "guest/main";
 	}
 	
 }

@@ -1,11 +1,12 @@
 package by.nesterenok.testyourself.domain;
 
-import java.util.Set;
-
 import lombok.*;
+
+import java.util.Set;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class Group extends Entity {
@@ -17,9 +18,6 @@ public class Group extends Entity {
     private Set<Task> tasks;
     private Set<User> members;
     private String title;
-
-    public Group() {
-    }
 
     public Group(int id) {
         super(id);

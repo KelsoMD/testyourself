@@ -81,7 +81,12 @@ public class TestController implements RoleProcessor{
     @RequestMapping(value = "/delete_question", method = RequestMethod.GET)
     public void deleteQuestion(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId, @ModelAttribute Test test) {
         ModelAndView mvn = new ModelAndView(processPage("create_test_two"));
-        Question question = questionService.readQuestion(questionId);
+        Question question = null;
+        try {
+            question = questionService.readQuestion(questionId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         test.getQuestions()
             .remove(question);
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
@@ -92,8 +97,12 @@ public class TestController implements RoleProcessor{
     @RequestMapping(value = "/add_question", method = RequestMethod.GET)
     public void addQuestion(@ModelAttribute Test test, @RequestParam(REQUEST_PARAM_QUESTIONS_ID) int questionId) {
         ModelAndView mvn = new ModelAndView(processPage("create_test_two"));
-        test.getQuestions()
-            .add(questionService.readQuestion(questionId));
+        try {
+            test.getQuestions()
+                .add(questionService.readQuestion(questionId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         mvn.addObject(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
         mvn.addObject(REQUEST_PARAM_QUESTIONS_TO_CHOOSE,
             questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
@@ -135,7 +144,12 @@ public class TestController implements RoleProcessor{
     @RequestMapping(value = REQUEST_MAPPING_TEST_PREVIEW, method = RequestMethod.GET)
     public void preview(@RequestParam(REQUEST_PARAM_QUESTIONS_ID) int id) {
         ModelAndView mvn = new ModelAndView(processPage("preview"));
-        Question question = questionService.readQuestion(id);
+        Question question = null;
+        try {
+            question = questionService.readQuestion(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         mvn.addObject(REQUEST_PARAM_TEXT, question.getText());
         if (question.getImage() != null) {
             mvn.addObject(REQUEST_PARAM_IMAGE, question.getImage());

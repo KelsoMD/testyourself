@@ -43,7 +43,7 @@
 		</property>
 
 		<property name="aprooved" type="boolean">
-			<column name="aprooved"></column>
+			<column name="aprooved" />
 		</property>
 
 		<many-to-one name="author" class="by.nesterenok.testyourself.domain.User"

@@ -19,7 +19,12 @@ public class PreviewModeratorActionImpl implements BaseAction{
 
 	@Override
 	public String executeAction(HttpServletRequest request) {
-		Question question = questionService.readQuestion(Integer.parseInt(request.getParameter(REQUEST_PARAM_QUESTIONS_ID)));
+		Question question = null;
+		try {
+			question = questionService.readQuestion(Integer.parseInt(request.getParameter(REQUEST_PARAM_QUESTIONS_ID)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.setAttribute(REQUEST_PARAM_QUESTIONS_ID, question.getId());
 		request.setAttribute(REQUEST_PARAM_TEXT, question.getText());
 		if(question.getImage()!=null) {

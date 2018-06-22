@@ -8,7 +8,7 @@ import by.nesterenok.testyourself.domain.Question;
 
 public interface QuestionService {
 	
-	Question readQuestion(int id);
+	Question readQuestion(int id) throws Exception;
 	
 	List<Question> readTestQuestions(int testId);
 	

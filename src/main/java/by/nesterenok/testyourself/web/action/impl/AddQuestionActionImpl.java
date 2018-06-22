@@ -20,7 +20,11 @@ public class AddQuestionActionImpl implements BaseAction{
 	public String executeAction(HttpServletRequest request) {
 		int questionId = Integer.parseInt(request.getParameter(REQUEST_PARAM_QUESTIONS_ID));
 		Test test = (Test) request.getSession().getAttribute(SESSION_PARAM_TEST);
-		test.getQuestions().add(questionService.readQuestion(questionId));
+		try {
+			test.getQuestions().add(questionService.readQuestion(questionId));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		request.setAttribute(REQUEST_PARAM_QUESTIONS_RECENT, test.getQuestions());
 		request.setAttribute(REQUEST_PARAM_QUESTIONS_TO_CHOOSE, questionService.returnQuestionsForTest(test.getTheme(), test.getLvl()));
 		return PAGE_USER_CREATE_TEST_ST_TWO;

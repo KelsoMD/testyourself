@@ -9,7 +9,7 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @ToString
 @NoArgsConstructor
 public class Task extends Entity {

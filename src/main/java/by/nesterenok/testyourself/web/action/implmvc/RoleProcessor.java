@@ -15,11 +15,11 @@ public interface RoleProcessor {
             .map(r -> r.getAuthority())
             .collect(Collectors.toSet());
         if (roles.contains("ROLE_GUEST")) {
-            return "jsp/guest/" + targetPage;
+            return "guest/" + targetPage;
         } else if (roles.contains("ROLE_USER")) {
-            return "jsp/user/" + targetPage;
+            return "user/" + targetPage;
         } else if (roles.contains("ROLE_MENTOR")) {
-            return "jsp/mentor/" + targetPage;
+            return "mentor/" + targetPage;
         } else {
             return "error";
         }

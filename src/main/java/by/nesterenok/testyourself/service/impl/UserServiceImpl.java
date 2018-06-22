@@ -26,10 +26,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User readByLogin(String login) {
-        //return userDao.findByLogin(login);
-        User user = new User(1);
-        user.setLogin("Viktor");
-        user.setGroup(new HashSet<Group>());
-        return user;
+        return userDao.findByLogin(login);
+//        User user = new User(1);
+//        user.setLogin("Viktor");
+//        user.setGroup(new HashSet<Group>());
+//        return user;
     }
 }

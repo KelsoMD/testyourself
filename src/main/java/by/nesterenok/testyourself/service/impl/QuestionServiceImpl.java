@@ -10,6 +10,7 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,7 +35,8 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question readQuestion(int id) {
-        return dao.read(id);
+        throw new RuntimeException("My own exception!");
+      //  return dao.read(id);
     }
 
     @Override

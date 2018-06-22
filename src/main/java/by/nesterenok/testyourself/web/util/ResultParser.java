@@ -32,7 +32,12 @@ public class ResultParser {
 
 		for (int i = 0; i < answers.length; i++) {
 			String[] pair = answers[i].split(REGEX);
-			Question question = questionService.readQuestion(Integer.parseInt(pair[1]));
+			Question question = null;
+			try {
+				question = questionService.readQuestion(Integer.parseInt(pair[1]));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			map.put(question, pair[0].trim());
 		}
 		return map;
