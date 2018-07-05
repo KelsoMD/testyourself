@@ -41,7 +41,7 @@
 					<div class="row search">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-							<form action="search_test" method="get">
+							<form action="<c:url value="/guest/tests/search_test"/>" method="get">
 								<div class="dataTables_filter">
 									<label class="searchInfo mbr-fonts-style display-7"><spring:message
 											code="theme" />:</label> <select class="form-control input-sm"
@@ -92,14 +92,12 @@
 									<td class="body-item mbr-fonts-style display-7">${test.getTheme()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getLvl()}</td>
 									<td class="body-item mbr-fonts-style display-7">${test.getQuestions().size()}</td>
-									<td class="body-item mbr-fonts-style display-7"><form
-											action="start_test" method="get">
-											<input type="hidden" name="test_id" value="${test.getId()}" />
-											<button type="submit"
-												class="btn btn-sm btn-black-outline display-4">
-												<spring:message code="start_test" />
-											</button>
-										</form></td>
+									<td class="body-item mbr-fonts-style display-7">
+										<a class="btn btn-sm btn-black-outline display-4"
+										   href="<c:url value="/guest/tests/${test.getId()}"/>"><spring:message
+												code="start_test" />
+										</a>
+									</td>
 								</tr>
 							</tbody>
 						</c:forEach>

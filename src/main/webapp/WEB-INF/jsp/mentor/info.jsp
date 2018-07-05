@@ -47,41 +47,35 @@
 	<section class="counters1 counters cid-qOgRnHk59K" id="counters1-4">
 		<div class="container">
 			<h2
-				class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
-				<spring:message code="counters" /></h2>
-
-
+					class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">
+				<spring:message code="counters"/></h2>
 			<div class="container pt-4 mt-2">
 				<div class="media-container-row">
 					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
 						<div class="panel-item p-3">
 							<div class="card-img pb-3">
 								<span class="mbr-iconfont mbri-users"
-									style="color: rgb(35, 35, 35);"></span>
+									  style="color: rgb(35, 35, 35);"></span>
 							</div>
-
 							<div class="card-text">
-								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">No</h3>
-
-								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="users" />
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">${user_count}</h3>
+								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="users"/>
 								</p>
 							</div>
 						</div>
 					</div>
-
-
 					<div class="card p-3 align-center col-12 col-md-6 col-lg-4">
 						<div class="panel-item p-3">
 							<div class="card-img pb-3">
 								<span class="mbr-iconfont mbri-question"
-									style="color: rgb(35, 35, 35);"></span>
+									  style="color: rgb(35, 35, 35);"></span>
 							</div>
 							<div class="card-text">
 								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">
 									${question_count}</h3>
 
 								<p class="mbr-content-text mbr-fonts-style display-7">
-									<spring:message code="question_size" /></p>
+									<spring:message code="question_size"/></p>
 							</div>
 						</div>
 					</div>
@@ -90,12 +84,12 @@
 						<div class="panel-item p-3">
 							<div class="card-img pb-3">
 								<span class="mbr-iconfont mbri-like"
-									style="color: rgb(35, 35, 35);"></span>
+									  style="color: rgb(35, 35, 35);"></span>
 							</div>
 							<div class="card-text">
-								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">No</h3>
+								<h3 class="count pt-3 pb-3 mbr-fonts-style display-2">${test_count}</h3>
 
-								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="passed_tests" />
+								<p class="mbr-content-text mbr-fonts-style display-7"><spring:message code="passed_tests"/>
 								</p>
 							</div>
 						</div>

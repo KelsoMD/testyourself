@@ -28,42 +28,6 @@
 	type="text/css">
 </head>
 <body>
-	<!--<section class="menu cid-qOgR2eKv8N" once="menu" id="menu1-11">
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirise.com">TEST YOURSELF</a></span>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-home mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a>
-                </li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-italic mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-users mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-login mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-sites mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li><li class="nav-item"><a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-logout mbr-iconfont mbr-iconfont-btn" style="color: rgb(255, 255, 255);"></span>
-                        </a></li>
-                <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="https://mobirise.com">
-                        </a>
-                </li></ul>
-            
-        </div>
-    </nav>
-</section>-->
 	<section class="mbr-section form1 cid-qU1Nyj4cmi" id="form1-13">
 		<div class="container">
 			<div class="row justify-content-center">

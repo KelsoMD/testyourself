@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Данный сайт сделан с помощью конструктора Mobirise v4.6.5, https://mobiriz.store -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">

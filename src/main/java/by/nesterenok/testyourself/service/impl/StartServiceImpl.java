@@ -1,13 +1,10 @@
 package by.nesterenok.testyourself.service.impl;
 
 import java.util.List;
+
+import by.nesterenok.testyourself.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import by.nesterenok.testyourself.dao.GroupDao;
-import by.nesterenok.testyourself.dao.QuestionDao;
-import by.nesterenok.testyourself.dao.TaskDao;
-import by.nesterenok.testyourself.dao.TestDao;
-import by.nesterenok.testyourself.dao.ThemeDao;
 import by.nesterenok.testyourself.domain.Task;
 import by.nesterenok.testyourself.domain.Test;
 import by.nesterenok.testyourself.domain.User;
@@ -17,7 +14,7 @@ import by.nesterenok.testyourself.service.StartService;
 public class StartServiceImpl implements StartService {
 
     @Autowired
-    private QuestionDao questionDao;
+    private QuestionJPACriteriaDao questionDao;
     @Autowired
     private TestDao testDao;
     @Autowired
@@ -26,30 +23,26 @@ public class StartServiceImpl implements StartService {
     private GroupDao groupDao;
     @Autowired
     private TaskDao taskDao;
+    @Autowired
+    private UserDao userDao;
+    @Autowired
+    private ResultDao resultDao;
 
-    public void setQuestionDao(QuestionDao questionDao) {
-        this.questionDao = questionDao;
-    }
 
-    public void setTestDao(TestDao testDao) {
-        this.testDao = testDao;
-    }
-
-    public void setThemeDao(ThemeDao themeDao) {
-        this.themeDao = themeDao;
-    }
-
-    public void setGroupDao(GroupDao groupDao) {
-        this.groupDao = groupDao;
-    }
-
-    public void setTaskDao(TaskDao taskDao) {
-        this.taskDao = taskDao;
+    @Override
+    public long getQuestionCount() {
+        return questionDao.counter();
     }
 
     @Override
-    public int getQuestionCount() {
-        return questionDao.counter();
+    public long getUserCount() {
+        return userDao.counter();
+    }
+
+
+    @Override
+    public long getTestPassedCount(){
+        return resultDao.counter();
     }
 
     @Override
@@ -64,7 +57,7 @@ public class StartServiceImpl implements StartService {
     }
 
     @Override
-    public int getNewQuestionsCount() {
+    public long getNewQuestionsCount() {
         return questionDao.newQuestionsCount();
     }
 

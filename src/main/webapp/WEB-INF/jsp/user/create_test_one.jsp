@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,12 +51,14 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
-					<form class="mbr-form" action="create_test_two" method="get">
+					<form class="mbr-form" action="build" method="get">
 						<div class="row row-sm-offset">
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7"><spring:message code="theme" /></label>
-									<select class="form-control input-sm" name="theme">
+									<label name="theme"
+												class="form-control-label mbr-fonts-style display-7"><spring:message
+											code="theme" /></label>
+									<select name="theme" class="form-control input-sm">
 										<c:forEach items="${themes}" var="theme">
 											<option>${theme}</option>
 										</c:forEach>
@@ -64,8 +67,10 @@
 							</div>
 							<div class="col-md-4 multi-horizontal">
 								<div class="form-group">
-									<label class="form-control-label mbr-fonts-style display-7"><spring:message code="lvl" /></label>
-									<select class="form-control input-sm" name="lvl">
+									<label name="lvl" class="form-control-label mbr-fonts-style
+									display-7"><spring:message
+											code="lvl" /></label>
+									<select name="lvl" class="form-control input-sm">
 										<option>1</option>
 										<option>2</option>
 										<option>3</option>
@@ -73,8 +78,7 @@
 								</div>
 							</div>
 						</div>
-						<span class="input-group-btn"><input type=hidden
-							name="action" value="start_build_test">
+						<span class="input-group-btn">
 						<button type="submit"
 								class="btn btn-form btn-black-outline display-4"><spring:message code="begin" /></button></span>
 					</form>

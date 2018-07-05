@@ -1,17 +1,9 @@
 package by.nesterenok.testyourself.dao;
 
-import java.util.List;
 import by.nesterenok.testyourself.domain.Question;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface QuestionDao extends BaseDao<Question> {
-
-    int counter();
-
-    List<Question> readTestQuestions(int id);
-
-    List<Question> readQuestionsForTest(String theme, int lvl);
-
-    List<Question> readNotAprooved();
-
-    int newQuestionsCount();
+@Repository
+public interface QuestionDao extends CrudRepository<Question, Integer> {
 }

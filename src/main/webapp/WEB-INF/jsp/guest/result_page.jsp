@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Данный сайт сделан с помощью конструктора Mobirise v4.6.5, https://mobiriz.store -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Mobirise v4.6.5, mobiriz.store">
@@ -42,20 +41,15 @@
 			<spring:message code="your_mark" />
 			${mark}
 		</h3>
-		<form action="/guest" method="post">
-			<input type="hidden" name="test" value="${test}" /> <input
-				type="hidden" name="mark" value="${mark}" />
 			<c:forEach items="${answer_map}" var="entry">
-
 				<div class="container container-table">
-
 					<h2
 						class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
 						${entry.getKey().getText()}</h2>
 					<c:if test="${not empty entry.getKey().getImage()}">
 						<h3
 							class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-							<img alt="image" src="${entry.getKey().getImage()}">
+							<img alt="image" src="${entry.getKey().getImage()}" height="300px">
 						</h3>
 					</c:if>
 					<div class="table-wrapper">
@@ -81,14 +75,12 @@
 						</div>
 					</div>
 				</div>
-
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4">
-					<spring:message code="exit" />
-				</button>
+				<a class="btn btn-sm btn-black-outline display-4"
+				   href="<c:url value="/guest"/>"><spring:message code="exit" />
+				</a>
 			</div>
-		</form>
 	</section>
 	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">

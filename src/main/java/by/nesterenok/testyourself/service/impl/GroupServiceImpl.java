@@ -20,7 +20,7 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public List<Group> readGroups(User user) {
-        return groupDao.readUserGroups(user.getId());
+        return groupDao.readUserGroups(user);
     }
 
     @Override

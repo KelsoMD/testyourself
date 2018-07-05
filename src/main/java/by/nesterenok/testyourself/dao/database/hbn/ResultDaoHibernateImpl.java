@@ -1,24 +1,32 @@
 package by.nesterenok.testyourself.dao.database.hbn;
 
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import by.nesterenok.testyourself.dao.ResultDao;
 import by.nesterenok.testyourself.domain.Result;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 @Repository
 public class ResultDaoHibernateImpl implements ResultDao {
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Override
     public void create(Result t) {
 
         Session session = SessionFactoryManager.getSessionFactory()
-            .openSession();
+                .openSession();
         session.beginTransaction();
         session.save(t);
         session.getTransaction()
-            .commit();
+                .commit();
         session.close();
     }
 
@@ -26,7 +34,7 @@ public class ResultDaoHibernateImpl implements ResultDao {
     public Result read(int id) {
 
         Session session = SessionFactoryManager.getSessionFactory()
-            .openSession();
+                .openSession();
         Result result = (Result) session.get(Result.class, id);
         session.close();
         return result;
@@ -38,7 +46,7 @@ public class ResultDaoHibernateImpl implements ResultDao {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Result result) {
         throw new UnsupportedOperationException();
     }
 
@@ -46,10 +54,17 @@ public class ResultDaoHibernateImpl implements ResultDao {
     public List<Result> readAll() {
 
         Session session = SessionFactoryManager.getSessionFactory()
-            .openSession();
+                .openSession();
         Criteria criteria = session.createCriteria(Result.class);
         List<Result> resultList = criteria.list();
         session.close();
         return resultList;
+    }
+
+    @Override
+    public long counter() {
+        Query query = entityManager.createQuery("SELECT count(t.id) FROM Result t WHERE t.passed = :passed");
+        query.setParameter("passed", true);
+        return (long) query.getSingleResult();
     }
 }

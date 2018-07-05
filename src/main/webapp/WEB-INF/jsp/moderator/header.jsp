@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,14 +52,22 @@
 				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/moderator"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="main" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="stats" /></span> </a></li>
+					<li class="nav-item"><a
+							class="nav-link link text-white display-4"
+							href="<c:url value="/logout"/>"><span
+							class="mbri-logout mbr-iconfont mbr-iconfont-btn"
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="logout" /></span></a></li>
 				</ul>
 			</div>
 		</nav>

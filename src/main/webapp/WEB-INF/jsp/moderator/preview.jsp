@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,48 +34,50 @@
 
 </head>
 <body>
-	<c:import url="moderator_header.jsp"></c:import>
-
+	<c:import url="header.jsp"></c:import>
 	<section class="section-table cid-qOIWRZ9j1F" id="table1-h">
-		<form action="MainServlet" method="post">
+		<form:form action="/testyourself/not_implemented" method="post" modelAttribute="question">
 			<input type="hidden" name="question_id" value="${question_id}">
 			<div class="container container-table">
 				<h2
 					class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-					<input type="text" class="form-control" name="text" value="${text}"
-						required="">
+					<form:label path="text"/>
+					<form:input path="text" type="text" class="form-control" value="${text}"
+						required=""/>
 				</h2>
 				<c:if test="${not empty image}">
 					<h3
 						class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
 						<img alt="image" src="${image}" height="300px">
 					</h3>
-					<label class="form-control-label mbr-fonts-style display-7">Ссылка</label>
-					<input type="text" class="form-control" name="image_link"
-						value="${image_link}">
+					<form:label path="image" class="form-control-label mbr-fonts-style display-7">Ссылка</form:label>
+					<form:input path="image" type="text" class="form-control" name="image_link"
+						value="${image_link}"/>
 				</c:if>
 				<div class="table-wrapper">
 					<div class="container scroll">
-
 						<table class="table isSearch" cellspacing="0">
 							<tbody>
 								<tr>
-									<td class="body-item mbr-fonts-style display-7"><label
+									<td class="body-item mbr-fonts-style display-7"><form:label path="correctAnswer"
 										class="form-control-label mbr-fonts-style display-7">Правильный
-											ответ</label> <input type="text" class="form-control"
-										name="correct_answer" required="" value="${correct_answer}"></td>
-									<td class="body-item mbr-fonts-style display-7"><label
+											ответ</form:label> <form:input  path="correctAnswer" type="text"
+																			class="form-control" required=""
+																			value="${correct_answer}"/></td>
+									<td class="body-item mbr-fonts-style display-7"><form:label path="answer1"
 										class="form-control-label mbr-fonts-style display-7">Доп
-											1</label> <input type="text" class="form-control" name="answer1"
-										required="" value="${answer1}"></td>
-									<td class="body-item mbr-fonts-style display-7"><label
+											1</form:label> <form:input path="answer1" type="text"
+																	   class="form-control" required=""
+																	   value="${answer1}"/></td>
+									<td class="body-item mbr-fonts-style display-7"><form:label path="answer2"
 										class="form-control-label mbr-fonts-style display-7">Доп
-											2</label> <input type="text" class="form-control" name="answer2"
-										required="" value="${answer2}"></td>
-									<td class="body-item mbr-fonts-style display-7"><label
+											2</form:label> <form:input path="answer2" type="text"
+																	   class="form-control"	required="" value="${answer2}"/></td>
+									<td class="body-item mbr-fonts-style display-7"><form:label path="answer3"
 										class="form-control-label mbr-fonts-style display-7">Доп
-											3</label> <input type="text" class="form-control" name="answer3"
-										required="" value="${answer2}"></td>
+											3</form:label> <form:input path="answer3" type="text"
+																	   class="form-control" required=""
+																	   value="${answer3}"/></td>
 								</tr>
 							</tbody>
 						</table>
@@ -81,19 +85,37 @@
 				</div>
 			</div>
 			<div class="mbr-section-btn text-center pt-4">
+				<a class="btn btn-sm btn-black-outline display-4"
+				   href="<c:url value="/moderator/questions/deni/${question_id}"/>"><spring:message
+						code="deni"/>
+				</a>
+				<a class="btn btn-sm btn-black-outline display-4"
+				   href="<c:url value="/moderator/questions/accept/${question_id}"/>"><spring:message
+						code="accept"/>
+				</a>
 				<button type="submit" class="btn btn-sm btn-black-outline display-4" name="action" value="update_changes">Сохранить
 					изменения</button>
 			</div>
-			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4" name="action" value="denie_question">Отклонить</button>
-			</div>
-			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4" name="action" value="accept_question">Одобрить</button>
-			</div>
-		</form>
+			<%--<div class="mbr-section-btn text-center pt-4">--%>
+				<%--<button type="submit" class="btn btn-sm btn-black-outline display-4" name="action" value="denie_question">Отклонить</button>--%>
+			<%--</div>--%>
+			<%--<div class="mbr-section-btn text-center pt-4">--%>
+				<%--<button type="submit" class="btn btn-sm btn-black-outline display-4" name="action" value="accept_question">Одобрить</button>--%>
+			<%--</div>--%>
+		</form:form>
 	</section>
-<c:import url="footer.jsp"></c:import>
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
+		<div class="container">
+			<div class="media-container-row align-center mbr-white">
+				<div class="row row-copirayt">
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
+					<p
+							class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+						<spring:message code="mobirise"/></p>
+				</div>
+			</div>
+		</div>
+	</section>
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>
 	<script src="assets/tether/tether.min.js"></script>

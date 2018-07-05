@@ -31,7 +31,7 @@
 
 </head>
 <body>
-	<c:import url="user_header.jsp"></c:import>
+	<c:import url="header.jsp"></c:import>
 	<section class="mbr-section form1 cid-qRmFQ9BvrB" id="form1-w">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -50,7 +50,6 @@
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
 					<form class="mbr-form" action="MainServlet" method="post">
-						
 						<div class="form-group">
 							<h3
 								class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
@@ -73,7 +72,6 @@
 			</div>
 		</div>
 	</section>
-
 	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
@@ -87,8 +85,6 @@
 			</div>
 		</div>
 	</section>
-
-
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>
 	<script src="assets/popper/popper.min.js"></script>
 	<script src="assets/tether/tether.min.js"></script>

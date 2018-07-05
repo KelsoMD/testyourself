@@ -76,7 +76,7 @@
 									code="stats" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
-						href="<c:url value="/not_implemented"/>"><span
+						href="<c:url value="/user/groups"/>"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> <spring:message
 									code="groups" /></span> </a></li>
@@ -84,7 +84,8 @@
 						class="nav-link link text-white display-4"
 						href="<c:url value="/logout"/>"><span
 							class="mbri-logout mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);">Logout</span> </a></li>
+							style="color: rgb(255, 255, 255);"><spring:message
+							code="logout" /></span> </a></li>
 				</ul>
 			</div>
 		</nav>

@@ -10,14 +10,13 @@ import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_THEME;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.SESSION_PARAM_USER;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import by.nesterenok.testyourself.dao.QuestionDao;
+import by.nesterenok.testyourself.dao.QuestionJPACriteriaDao;
 import by.nesterenok.testyourself.domain.Question;
 import by.nesterenok.testyourself.domain.User;
 import by.nesterenok.testyourself.service.QuestionService;
@@ -26,17 +25,16 @@ import by.nesterenok.testyourself.service.QuestionService;
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
-    private QuestionDao dao;
+    private QuestionJPACriteriaDao dao;
 
-    public QuestionServiceImpl(QuestionDao dao) {
+    public QuestionServiceImpl(QuestionJPACriteriaDao dao) {
         super();
         this.dao = dao;
     }
 
     @Override
     public Question readQuestion(int id) {
-        throw new RuntimeException("My own exception!");
-      //  return dao.read(id);
+      return dao.read(id);
     }
 
     @Override
@@ -105,8 +103,8 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void deleteQuestion(int id) {
-        dao.delete(id);
+    public void deleteQuestion(Question question) {
+        dao.delete(question);
     }
 
     @Override

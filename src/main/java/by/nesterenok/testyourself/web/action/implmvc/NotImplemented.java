@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value= {"not_implemented","mentor/not_implemented"})
+@RequestMapping(value= {"/not_implemented","mentor/not_implemented", "user/not_implemented"})
 public class NotImplemented {
 	
 	@RequestMapping(method = RequestMethod.GET)

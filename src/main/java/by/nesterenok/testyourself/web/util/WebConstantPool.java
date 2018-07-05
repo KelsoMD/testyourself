@@ -68,7 +68,7 @@ public final class WebConstantPool {
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_CREATE_TEST = "/create_test";
 	public static final String REQUEST_MAPPING_MENTOR_TESTS_START_TEST = "/start_test";
 
-	public static final String REQUEST_MAPPING_USER = "user";
+	public static final String REQUEST_MAPPING_USER = "/user";
 	public static final String REQUEST_MAPPING_USER_TESTS = "/tests";
 	public static final String REQUEST_MAPPING_USER_GROUPS = "/groups";
 	public static final String REQUEST_MAPPING_USER_TESTS_ETC = "user/tests";
@@ -110,9 +110,9 @@ public final class WebConstantPool {
 	public static final String PAGE_USER_CREATE_TEST_ST_TWO = "/WEB-INF/jsp/user/create_test_two.jsp";
 	public static final String PAGE_USER_PREVIEW = "/WEB-INF/jsp/user/preview.jsp";
 
-	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/moderator_main.jsp";
-	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/moderate_questions.jsp";
-	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview_moderator.jsp";
+	public static final String PAGE_MODERATOR_MAIN = "/WEB-INF/main.jsp";
+	public static final String PAGE_MODERATOR_QUESTIONS = "/WEB-INF/questions.jsp";
+	public static final String PAGE_MODERATOR_PREVIEW = "/WEB-INF/preview.jsp";
 	
 	public static final String REDIRECT = "redirect:";
 	public static final String PAGE_NOT_IMPL = "notimplemented";

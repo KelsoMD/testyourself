@@ -3,7 +3,9 @@ package by.nesterenok.testyourself.web.action.implmvc.mentor;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_MAPPING_MENTOR_GROUPS_ETC;
 import static by.nesterenok.testyourself.web.util.WebConstantPool.REQUEST_PARAM_USER;
 
+import by.nesterenok.testyourself.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,28 +25,15 @@ public class GroupController {
 
 	@Autowired
 	private GroupService groupService;
-	@Autowired
-	private ThemeService themeService;
-	@Autowired
-	private MenuSwitcher switchMenu;
-	
-	public void setSwitchmenu(MenuSwitcher switchMenu) {
-		this.switchMenu = switchMenu;
-	}
 
-	public void setGroupService(GroupService groupService) {
-		this.groupService = groupService;
-	}
-
-	public void setThemeService(ThemeService themeService) {
-		this.themeService = themeService;
-	}
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping(value="/create_group",method=RequestMethod.POST)
-	public ModelAndView createGroup(@ModelAttribute("group") Group group, @ModelAttribute User user) {
-		group.setMentor(new User(user.getId()));
+	public ModelAndView createGroup(@ModelAttribute("group") Group group) {
+		group.setMentor(userService.readByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
 		groupService.createGroup(group);
-		return switchMenu.switchGroupMenu(user);
+		return new ModelAndView();
 	}
 	
 	

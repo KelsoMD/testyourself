@@ -47,7 +47,7 @@
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8">
 					<form:form class="mbr-form" action="create_group"
-						method="post" commandName="group">
+						method="post" modelAttribute="group">
 						<fieldset>
 							<div class="row row-sm-offset">
 								<div class="col-md-4 multi-horizontal">
@@ -71,31 +71,25 @@
 							<button type="submit"
 								class="btn btn-form btn-black-outline display-4">Создать
 								группу</button></span>
-
 					</form:form>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section once="" class="cid-qOgRxEXpQA mbr-reveal" id="footer7-v">
-
-
-
-
-
+	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">
 			<div class="media-container-row align-center mbr-white">
-
-
 				<div class="row row-copirayt">
+					<p><a href="?lang=en">EN </a><a href="?lang=ru_RU"> RU</a></p>
 					<p
-						class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-						© Copyright 2017 Mobirise - Все права защищены</p>
+							class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+						<spring:message code="mobirise" /></p>
 				</div>
 			</div>
 		</div>
 	</section>
+
 
 
 	<script src="assets/web/assets/jquery/jquery.min.js"></script>

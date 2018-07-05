@@ -1,7 +1,8 @@
 package by.nesterenok.testyourself.dao;
 
-import java.util.List;
 import by.nesterenok.testyourself.domain.Entity;
+
+import java.util.List;
 
 public interface BaseDao<T extends Entity> {
 
@@ -11,7 +12,7 @@ public interface BaseDao<T extends Entity> {
 
     void update(T t);
 
-    void delete(int id);
+    void delete(T t);
 
     List<T> readAll();
 }

@@ -1,6 +1,8 @@
 package by.nesterenok.testyourself.dao.database.hbn;
 
 import java.util.List;
+
+import by.nesterenok.testyourself.domain.Task;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -36,7 +38,7 @@ public class TaskResultDaoHibernateImpl implements TaskResultDao {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(TaskResult taskResult) {
         //TODO
     }
 

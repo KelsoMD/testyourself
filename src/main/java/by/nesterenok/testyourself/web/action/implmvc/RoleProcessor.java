@@ -14,14 +14,12 @@ public interface RoleProcessor {
             .stream()
             .map(r -> r.getAuthority())
             .collect(Collectors.toSet());
-        if (roles.contains("ROLE_GUEST")) {
-            return "guest/" + targetPage;
-        } else if (roles.contains("ROLE_USER")) {
+       if (roles.contains("ROLE_USER")) {
             return "user/" + targetPage;
         } else if (roles.contains("ROLE_MENTOR")) {
             return "mentor/" + targetPage;
         } else {
-            return "error";
+            return "guest/" + targetPage;
         }
     }
 
@@ -39,7 +37,7 @@ public interface RoleProcessor {
         } else if (roles.contains("ROLE_MENTOR")) {
             return "/mentor";
         } else {
-            return "/error";
+            return "/guest";
         }
     }
 

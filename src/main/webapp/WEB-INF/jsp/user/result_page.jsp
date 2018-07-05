@@ -42,9 +42,6 @@
 			<spring:message code="your_mark" />
 			${mark}
 		</h3>
-		<form action="testyourself/user" method="get">
-			<input type="hidden" name="test" value="${test}" /> <input
-				type="hidden" name="mark" value="${mark}" />
 			<c:forEach items="${answer_map}" var="entry">
 
 				<div class="container container-table">
@@ -55,7 +52,7 @@
 					<c:if test="${not empty entry.getKey().getImage()}">
 						<h3
 							class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
-							<img alt="image" src="${entry.getKey().getImage()}">
+							<img alt="image" src="${entry.getKey().getImage()}" height="300px">
 						</h3>
 					</c:if>
 					<div class="table-wrapper">
@@ -84,11 +81,10 @@
 
 			</c:forEach>
 			<div class="mbr-section-btn text-center pt-4">
-				<button type="submit" class="btn btn-sm btn-black-outline display-4">
-					<spring:message code="exit" />
-				</button>
+				<a class="btn btn-sm btn-black-outline display-4"
+				   href="<c:url value="/user"/>"><spring:message code="exit" />
+				</a>
 			</div>
-		</form>
 	</section>
 	<section once="" class="cid-qR00R0qhid mbr-reveal" id="footer7-s">
 		<div class="container">

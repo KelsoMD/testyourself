@@ -6,16 +6,22 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import by.nesterenok.testyourself.dao.TestDao;
 import by.nesterenok.testyourself.domain.Test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 @Repository
 public class TestDaoHibernateImpl implements TestDao {
 
+    @Autowired
+    private EntityManager entityManager;
+
     @Override
     public void create(Test t) {
-
         Session session = SessionFactoryManager.getSessionFactory()
             .openSession();
         session.beginTransaction();
@@ -50,12 +56,12 @@ public class TestDaoHibernateImpl implements TestDao {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Test test) {
 
         Session session = SessionFactoryManager.getSessionFactory()
             .openSession();
         session.beginTransaction();
-        session.delete(new Test(id));
+        session.delete(test);
         session.getTransaction()
             .commit();
         session.close();

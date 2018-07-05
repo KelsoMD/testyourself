@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -19,9 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     SuccessHandler successHandler;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http.csrf()
-            .disable();
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        http.addFilterBefore(filter,CsrfFilter.class);
+        http.csrf().disable();
         http.logout()
             .logoutSuccessUrl("/guest")
             .clearAuthentication(true)
@@ -35,10 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/mentor/**")
             .hasRole("MENTOR")
             .antMatchers("/admin/**")
-            .hasRole("ADMIN")
-            .antMatchers("/guest/**")
-            .anonymous()
-            .and();
+            .hasRole("ADMIN");
         http.formLogin()
             .loginPage("/login")
             .failureForwardUrl("/not_implemented")
@@ -51,30 +52,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("user").roles("USER").and()
-        .withUser("mentor").password("mentor").roles("MENTOR").and()
-        .withUser("quest").password("quest").roles("GUEST");
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("user").password("user").roles("USER").and()
+//        .withUser("mentor").password("mentor").roles("MENTOR").and()
+//        .withUser("quest").password("quest").roles("GUEST");
+//
+//    }
 
+        @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication()
+            .dataSource(this.dataSource())
+            .usersByUsernameQuery("select login, pass, enabled from users where login=?")
+            .authoritiesByUsernameQuery("select login, role from users where login =?");
     }
 
-    //    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//            .dataSource(this.dataSource())
-//            .usersByUsernameQuery("select login, pass, enabled from users where login=?")
-//            .authoritiesByUsernameQuery("select login, role from users where login =?");
-//    }
-
-//    @Bean(name = "dataSource")
-//    public DriverManagerDataSource dataSource() {
-//        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-//        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//        driverManagerDataSource.setUrl(
-//            "jdbc:mysql://localhost/testyourself?useTimezone=true&serverTimezone=UTC&useSSL=false");
-//        driverManagerDataSource.setUsername("root");
-//        driverManagerDataSource.setPassword("root");
-//        return driverManagerDataSource;
-//    }
+    @Bean(name = "dataSource")
+    public DriverManagerDataSource dataSource() {
+        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        driverManagerDataSource.setUrl(
+            "jdbc:mysql://localhost/testyourself?useTimezone=true&serverTimezone=UTC&useSSL=false");
+        driverManagerDataSource.setUsername("root");
+        driverManagerDataSource.setPassword("root");
+        return driverManagerDataSource;
+    }
 }

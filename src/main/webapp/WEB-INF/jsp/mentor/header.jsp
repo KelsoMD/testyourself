@@ -54,7 +54,8 @@
 						class="nav-link link text-white display-4"
 						href="<c:url value="/mentor"/>"><span
 							class="mbri-home mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Главная</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="main" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/mentor/tests"/>">
@@ -65,17 +66,26 @@
 						class="nav-link link text-white display-4"
 						href="<c:url value="/mentor/info"/>"><span
 							class="mbri-italic mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> О проекте</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="info" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/not_implemented"/>"><span
 							class="mbri-growing-chart mbr-iconfont mbr-iconfont-btn"
-							style="color: rgb(255, 255, 255);"> Статистика</span> </a></li>
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="stats" /></span> </a></li>
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4"
 						href="<c:url value="/mentor/groups"/>"><span
 							class="mbri-users mbr-iconfont mbr-iconfont-btn"
 							style="color: rgb(255, 255, 255);"> <spring:message code="groups" /></span> </a></li>
+					<li class="nav-item"><a
+							class="nav-link link text-white display-4"
+							href="<c:url value="/logout"/>"><span
+							class="mbri-logout mbr-iconfont mbr-iconfont-btn"
+							style="color: rgb(255, 255, 255);"> <spring:message
+							code="logout" /></span> </a></li>
+
 				</ul>
 			</div>
 		</nav>

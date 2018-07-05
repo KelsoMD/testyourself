@@ -5,9 +5,11 @@ import static by.nesterenok.testyourself.service.util.ServiceConstantPool.REGEX;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import by.nesterenok.testyourself.dao.TestDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import by.nesterenok.testyourself.dao.QuestionDao;
+import by.nesterenok.testyourself.dao.QuestionJPACriteriaDao;
 import by.nesterenok.testyourself.dao.ResultDao;
 import by.nesterenok.testyourself.dao.TaskResultDao;
 import by.nesterenok.testyourself.domain.Question;
@@ -29,7 +31,10 @@ public class ResultServiceImpl implements ResultService {
     private TaskResultDao taskResultDao;
 
     @Autowired
-    private QuestionDao questionDao;
+    private TestDao testDao;
+
+    @Autowired
+    private QuestionJPACriteriaDao questionDao;
 
     @Autowired
     private QuestionService questionService;
@@ -42,7 +47,7 @@ public class ResultServiceImpl implements ResultService {
         this.taskResultDao = taskResultDao;
     }
 
-    public void setQuestionDao(QuestionDao questionDao) {
+    public void setQuestionDao(QuestionJPACriteriaDao questionDao) {
         this.questionDao = questionDao;
     }
 
@@ -79,7 +84,7 @@ public class ResultServiceImpl implements ResultService {
     public Result buildResult(int test, User user, String[] answers) {
 
         Result result = new Result();
-        result.setTest(new Test(test));
+        result.setTest(testDao.read(test));
         Map<Question, String> answerMap = buildAnswerMap(answers);
         result.setMark(getMark(answerMap));
         result.setPassed(isPassed(result.getMark()));
